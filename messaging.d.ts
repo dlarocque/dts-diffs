@@ -186,6 +186,7 @@ export declare interface Messaging {
    */
   app: FirebaseApp;
 }
+
 export { NextFn };
 
 /**
@@ -213,6 +214,7 @@ export declare interface NotificationPayload {
    */
   icon?: string;
 }
+
 export { Observer };
 
 /**
@@ -303,6 +305,7 @@ export declare interface RegisterOptions {
  * @public
  */
 export declare function unregister(messaging: Messaging): Promise<void>;
+
 export { Unsubscribe };
 
 export {};

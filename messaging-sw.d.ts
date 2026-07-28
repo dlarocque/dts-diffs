@@ -136,6 +136,7 @@ export declare interface Messaging {
    */
   app: FirebaseApp;
 }
+
 export { NextFn };
 
 /**
@@ -163,6 +164,7 @@ export declare interface NotificationPayload {
    */
   icon?: string;
 }
+
 export { Observer };
 
 /**
@@ -224,6 +226,7 @@ export declare interface RegisterOptions {
   /** Optional service worker registration. See {@link GetTokenOptions.serviceWorkerRegistration}. */
   serviceWorkerRegistration?: ServiceWorkerRegistration;
 }
+
 export { Unsubscribe };
 
 export {};

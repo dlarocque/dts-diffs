@@ -170,6 +170,7 @@ export declare type AggregateType = 'count' | 'avg' | 'sum';
 export declare function and(
   ...queryConstraints: QueryFilterConstraint[]
 ): QueryCompositeFilterConstraint;
+
 /**
  * Returns a special value that can be used with {@link (setDoc:1)} or {@link
  * updateDoc:1} that tells the server to remove the given elements from any
@@ -316,6 +317,7 @@ export declare type ChildUpdateFields<K extends string, V> =
 export declare function clearIndexedDbPersistence(
   firestore: Firestore
 ): Promise<void>;
+
 /**
  * Gets a `CollectionReference` instance that refers to the collection at
  * the specified absolute path.
@@ -464,11 +466,13 @@ export declare function connectFirestoreEmulator(
     mockUserToken?: EmulatorMockTokenOptions | string;
   }
 ): void;
+
 /**
  * Create an AggregateField object that can be used to compute the count of
  * documents in the result set of a query.
  */
 export declare function count(): AggregateField<number>;
+
 /* Excluded from this release type: _DatabaseId */
 /* Excluded from this release type: _debugAssert */
 /**
@@ -514,6 +518,7 @@ export declare function deleteDoc<
  * {@link @firebase/firestore/lite#(setDoc:1)} with `{merge: true}` to mark a field for deletion.
  */
 export declare function deleteField(): FieldValue;
+
 /**
  * Disables network usage for this instance. It can be re-enabled via {@link
  * enableNetwork}. While the network is disabled, any snapshot listeners,
@@ -1773,6 +1778,7 @@ export declare function getFirestore(
 export declare function getPersistentCacheIndexManager(
   firestore: Firestore
 ): PersistentCacheIndexManager | null;
+
 /**
  * Returns a special value that can be used with {@link @firebase/firestore/lite#(setDoc:1)} or {@link
  * @firebase/firestore/lite#(updateDoc:1)} that tells the server to increment the field's current value by
@@ -1902,6 +1908,7 @@ export declare function limit(limit: number): QueryLimitConstraint;
  * @returns The created {@link QueryLimitConstraint}.
  */
 export declare function limitToLast(limit: number): QueryLimitConstraint;
+
 /**
  * Describe the source a query listens to.
  *
@@ -1909,6 +1916,7 @@ export declare function limitToLast(limit: number): QueryLimitConstraint;
  * to listen to changes in cache only.
  */
 export declare type ListenSource = 'default' | 'cache';
+
 /**
  * Loads a Firestore bundle into the local cache.
  *
@@ -2095,6 +2103,7 @@ export declare function memoryLruGarbageCollector(settings?: {
  * `updateDoc()`
  */
 export declare function minimum(n: number): FieldValue;
+
 /**
  * Reads a Firestore {@link Query} from local cache, identified by the given
  * name.
@@ -2111,6 +2120,7 @@ export declare function namedQuery(
   firestore: Firestore,
   name: string
 ): Promise<Query | null>;
+
 /**
  * For each field (e.g. 'bar'), find all nested keys (e.g. {'bar.baz': T1,
  * 'bar.qux': T2}). Intersect them together to make a single map containing
@@ -2122,6 +2132,7 @@ export declare type NestedUpdateFields<T extends Record<string, unknown>> =
       [K in keyof T & string]: ChildUpdateFields<K, T[K]>;
     }[keyof T & string]
   >;
+
 /**
  * Attaches a listener for `DocumentSnapshot` events. You may either pass individual `onNext` and
  * `onError` callbacks or pass a single observer object with `next` and `error` callbacks.
@@ -2625,6 +2636,7 @@ export declare function onSnapshotsInSync(
   firestore: Firestore,
   onSync: () => void
 ): Unsubscribe;
+
 /**
  * Creates a new {@link QueryCompositeFilterConstraint} that is a disjunction of
  * the given filter constraints. A disjunction filter includes a document if it
@@ -2638,6 +2650,7 @@ export declare function onSnapshotsInSync(
 export declare function or(
   ...queryConstraints: QueryFilterConstraint[]
 ): QueryCompositeFilterConstraint;
+
 /**
  * Creates a {@link QueryOrderByConstraint} that sorts the query result by the
  * specified field, optionally in descending order instead of ascending.
@@ -2660,6 +2673,7 @@ export declare function orderBy(
  * (descending or ascending).
  */
 export declare type OrderByDirection = 'desc' | 'asc';
+
 /**
  * Similar to TypeScript's `Partial<T>`, but allows nested fields to be
  * omitted and FieldValues to be passed in as property values.
@@ -2802,6 +2816,7 @@ export declare interface PersistentSingleTabManagerSettings {
  */
 export declare type PersistentTabManager =
   PersistentSingleTabManager | PersistentMultipleTabManager;
+
 /**
  * These types primarily exist to support the `UpdateData`,
  * `WithFieldValue`, and `PartialWithFieldValue` types and are not consumed
@@ -3209,11 +3224,13 @@ export declare function runTransaction<T>(
   updateFunction: (transaction: Transaction) => Promise<T>,
   options?: TransactionOptions
 ): Promise<T>;
+
 /**
  * Returns a sentinel used with {@link @firebase/firestore/lite#(setDoc:1)} or {@link @firebase/firestore/lite#(updateDoc:1)} to
  * include a server-generated timestamp in the written data.
  */
 export declare function serverTimestamp(): FieldValue;
+
 /**
  * Writes to the document referred to by this `DocumentReference`. If the
  * document does not yet exist, it will be created.
@@ -3380,6 +3397,7 @@ export declare type SetOptions =
   | {
       readonly mergeFields?: Array<string | FieldPath>;
     };
+
 /**
  * Returns true if the provided snapshots are equal.
  *
@@ -3525,12 +3543,14 @@ export declare function startAt<AppModelType, DbModelType extends DocumentData>(
 export declare function startAt(
   ...fieldValues: unknown[]
 ): QueryStartAtConstraint;
+
 /**
  * Create an AggregateField object that can be used to compute the sum of
  * a specified field over a range of documents in the result set of a query.
  * @param field - Specifies the field to sum across the result set.
  */
 export declare function sum(field: string | FieldPath): AggregateField<number>;
+
 /**
  * Represents the state of bundle loading tasks.
  *
@@ -3916,6 +3936,7 @@ export declare function updateDoc<
   value: unknown,
   ...moreFieldsAndValues: unknown[]
 ): Promise<void>;
+
 /* Excluded from this release type: _validateIsNotUsedTogether */
 /**
  * Creates a new `VectorValue` constructed with a copy of the given array of numbers.

@@ -163,6 +163,7 @@ export declare type AggregateType = 'count' | 'avg' | 'sum';
 export declare function and(
   ...queryConstraints: QueryFilterConstraint[]
 ): QueryCompositeFilterConstraint;
+
 /**
  * Returns a special value that can be used with {@link (setDoc:1)} or {@link
  * updateDoc:1} that tells the server to remove the given elements from any
@@ -272,6 +273,7 @@ export declare class Bytes {
  */
 export declare type ChildUpdateFields<K extends string, V> =
   V extends Record<string, unknown> ? AddPrefixToKeys<K, UpdateData<V>> : never;
+
 /**
  * Gets a `CollectionReference` instance that refers to the collection at
  * the specified absolute path.
@@ -420,11 +422,13 @@ export declare function connectFirestoreEmulator(
     mockUserToken?: EmulatorMockTokenOptions | string;
   }
 ): void;
+
 /**
  * Create an AggregateField object that can be used to compute the count of
  * documents in the result set of a query.
  */
 export declare function count(): AggregateField<number>;
+
 /* Excluded from this release type: DatabaseId */
 /**
  * Deletes the document referred to by the specified `DocumentReference`.
@@ -448,6 +452,7 @@ export declare function deleteDoc<
  * {@link @firebase/firestore/lite#(setDoc:1)} with `{merge: true}` to mark a field for deletion.
  */
 export declare function deleteField(): FieldValue;
+
 /**
  * Gets a `DocumentReference` instance that refers to the document at the
  * specified absolute path.
@@ -1285,6 +1290,7 @@ export declare function getFirestore(
   app: FirebaseApp,
   databaseId: string
 ): Firestore;
+
 /**
  * Returns a special value that can be used with {@link @firebase/firestore/lite#(setDoc:1)} or {@link
  * @firebase/firestore/lite#(updateDoc:1)} that tells the server to increment the field's current value by
@@ -1305,6 +1311,7 @@ export declare function getFirestore(
  * `updateDoc()`
  */
 export declare function increment(n: number): FieldValue;
+
 /**
  * Initializes a new instance of Cloud Firestore with the provided settings.
  * Can only be called before any other functions, including
@@ -1339,6 +1346,7 @@ export declare function initializeFirestore(
   settings: Settings,
   databaseId?: string
 ): Firestore;
+
 /* Excluded from this release type: JsonTypeDesc */
 /**
  * Creates a {@link QueryLimitConstraint} that only returns the first matching
@@ -1360,7 +1368,9 @@ export declare function limit(limit: number): QueryLimitConstraint;
  * @returns The created {@link QueryLimitConstraint}.
  */
 export declare function limitToLast(limit: number): QueryLimitConstraint;
+
 export { LogLevel };
+
 /**
  * Returns a special value that can be used with {@link @firebase/firestore/lite#(setDoc:1)} or {@link
  * @firebase/firestore/lite#(updateDoc:1)} that tells the server to set the field to the numeric maximum of the
@@ -1371,6 +1381,7 @@ export { LogLevel };
  * `updateDoc()`
  */
 export declare function maximum(n: number): FieldValue;
+
 /**
  * Returns a special value that can be used with {@link @firebase/firestore/lite#(setDoc:1)} or {@link
  * @firebase/firestore/lite#(updateDoc:1)} that tells the server to set the field to the numeric minimum of the
@@ -1381,6 +1392,7 @@ export declare function maximum(n: number): FieldValue;
  * `updateDoc()`
  */
 export declare function minimum(n: number): FieldValue;
+
 /**
  * For each field (e.g. 'bar'), find all nested keys (e.g. {'bar.baz': T1,
  * 'bar.qux': T2}). Intersect them together to make a single map containing
@@ -1392,6 +1404,7 @@ export declare type NestedUpdateFields<T extends Record<string, unknown>> =
       [K in keyof T & string]: ChildUpdateFields<K, T[K]>;
     }[keyof T & string]
   >;
+
 /**
  * Creates a new {@link QueryCompositeFilterConstraint} that is a disjunction of
  * the given filter constraints. A disjunction filter includes a document if it
@@ -1405,6 +1418,7 @@ export declare type NestedUpdateFields<T extends Record<string, unknown>> =
 export declare function or(
   ...queryConstraints: QueryFilterConstraint[]
 ): QueryCompositeFilterConstraint;
+
 /**
  * Creates a {@link QueryOrderByConstraint} that sorts the query result by the
  * specified field, optionally in descending order instead of ascending.
@@ -1427,6 +1441,7 @@ export declare function orderBy(
  * (descending or ascending).
  */
 export declare type OrderByDirection = 'desc' | 'asc';
+
 /**
  * Similar to TypeScript's `Partial<T>`, but allows nested fields to be
  * omitted and FieldValues to be passed in as property values.
@@ -1440,6 +1455,7 @@ export declare type PartialWithFieldValue<T> =
             [K in keyof T]?: PartialWithFieldValue<T[K]> | FieldValue;
           }
         : never);
+
 /**
  * These types primarily exist to support the `UpdateData`,
  * `WithFieldValue`, and `PartialWithFieldValue` types and are not consumed
@@ -1783,11 +1799,13 @@ export declare function runTransaction<T>(
   updateFunction: (transaction: Transaction) => Promise<T>,
   options?: TransactionOptions
 ): Promise<T>;
+
 /**
  * Returns a sentinel used with {@link @firebase/firestore/lite#(setDoc:1)} or {@link @firebase/firestore/lite#(updateDoc:1)} to
  * include a server-generated timestamp in the written data.
  */
 export declare function serverTimestamp(): FieldValue;
+
 /**
  * Writes to the document referred to by the specified `DocumentReference`. If
  * the document does not yet exist, it will be created.
@@ -1917,6 +1935,7 @@ export declare function snapshotEqual<
     | DocumentSnapshot<AppModelType, DbModelType>
     | QuerySnapshot<AppModelType, DbModelType>
 ): boolean;
+
 /**
  * Creates a {@link QueryStartAtConstraint} that modifies the result set to
  * start after the provided document (exclusive). The starting position is
@@ -1971,12 +1990,14 @@ export declare function startAt<AppModelType, DbModelType extends DocumentData>(
 export declare function startAt(
   ...fieldValues: unknown[]
 ): QueryStartAtConstraint;
+
 /**
  * Create an AggregateField object that can be used to compute the sum of
  * a specified field over a range of documents in the result set of a query.
  * @param field - Specifies the field to sum across the result set.
  */
 export declare function sum(field: string | FieldPath): AggregateField<number>;
+
 /**
  * Terminates the provided `Firestore` instance.
  *
@@ -2247,6 +2268,7 @@ export declare type UnionToIntersection<U> = (
 ) extends (k: infer I) => void
   ? I
   : never;
+
 /**
  * Update data (for use with {@link (updateDoc:1)}) that consists of field paths
  * (e.g. 'foo' or 'foo.baz') mapped to values. Fields that contain dots
@@ -2317,6 +2339,7 @@ export declare function updateDoc<
   value: unknown,
   ...moreFieldsAndValues: unknown[]
 ): Promise<void>;
+
 /**
  * Creates a new `VectorValue` constructed with a copy of the given array of numbers.
  *

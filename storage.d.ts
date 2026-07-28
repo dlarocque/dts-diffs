@@ -5,12 +5,19 @@
  */
 
 import { CompleteFn } from '@firebase/util';
+
 import { EmulatorMockTokenOptions } from '@firebase/util';
+
 import { FirebaseApp } from '@firebase/app';
+
 import { FirebaseError } from '@firebase/util';
+
 import { NextFn } from '@firebase/util';
+
 import { Subscribe } from '@firebase/util';
+
 import { Unsubscribe } from '@firebase/util';
+
 /**
  * Modify this {@link FirebaseStorage} instance to communicate with the Cloud Storage emulator.
  *
@@ -39,6 +46,7 @@ export declare function connectStorageEmulator(
  * @returns A `Promise` that resolves if the deletion succeeds.
  */
 export declare function deleteObject(ref: StorageReference): Promise<void>;
+
 export { EmulatorMockTokenOptions };
 /* Excluded from this release type: _FbsBlob */
 
@@ -534,6 +542,7 @@ export declare const StringFormat: {
    */
   readonly DATA_URL: 'data_url';
 };
+
 /**
  * An event that is triggered on a task.
  * @public
