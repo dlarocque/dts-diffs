@@ -3,9 +3,10 @@
  *
  * @packageDocumentation
  */
-import { FirebaseApp } from '@firebase/app';
 
 import { EmulatorMockTokenOptions } from '@firebase/util';
+
+import { FirebaseApp } from '@firebase/app';
 
 /**
  * Gets a `Reference` for the location at the specified relative path.
@@ -22,7 +23,6 @@ export declare function child(
   parent: DatabaseReference,
   path: string
 ): DatabaseReference;
-
 /**
  * Modify the provided instance to communicate with the Realtime Database
  * emulator.
@@ -104,7 +104,6 @@ export declare class DataSnapshot {
    * The location of this DataSnapshot.
    */
   readonly ref: DatabaseReference;
-  private constructor();
   /**
    * Gets the priority value of the data in this `DataSnapshot`.
    *
@@ -210,8 +209,8 @@ export declare class DataSnapshot {
    *   Array, string, number, boolean, or `null`).
    */
   val(): any;
+  private constructor();
 }
-
 export { EmulatorMockTokenOptions };
 
 /**
@@ -314,7 +313,6 @@ export declare function equalTo(
   value: number | string | boolean | null,
   key?: string
 ): QueryConstraint;
-
 /**
  * One of the following strings: "value", "child_added", "child_changed",
  * "child_removed", or "child_moved."
@@ -323,6 +321,7 @@ export declare type EventType =
   'value' | 'child_added' | 'child_changed' | 'child_moved' | 'child_removed';
 
 /* Excluded from this release type: _FirebaseService */
+
 /**
  * Force the use of longPolling instead of websockets. This will be ignored if websocket protocol is used in databaseURL.
  */
@@ -391,7 +390,6 @@ export declare function goOffline(db: Database): void;
  * @param db - The instance to reconnect.
  */
 export declare function goOnline(db: Database): void;
-
 /**
  * Returns a placeholder value that can be used to atomically increment the
  * current database value by the provided delta.
@@ -400,8 +398,8 @@ export declare function goOnline(db: Database): void;
  * @returns A placeholder value for modifying data atomically server-side.
  */
 export declare function increment(delta: number): object;
-
 /* Excluded from this release type: _initStandalone */
+
 /**
  * Represents a child snapshot of a `Reference` that is being iterated over. The key will never be undefined.
  */
@@ -940,7 +938,6 @@ export declare function onChildRemoved(
  * the `onDisconnect` operations each time you reconnect.
  */
 export declare class OnDisconnect {
-  private constructor();
   /**
    * Cancels all previously queued `onDisconnect()` set or update events for this
    * location and all children.
@@ -1010,6 +1007,7 @@ export declare class OnDisconnect {
    * @returns Resolves when synchronization to the Database is complete.
    */
   update(values: object): Promise<void>;
+  private constructor();
 }
 
 /**
@@ -1166,7 +1164,6 @@ export declare function orderByPriority(): QueryConstraint;
  * {@link https://firebase.google.com/docs/database/web/lists-of-data#sort_data | Sort data}.
  */
 export declare function orderByValue(): QueryConstraint;
-
 /**
  * Generates a new child location using a unique key and returns its
  * `Reference`.
@@ -1310,9 +1307,10 @@ export declare type QueryConstraintType =
   | 'orderByPriority'
   | 'orderByValue'
   | 'equalTo';
-
 /* Excluded from this release type: _QueryImpl */
+
 /* Excluded from this release type: _QueryParams */
+
 /**
  *
  * Returns a `Reference` representing the location in the Database
@@ -1330,6 +1328,7 @@ export declare type QueryConstraintType =
 export declare function ref(db: Database, path?: string): DatabaseReference;
 
 /* Excluded from this release type: _ReferenceImpl */
+
 /**
  * Returns a `Reference` representing the location in the Database
  * corresponding to the provided Firebase URL.
@@ -1366,8 +1365,8 @@ export declare function refFromURL(
  * @returns Resolves when remove on server is complete.
  */
 export declare function remove(ref: DatabaseReference): Promise<void>;
-
 /* Excluded from this release type: _repoManagerDatabaseFromApp */
+
 /**
  * Atomically modifies the data at this location.
  *
@@ -1410,7 +1409,6 @@ export declare function runTransaction(
   transactionUpdate: (currentData: any) => unknown,
   options?: TransactionOptions
 ): Promise<TransactionResult>;
-
 /**
  * @license
  * Copyright 2020 Google LLC
@@ -1486,6 +1484,7 @@ export declare function setPriority(
 ): Promise<void>;
 
 /* Excluded from this release type: _setSDKVersion */
+
 /**
  * Writes data the Database location. Like `set()` but also specifies the
  * priority for that data.
@@ -1506,7 +1505,6 @@ export declare function setWithPriority(
   value: unknown,
   priority: string | number | null
 ): Promise<void>;
-
 /**
  * Creates a `QueryConstraint` with the specified starting point (exclusive).
  *
@@ -1556,9 +1554,10 @@ export declare function startAt(
   value?: number | string | boolean | null,
   key?: string
 ): QueryConstraint;
-
 /* Excluded from this release type: _TEST_ACCESS_forceRestClient */
+
 /* Excluded from this release type: _TEST_ACCESS_hijackHash */
+
 /**
  * A `Promise` that can also act as a `DatabaseReference` when returned by
  * {@link push}. The reference is available immediately and the `Promise` resolves
@@ -1591,9 +1590,9 @@ export declare class TransactionResult {
   readonly committed: boolean;
   /** The resulting data snapshot. */
   readonly snapshot: DataSnapshot;
-  private constructor();
   /** Returns a JSON-serializable representation of this object. */
   toJSON(): object;
+  private constructor();
 }
 
 /** A callback that can invoked to remove a listener. */
@@ -1639,4 +1638,9 @@ export declare function update(
   values: object
 ): Promise<void>;
 
+/* Excluded from this release type: _UserCallback */
+
+/* Excluded from this release type: _validatePathString */
+
+/* Excluded from this release type: _validateWritablePath */
 export {};

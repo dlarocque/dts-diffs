@@ -3,14 +3,16 @@
  *
  * @packageDocumentation
  */
-import { FirebaseApp } from '@firebase/app';
-
-import { LogLevelString as LogLevel } from '@firebase/logger';
 
 import { EmulatorMockTokenOptions } from '@firebase/util';
 
+import { FirebaseApp } from '@firebase/app';
+
 import { FirebaseError } from '@firebase/util';
 
+import { LogLevelString as LogLevel } from '@firebase/logger';
+
+/* Excluded from this release type: AbstractUserDataWriter */
 /**
  * Add a new document to specified `CollectionReference` with the given data,
  * assigning it a document ID automatically.
@@ -60,6 +62,7 @@ export declare class AggregateField<T> {
   readonly type = 'AggregateField';
   /** Indicates the aggregation operation of this AggregateField. */
   readonly aggregateType: AggregateType;
+  /* Excluded from this release type: __constructor */
 }
 
 /**
@@ -96,7 +99,6 @@ export declare class AggregateQuerySnapshot<
    * `AggregateQuerySnapshot` were performed.
    */
   readonly query: Query<AppModelType, DbModelType>;
-  private constructor();
   /**
    * Returns the results of the aggregations performed over the underlying
    * query.
@@ -109,6 +111,8 @@ export declare class AggregateQuerySnapshot<
    * query.
    */
   data(): AggregateSpecData<AggregateSpecType>;
+  /* Excluded from this release type: _fieldsProto */
+  private constructor();
 }
 
 /**
@@ -166,7 +170,6 @@ export declare type AggregateType = 'count' | 'avg' | 'sum';
 export declare function and(
   ...queryConstraints: QueryFilterConstraint[]
 ): QueryCompositeFilterConstraint;
-
 /**
  * Returns a special value that can be used with {@link (setDoc:1)} or {@link
  * updateDoc:1} that tells the server to remove the given elements from any
@@ -193,9 +196,10 @@ export declare function arrayRemove(...elements: unknown[]): FieldValue;
  * `updateDoc()`.
  */
 export declare function arrayUnion(...elements: unknown[]): FieldValue;
-
 /* Excluded from this release type: AuthTokenFactory */
+
 /* Excluded from this release type: _AutoId */
+
 /**
  * Create an AggregateField object that can be used to compute the average of
  * a specified field over a range of documents in the result set of a query.
@@ -209,7 +213,6 @@ export declare function average(
  * An immutable object representing an array of bytes.
  */
 export declare class Bytes {
-  private constructor();
   /**
    * Creates a new `Bytes` object from the given Base64 string, converting it to
    * bytes.
@@ -262,9 +265,11 @@ export declare class Bytes {
    * {@link FirestoreError} if an error occurs.
    */
   static fromJSON(json: object): Bytes;
+  private constructor();
 }
 
 /* Excluded from this release type: _ByteString */
+
 /**
  * Constant used to indicate the LRU garbage collection should be disabled.
  * Set this value as the `cacheSizeBytes` on the settings passed to the
@@ -272,6 +277,7 @@ export declare class Bytes {
  */
 export declare const CACHE_SIZE_UNLIMITED = -1;
 
+/* Excluded from this release type: _cast */
 /**
  * Helper for calculating the nested fields for a given type T1. This is needed
  * to distribute union types such as `undefined | {...}` (happens for optional
@@ -310,7 +316,6 @@ export declare type ChildUpdateFields<K extends string, V> =
 export declare function clearIndexedDbPersistence(
   firestore: Firestore
 ): Promise<void>;
-
 /**
  * Gets a `CollectionReference` instance that refers to the collection at
  * the specified absolute path.
@@ -397,7 +402,6 @@ export declare class CollectionReference<
 > extends Query<AppModelType, DbModelType> {
   /** The type of this Firestore reference. */
   readonly type = 'collection';
-  private constructor();
   /** The collection's identifier. */
   get id(): string;
   /**
@@ -436,6 +440,7 @@ export declare class CollectionReference<
   withConverter(
     converter: null
   ): CollectionReference<DocumentData, DocumentData>;
+  private constructor();
 }
 
 /**
@@ -459,13 +464,13 @@ export declare function connectFirestoreEmulator(
     mockUserToken?: EmulatorMockTokenOptions | string;
   }
 ): void;
-
 /**
  * Create an AggregateField object that can be used to compute the count of
  * documents in the result set of a query.
  */
 export declare function count(): AggregateField<number>;
-
+/* Excluded from this release type: _DatabaseId */
+/* Excluded from this release type: _debugAssert */
 /**
  * Removes all persistent cache indexes.
  *
@@ -509,7 +514,6 @@ export declare function deleteDoc<
  * {@link @firebase/firestore/lite#(setDoc:1)} with `{merge: true}` to mark a field for deletion.
  */
 export declare function deleteField(): FieldValue;
-
 /**
  * Disables network usage for this instance. It can be re-enabled via {@link
  * enableNetwork}. While the network is disabled, any snapshot listeners,
@@ -633,6 +637,8 @@ export declare interface DocumentData {
  */
 export declare function documentId(): FieldPath;
 
+/* Excluded from this release type: _DocumentKey */
+
 /**
  * A `DocumentReference` refers to a document location in a Firestore database
  * and can be used to write, read, or listen to the location. The document at
@@ -653,7 +659,6 @@ export declare class DocumentReference<
    * This is useful for performing transactions, for example.
    */
   readonly firestore: Firestore;
-  private constructor();
   /**
    * The document's identifier within its collection.
    */
@@ -725,6 +730,7 @@ export declare class DocumentReference<
     json: object,
     converter: FirestoreDataConverter<NewAppModelType, NewDbModelType>
   ): DocumentReference<NewAppModelType, NewDbModelType>;
+  private constructor();
 }
 
 /**
@@ -745,7 +751,6 @@ export declare class DocumentSnapshot<
    *  source and local modifications.
    */
   readonly metadata: SnapshotMetadata;
-  protected constructor();
   /**
    * Returns whether or not the data exists. True if the document exists.
    */
@@ -789,14 +794,14 @@ export declare class DocumentSnapshot<
    * `DocumentSnapshot` has pending writes.
    */
   toJSON(): object;
-  /**
-   * Property of the `DocumentSnapshot` that provides the document's ID.
-   */
+  /** Property of the `DocumentSnapshot` that provides the document's ID. */
   get id(): string;
+
   /**
    * The `DocumentReference` for the document included in the `DocumentSnapshot`.
    */
   get ref(): DocumentReference<AppModelType, DbModelType>;
+  protected constructor();
 }
 
 /**
@@ -831,8 +836,8 @@ export declare function documentSnapshotFromJSON<
   json: object,
   converter: FirestoreDataConverter<AppModelType, DbModelType>
 ): DocumentSnapshot<AppModelType, DbModelType>;
-
 /* Excluded from this release type: _EmptyAppCheckTokenProvider */
+
 /* Excluded from this release type: _EmptyAuthCredentialsProvider */
 export { EmulatorMockTokenOptions };
 
@@ -970,7 +975,9 @@ export declare function endBefore(
   ...fieldValues: unknown[]
 ): QueryEndAtConstraint;
 
+/* Excluded from this release type: ensureFirestoreConfigured */
 /* Excluded from this release type: executeWrite */
+
 /**
  * @license
  * Copyright 2023 Google LLC
@@ -1043,17 +1050,20 @@ export declare class FieldPath {
   isEqual(other: FieldPath): boolean;
 }
 
+/* Excluded from this release type: _FieldPath */
+
 /**
  * Sentinel values that can be used when writing document fields with `set()`
  * or `update()`.
  */
 export declare abstract class FieldValue {
-  private constructor();
   /** Compares `FieldValue`s for equality. */
   abstract isEqual(other: FieldValue): boolean;
+  private constructor();
 }
 
 /* Excluded from this release type: _FirebaseService */
+
 /**
  * The Cloud Firestore service interface.
  *
@@ -1064,16 +1074,14 @@ export declare class Firestore {
    * Whether it's a {@link Firestore} or Firestore Lite instance.
    */
   type: 'firestore-lite' | 'firestore';
-  private constructor();
   /**
    * The {@link @firebase/app#FirebaseApp} associated with this `Firestore` service
    * instance.
    */
   get app(): FirebaseApp;
-  /**
-   * Returns a JSON-serializable representation of this `Firestore` instance.
-   */
+  /** Returns a JSON-serializable representation of this `Firestore` instance. */
   toJSON(): object;
+  private constructor();
 }
 
 /**
@@ -1467,13 +1475,9 @@ export declare interface FirestoreSettings {
    * effect.
    */
   experimentalLongPollingOptions?: ExperimentalLongPollingOptions;
-  /**
-   * The hostname to connect to.
-   */
+  /** The hostname to connect to. */
   host?: string;
-  /**
-   * Whether to use SSL when connecting.
-   */
+  /** Whether to use SSL when connecting. */
   ssl?: boolean;
   /**
    * Whether to skip nested properties that are set to `undefined` during
@@ -1486,7 +1490,7 @@ export declare interface FirestoreSettings {
    * Only applicable in Node environments.
    *
    * The gRPC flow control window size in bytes. Defaults to 256 KB.
-   * This maps directly to grpc-node's {@link https://github.com/grpc/grpc-node/blob/651cbeec6b4d6d11cbee91c042946d2fe5968ef6/packages/grpc-js/README.md#supported-channel-options grpc-node.flow_control_window} setting.
+   * This maps directly to grpc-node's {@link https://github.com/grpc/grpc-node/blob/651cbeec6b4d6d11cbee91c042946d2fe5968ef6/packages/grpc-js/README.md#supported-channel-options | grpc-node.flow_control_window } setting.
    *
    * **WARNING:** This is an advanced setting. The default of 256 KB is optimized
    * for most Node workloads. Only modify this if you are actively tuning gRPC
@@ -1494,6 +1498,8 @@ export declare interface FirestoreSettings {
    */
   grpcFlowControlWindow?: number;
 }
+
+/* Excluded from this release type: FirstPartyCredentialsSettings */
 
 /**
  * An immutable object representing a geographic location in Firestore. The
@@ -1767,7 +1773,6 @@ export declare function getFirestore(
 export declare function getPersistentCacheIndexManager(
   firestore: Firestore
 ): PersistentCacheIndexManager | null;
-
 /**
  * Returns a special value that can be used with {@link @firebase/firestore/lite#(setDoc:1)} or {@link
  * @firebase/firestore/lite#(updateDoc:1)} that tells the server to increment the field's current value by
@@ -1871,6 +1876,12 @@ export declare function initializeFirestore(
   databaseId?: string
 ): Firestore;
 
+/* Excluded from this release type: _internalAggregationQueryToProtoRunAggregationQueryRequest */
+
+/* Excluded from this release type: _internalQueryToProtoQueryTarget */
+
+/* Excluded from this release type: _isBase64Available */
+/* Excluded from this release type: JsonTypeDesc */
 /**
  * Creates a {@link QueryLimitConstraint} that only returns the first matching
  * documents.
@@ -1891,7 +1902,6 @@ export declare function limit(limit: number): QueryLimitConstraint;
  * @returns The created {@link QueryLimitConstraint}.
  */
 export declare function limitToLast(limit: number): QueryLimitConstraint;
-
 /**
  * Describe the source a query listens to.
  *
@@ -1899,7 +1909,6 @@ export declare function limitToLast(limit: number): QueryLimitConstraint;
  * to listen to changes in cache only.
  */
 export declare type ListenSource = 'default' | 'cache';
-
 /**
  * Loads a Firestore bundle into the local cache.
  *
@@ -1975,6 +1984,7 @@ export declare interface LoadBundleTaskProgress {
 
 export { LogLevel };
 
+/* Excluded from this release type: _logWarn */
 /**
  * Returns a special value that can be used with {@link @firebase/firestore/lite#(setDoc:1)} or {@link
  * @firebase/firestore/lite#(updateDoc:1)} that tells the server to set the field to the numeric maximum of the
@@ -2010,6 +2020,7 @@ export declare interface MemoryCacheSettings {
  */
 export declare interface MemoryEagerGarbageCollector {
   kind: 'memoryEager';
+  /* Excluded from this release type: _offlineComponentProvider */
 }
 
 /**
@@ -2034,6 +2045,8 @@ export declare type MemoryGarbageCollector =
  */
 export declare interface MemoryLocalCache {
   kind: 'memory';
+  /* Excluded from this release type: _onlineComponentProvider */
+  /* Excluded from this release type: _offlineComponentProvider */
 }
 
 /**
@@ -2058,6 +2071,7 @@ export declare function memoryLocalCache(
  */
 export declare interface MemoryLruGarbageCollector {
   kind: 'memoryLru';
+  /* Excluded from this release type: _offlineComponentProvider */
 }
 
 /**
@@ -2081,7 +2095,6 @@ export declare function memoryLruGarbageCollector(settings?: {
  * `updateDoc()`
  */
 export declare function minimum(n: number): FieldValue;
-
 /**
  * Reads a Firestore {@link Query} from local cache, identified by the given
  * name.
@@ -2098,7 +2111,6 @@ export declare function namedQuery(
   firestore: Firestore,
   name: string
 ): Promise<Query | null>;
-
 /**
  * For each field (e.g. 'bar'), find all nested keys (e.g. {'bar.baz': T1,
  * 'bar.qux': T2}). Intersect them together to make a single map containing
@@ -2110,7 +2122,6 @@ export declare type NestedUpdateFields<T extends Record<string, unknown>> =
       [K in keyof T & string]: ChildUpdateFields<K, T[K]>;
     }[keyof T & string]
   >;
-
 /**
  * Attaches a listener for `DocumentSnapshot` events. You may either pass individual `onNext` and
  * `onError` callbacks or pass a single observer object with `next` and `error` callbacks.
@@ -2614,7 +2625,6 @@ export declare function onSnapshotsInSync(
   firestore: Firestore,
   onSync: () => void
 ): Unsubscribe;
-
 /**
  * Creates a new {@link QueryCompositeFilterConstraint} that is a disjunction of
  * the given filter constraints. A disjunction filter includes a document if it
@@ -2628,7 +2638,6 @@ export declare function onSnapshotsInSync(
 export declare function or(
   ...queryConstraints: QueryFilterConstraint[]
 ): QueryCompositeFilterConstraint;
-
 /**
  * Creates a {@link QueryOrderByConstraint} that sorts the query result by the
  * specified field, optionally in descending order instead of ascending.
@@ -2651,7 +2660,6 @@ export declare function orderBy(
  * (descending or ascending).
  */
 export declare type OrderByDirection = 'desc' | 'asc';
-
 /**
  * Similar to TypeScript's `Partial<T>`, but allows nested fields to be
  * omitted and FieldValues to be passed in as property values.
@@ -2726,6 +2734,8 @@ export declare interface PersistentCacheSettings {
  */
 export declare interface PersistentLocalCache {
   kind: 'persistent';
+  /* Excluded from this release type: _onlineComponentProvider */
+  /* Excluded from this release type: _offlineComponentProvider */
 }
 
 /**
@@ -2744,6 +2754,9 @@ export declare function persistentLocalCache(
  */
 export declare interface PersistentMultipleTabManager {
   kind: 'PersistentMultipleTab';
+  /* Excluded from this release type: _initialize */
+  /* Excluded from this release type: _onlineComponentProvider */
+  /* Excluded from this release type: _offlineComponentProvider */
 }
 
 /**
@@ -2757,6 +2770,9 @@ export declare function persistentMultipleTabManager(): PersistentMultipleTabMan
  */
 export declare interface PersistentSingleTabManager {
   kind: 'persistentSingleTab';
+  /* Excluded from this release type: _initialize */
+  /* Excluded from this release type: _onlineComponentProvider */
+  /* Excluded from this release type: _offlineComponentProvider */
 }
 
 /**
@@ -2786,7 +2802,6 @@ export declare interface PersistentSingleTabManagerSettings {
  */
 export declare type PersistentTabManager =
   PersistentSingleTabManager | PersistentMultipleTabManager;
-
 /**
  * These types primarily exist to support the `UpdateData`,
  * `WithFieldValue`, and `PartialWithFieldValue` types and are not consumed
@@ -2794,6 +2809,10 @@ export declare type PersistentTabManager =
  */
 /** Primitive types. */
 export declare type Primitive = string | number | boolean | undefined | null;
+
+/* Excluded from this release type: PrivateSettings */
+
+/* Excluded from this release type: Property */
 
 /**
  * A `Query` refers to a query which you can read or listen to. You can also
@@ -2814,7 +2833,6 @@ export declare class Query<
    * transactions, etc.).
    */
   readonly firestore: Firestore;
-  protected constructor();
   /**
    * Removes the current converter.
    *
@@ -2838,6 +2856,7 @@ export declare class Query<
   >(
     converter: FirestoreDataConverter<NewAppModelType, NewDbModelType>
   ): Query<NewAppModelType, NewDbModelType>;
+  protected constructor();
 }
 
 /**
@@ -2886,6 +2905,7 @@ export declare function query<AppModelType, DbModelType extends DocumentData>(
 export declare class QueryCompositeFilterConstraint {
   /** The type of this query constraint */
   readonly type: 'or' | 'and';
+  /* Excluded from this release type: __constructor */
 }
 
 /**
@@ -2953,6 +2973,7 @@ export declare class QueryDocumentSnapshot<
 export declare class QueryEndAtConstraint extends QueryConstraint {
   /** The type of this query constraint */
   readonly type: 'endBefore' | 'endAt';
+  /* Excluded from this release type: __constructor */
 }
 
 /**
@@ -2982,6 +3003,7 @@ export declare function queryEqual<
 export declare class QueryFieldFilterConstraint extends QueryConstraint {
   /** The type of this query constraint */
   readonly type = 'where';
+  /* Excluded from this release type: __constructor */
 }
 
 /**
@@ -3001,6 +3023,7 @@ export declare type QueryFilterConstraint =
 export declare class QueryLimitConstraint extends QueryConstraint {
   /** The type of this query constraint */
   readonly type: 'limit' | 'limitToLast';
+  /* Excluded from this release type: __constructor */
 }
 
 /**
@@ -3030,6 +3053,7 @@ export declare type QueryNonFilterConstraint =
 export declare class QueryOrderByConstraint extends QueryConstraint {
   /** The type of this query constraint */
   readonly type = 'orderBy';
+  /* Excluded from this release type: __constructor */
 }
 
 /**
@@ -3053,7 +3077,6 @@ export declare class QuerySnapshot<
    * `QuerySnapshot`.
    */
   readonly query: Query<AppModelType, DbModelType>;
-  private constructor();
   /** An array of all the documents in the `QuerySnapshot`. */
   get docs(): Array<QueryDocumentSnapshot<AppModelType, DbModelType>>;
   /** The number of documents in the `QuerySnapshot`. */
@@ -3092,6 +3115,7 @@ export declare class QuerySnapshot<
    * `QuerySnapshot` has pending writes.
    */
   toJSON(): object;
+  private constructor();
 }
 
 /**
@@ -3137,6 +3161,7 @@ export declare function querySnapshotFromJSON<
 export declare class QueryStartAtConstraint extends QueryConstraint {
   /** The type of this query constraint */
   readonly type: 'startAt' | 'startAfter';
+  /* Excluded from this release type: __constructor */
 }
 
 /**
@@ -3158,8 +3183,8 @@ export declare function refEqual<
     | DocumentReference<AppModelType, DbModelType>
     | CollectionReference<AppModelType, DbModelType>
 ): boolean;
-
 /* Excluded from this release type: _ResourcePath */
+
 /**
  * Executes the given `updateFunction` and then attempts to commit the changes
  * applied within the transaction. If any document read within the transaction
@@ -3184,13 +3209,11 @@ export declare function runTransaction<T>(
   updateFunction: (transaction: Transaction) => Promise<T>,
   options?: TransactionOptions
 ): Promise<T>;
-
 /**
  * Returns a sentinel used with {@link @firebase/firestore/lite#(setDoc:1)} or {@link @firebase/firestore/lite#(updateDoc:1)} to
  * include a server-generated timestamp in the written data.
  */
 export declare function serverTimestamp(): FieldValue;
-
 /**
  * Writes to the document referred to by this `DocumentReference`. If the
  * document does not yet exist, it will be created.
@@ -3357,7 +3380,6 @@ export declare type SetOptions =
   | {
       readonly mergeFields?: Array<string | FieldPath>;
     };
-
 /**
  * Returns true if the provided snapshots are equal.
  *
@@ -3416,7 +3438,6 @@ export declare class SnapshotMetadata {
    * the backend.
    */
   readonly fromCache: boolean;
-  private constructor();
   /**
    * Returns true if this `SnapshotMetadata` is equal to the provided one.
    *
@@ -3424,6 +3445,7 @@ export declare class SnapshotMetadata {
    * @returns true if this `SnapshotMetadata` is equal to the provided one.
    */
   isEqual(other: SnapshotMetadata): boolean;
+  private constructor();
 }
 
 /**
@@ -3503,14 +3525,12 @@ export declare function startAt<AppModelType, DbModelType extends DocumentData>(
 export declare function startAt(
   ...fieldValues: unknown[]
 ): QueryStartAtConstraint;
-
 /**
  * Create an AggregateField object that can be used to compute the sum of
  * a specified field over a range of documents in the result set of a query.
  * @param field - Specifies the field to sum across the result set.
  */
 export declare function sum(field: string | FieldPath): AggregateField<number>;
-
 /**
  * Represents the state of bundle loading tasks.
  *
@@ -3542,6 +3562,12 @@ export declare type TaskState = 'Error' | 'Running' | 'Success';
  * terminated.
  */
 export declare function terminate(firestore: Firestore): Promise<void>;
+
+/* Excluded from this release type: _TestingHooks */
+
+/* Excluded from this release type: _TestingHooksExistenceFilterMismatchCallback */
+
+/* Excluded from this release type: _TestingHooksExistenceFilterMismatchInfo */
 
 /**
  * A `Timestamp` represents a point in time independent of any time zone or
@@ -3663,7 +3689,6 @@ export declare class Timestamp {
  * {@link runTransaction}.
  */
 export declare class Transaction {
-  private constructor();
   /**
    * Reads the document referenced by the provided {@link DocumentReference}.
    *
@@ -3749,6 +3774,7 @@ export declare class Transaction {
   delete<AppModelType, DbModelType extends DocumentData>(
     documentRef: DocumentReference<AppModelType, DbModelType>
   ): this;
+  private constructor();
 }
 
 /**
@@ -3775,6 +3801,7 @@ export declare interface TransactionOptions {
   readonly maxAttempts?: number;
 }
 
+/* Excluded from this release type: TSType */
 /**
  * Given a union type `U = T1 | T2 | ...`, returns an intersected type
  * `(T1 & T2 & ...)`.
@@ -3889,7 +3916,7 @@ export declare function updateDoc<
   value: unknown,
   ...moreFieldsAndValues: unknown[]
 ): Promise<void>;
-
+/* Excluded from this release type: _validateIsNotUsedTogether */
 /**
  * Creates a new `VectorValue` constructed with a copy of the given array of numbers.
  *
@@ -4006,7 +4033,6 @@ export declare type WithFieldValue<T> =
  * called.
  */
 export declare class WriteBatch {
-  private constructor();
   /**
    * Writes to the document referred to by the provided {@link
    * DocumentReference}. If the document does not exist yet, it will be created.
@@ -4095,6 +4121,7 @@ export declare class WriteBatch {
    * resolve while you're offline).
    */
   commit(): Promise<void>;
+  private constructor();
 }
 
 /**

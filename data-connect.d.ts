@@ -3,20 +3,28 @@
  *
  * @packageDocumentation
  */
-import { FirebaseApp } from '@firebase/app';
 
 import { AppCheckInternalComponentName } from '@firebase/app-check-interop-types';
 
+import { FirebaseApp } from '@firebase/app';
+
 import { FirebaseAuthInternalName } from '@firebase/auth-interop-types';
-
-import { Provider } from '@firebase/component';
-
-import { LogLevelString } from '@firebase/logger';
 
 import { FirebaseError } from '@firebase/util';
 
+import { LogLevelString } from '@firebase/logger';
+
+import { Provider } from '@firebase/component';
+
+/* Excluded from this release type: AbstractDataConnectTransport */
+
+/* Excluded from this release type: AppCheckTokenProvider */
+
+/* Excluded from this release type: areTransportOptionsEqual */
+
 export declare interface CacheProvider<T extends StorageType> {
   type: T;
+  /* Excluded from this release type: initialize */
 }
 
 export declare interface CacheSettings {
@@ -94,6 +102,7 @@ export declare class DataConnect {
     _authProvider: Provider<FirebaseAuthInternalName>,
     _appCheckProvider: Provider<AppCheckInternalComponentName>
   );
+  /* Excluded from this release type: getCache */
   getSettings(): ConnectorConfig;
   /* Excluded from this release type: setCacheSettings */
   setInitialized(): void;
@@ -108,6 +117,7 @@ export declare interface DataConnectEntityArray {
 export declare class DataConnectError extends FirebaseError {
   /* Excluded from this release type: name */
   constructor(code: Code, message: string);
+  /* Excluded from this release type: toString */
 }
 
 export declare type DataConnectErrorCode =
@@ -124,7 +134,9 @@ export declare type DataConnectExtension = {
 } & (DataConnectEntityArray | DataConnectSingleEntity);
 
 /* Excluded from this release type: DataConnectExtensionWithMaxAge */
+
 /* Excluded from this release type: DataConnectMaxAge */
+
 /** An error returned by a DataConnect operation. */
 export declare class DataConnectOperationError extends DataConnectError {
   /* Excluded from this release type: name */
@@ -151,7 +163,9 @@ export declare interface DataConnectOptions extends ConnectorConfig {
 }
 
 /* Excluded from this release type: DataConnectResponse */
+
 /* Excluded from this release type: DataConnectResponseWithMaxAge */
+
 export declare interface DataConnectResult<
   Data,
   Variables
@@ -177,8 +191,8 @@ export declare interface DataConnectSubscription<Data, Variables> {
 }
 
 /* Excluded from this release type: DataConnectTransportInterface */
-export declare type DataSource = typeof SOURCE_CACHE | typeof SOURCE_SERVER;
 
+export declare type DataSource = typeof SOURCE_CACHE | typeof SOURCE_SERVER;
 /**
  * Execute Mutation
  * @param mutationRef mutation to execute
@@ -209,6 +223,7 @@ export declare interface Extensions {
   dataConnect?: DataConnectExtension[];
 }
 
+/* Excluded from this release type: ExtensionsWithMaxAge */
 /**
  * Initialize DataConnect instance
  * @param options ConnectorConfig
@@ -241,12 +256,15 @@ export declare function getDataConnect(
   settings: DataConnectSettings
 ): DataConnect;
 
+/* Excluded from this release type: getGoogApiClientValue */
 /* Excluded from this release type: InternalQueryResult */
+
 export declare function makeMemoryCacheProvider(): CacheProvider<'MEMORY'>;
 
 export declare const MUTATION_STR = 'mutation';
 
 /* Excluded from this release type: MutationManager */
+
 /**
  * Mutation return value from `executeMutation`
  */
@@ -325,6 +343,7 @@ export declare interface OpResult<Data> {
 }
 
 /* Excluded from this release type: parseOptions */
+
 export declare const QUERY_STR = 'query';
 
 /**
@@ -469,6 +488,7 @@ export declare function subscribe<Data, Variables>(
 ): QueryUnsubscribe;
 
 /* Excluded from this release type: SubscribeObserver */
+
 /**
  * Representation of full observer options in `subscribe`
  */
@@ -495,6 +515,7 @@ export declare function toQueryRef<Data, Variables>(
 ): QueryRef<Data, Variables>;
 
 /* Excluded from this release type: TransportClass */
+
 /**
  * Options to connect to emulator
  */
@@ -505,6 +526,9 @@ export declare interface TransportOptions {
 }
 
 /* Excluded from this release type: validateArgs */
+
 /* Excluded from this release type: validateArgsWithOptions */
+
 /* Excluded from this release type: validateDCOptions */
+
 export {};

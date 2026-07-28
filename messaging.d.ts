@@ -4,9 +4,14 @@
  *
  * @packageDocumentation
  */
+
 import { FirebaseApp } from '@firebase/app';
 
-import { NextFn, Observer, Unsubscribe } from '@firebase/util';
+import { NextFn } from '@firebase/util';
+
+import { Observer } from '@firebase/util';
+
+import { Unsubscribe } from '@firebase/util';
 
 /**
  * Deletes the registration token associated with this {@link Messaging} instance and unsubscribes
@@ -47,6 +52,7 @@ export declare interface FcmOptions {
 }
 
 /* Excluded from this release type: _FirebaseMessagingName */
+
 /**
  * Retrieves a Firebase Cloud Messaging instance.
  *
@@ -180,7 +186,6 @@ export declare interface Messaging {
    */
   app: FirebaseApp;
 }
-
 export { NextFn };
 
 /**
@@ -208,7 +213,6 @@ export declare interface NotificationPayload {
    */
   icon?: string;
 }
-
 export { Observer };
 
 /**
@@ -299,7 +303,6 @@ export declare interface RegisterOptions {
  * @public
  */
 export declare function unregister(messaging: Messaging): Promise<void>;
-
 export { Unsubscribe };
 
 export {};

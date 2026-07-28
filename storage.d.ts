@@ -3,17 +3,14 @@
  *
  * @packageDocumentation
  */
-import {
-  CompleteFn,
-  EmulatorMockTokenOptions,
-  FirebaseError,
-  NextFn,
-  Subscribe,
-  Unsubscribe
-} from '@firebase/util';
 
+import { CompleteFn } from '@firebase/util';
+import { EmulatorMockTokenOptions } from '@firebase/util';
 import { FirebaseApp } from '@firebase/app';
-
+import { FirebaseError } from '@firebase/util';
+import { NextFn } from '@firebase/util';
+import { Subscribe } from '@firebase/util';
+import { Unsubscribe } from '@firebase/util';
 /**
  * Modify this {@link FirebaseStorage} instance to communicate with the Cloud Storage emulator.
  *
@@ -34,6 +31,7 @@ export declare function connectStorageEmulator(
 ): void;
 
 /* Excluded from this release type: _dataFromString */
+
 /**
  * Deletes the object at this location.
  * @public
@@ -41,11 +39,11 @@ export declare function connectStorageEmulator(
  * @returns A `Promise` that resolves if the deletion succeeds.
  */
 export declare function deleteObject(ref: StorageReference): Promise<void>;
-
 export { EmulatorMockTokenOptions };
-
 /* Excluded from this release type: _FbsBlob */
+
 /* Excluded from this release type: _FirebaseService */
+
 /**
  * A Firebase Storage instance.
  * @public
@@ -67,6 +65,7 @@ export declare interface FirebaseStorage {
 }
 
 /* Excluded from this release type: _FirebaseStorageImpl */
+
 /**
  * The full set of object metadata, including read-only properties.
  * @public
@@ -158,6 +157,7 @@ export declare function getBytes(
 ): Promise<ArrayBuffer>;
 
 /* Excluded from this release type: _getChild */
+
 /**
  * Returns the download URL for the given {@link StorageReference}.
  * @public
@@ -207,9 +207,10 @@ export declare function getStream(
   ref: StorageReference,
   maxDownloadSizeBytes?: number
 ): ReadableStream;
-
 /* Excluded from this release type: _invalidArgument */
+
 /* Excluded from this release type: _invalidRootOperation */
+
 /**
  * List items (files) and prefixes (folders) under this storage reference.
  *
@@ -300,6 +301,7 @@ export declare interface ListResult {
   nextPageToken?: string;
 }
 
+/* Excluded from this release type: _Location */
 /**
  * Returns a {@link StorageReference} for the given url.
  * @param storage - {@link FirebaseStorage} instance.
@@ -323,6 +325,8 @@ export declare function ref(
   storageOrRef: FirebaseStorage | StorageReference,
   path?: string
 ): StorageReference;
+
+/* Excluded from this release type: _Reference */
 
 /**
  * Object metadata that can be set at any time.
@@ -530,7 +534,6 @@ export declare const StringFormat: {
    */
   readonly DATA_URL: 'data_url';
 };
-
 /**
  * An event that is triggered on a task.
  * @public
@@ -538,6 +541,7 @@ export declare const StringFormat: {
 export declare type TaskEvent = 'state_changed';
 
 /* Excluded from this release type: _TaskEvent */
+
 /**
  * Represents the current state of a running upload.
  * @public
@@ -545,6 +549,7 @@ export declare type TaskEvent = 'state_changed';
 export declare type TaskState =
   'running' | 'paused' | 'success' | 'canceled' | 'error';
 
+/* Excluded from this release type: _TaskState */
 /**
  * Updates the metadata for this object.
  * @public
@@ -792,6 +797,7 @@ export declare interface UploadTask {
 }
 
 /* Excluded from this release type: _UploadTask */
+
 /**
  * Holds data about the current state of the upload task.
  * @public

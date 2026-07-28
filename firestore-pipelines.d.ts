@@ -1,42 +1,26 @@
-import type {
-  Bytes,
-  DocumentChangeType,
-  DocumentData,
-  DocumentReference,
-  FieldPath,
-  FieldValue,
-  Firestore,
-  FirestoreDataConverter,
-  GeoPoint,
-  ListenSource,
-  PartialWithFieldValue,
-  Primitive,
-  Query,
-  QueryDocumentSnapshot,
-  SetOptions,
-  SnapshotListenOptions,
-  SnapshotMetadata,
-  SnapshotOptions,
-  Timestamp,
-  Unsubscribe,
-  VectorValue,
-  WithFieldValue
-} from './index';
+import type { Bytes } from './index';
+
+import type { CollectionReference } from './index';
+
+import type { DocumentData } from './index';
+
+import type { DocumentReference } from './index';
+
+import type { FieldPath } from './index';
+
+import type { GeoPoint } from './index';
+
+import type { Query } from './index';
+
+import type { Timestamp } from './index';
+
+import type { VectorValue } from './index';
 
 /**
  * Cloud Firestore
  *
  * @packageDocumentation
  */
-import { DocumentData as DocumentData_2 } from '@firebase/firestore-types';
-
-import { EmulatorMockTokenOptions } from '@firebase/util';
-
-import { FirebaseApp } from '@firebase/app';
-
-import { FirebaseError } from '@firebase/util';
-
-import { SetOptions as SetOptions_2 } from '@firebase/firestore-types';
 
 /**
  * Creates an expression that computes the absolute value of a numeric value.
@@ -54,6 +38,7 @@ export declare function abs(expr: Expression): FunctionExpression;
  */
 export declare function abs(fieldName: string): FunctionExpression;
 
+/* Excluded from this release type: AbstractUserDataWriter */
 /**
  *
  * Creates an expression that adds two expressions together.
@@ -132,6 +117,8 @@ export declare class AggregateFunction {
    *     AggregateFunction and associates it with the provided alias.
    */
   as(name: string): AliasedAggregate;
+  /* Excluded from this release type: _toProto */
+  /* Excluded from this release type: _readUserData */
 }
 
 /**
@@ -162,6 +149,7 @@ export declare class AliasedAggregate {
     alias: string,
     _methodName: string | undefined
   );
+  /* Excluded from this release type: _readUserData */
 }
 
 export declare class AliasedExpression implements Selectable {
@@ -170,6 +158,7 @@ export declare class AliasedExpression implements Selectable {
   exprType: ExpressionType;
   selectable: true;
   constructor(expr: Expression, alias: string, _methodName: string | undefined);
+  /* Excluded from this release type: _readUserData */
 }
 
 /**
@@ -193,7 +182,6 @@ export declare function and(
   second: BooleanExpression,
   ...more: BooleanExpression[]
 ): BooleanExpression;
-
 /**
  *
  * Creates an expression that creates a Firestore array value from an input array.
@@ -1488,8 +1476,8 @@ export declare function ascending(expr: Expression): Ordering;
  * @returns A new `Ordering` for ascending sorting.
  */
 export declare function ascending(fieldName: string): Ordering;
-
 /* Excluded from this release type: AuthTokenFactory */
+
 /**
  *
  * Creates an aggregation that calculates the average (mean) of values from an expression across
@@ -1634,6 +1622,8 @@ export declare abstract class BooleanExpression extends Expression {
    * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the 'ifError' operation.
    */
   ifError(catchValue: unknown): FunctionExpression;
+  /* Excluded from this release type: _toProto */
+  /* Excluded from this release type: _readUserData */
 }
 
 /**
@@ -1665,8 +1655,8 @@ export declare function byteLength(expr: Expression): FunctionExpression;
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the length of the string in bytes.
  */
 export declare function byteLength(fieldName: string): FunctionExpression;
-
 /* Excluded from this release type: ByteString */
+
 /**
  * Creates an expression that computes the ceiling of a numeric value.
  *
@@ -1694,7 +1684,6 @@ export declare function ceil(fieldName: string): FunctionExpression;
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the ceiling of the numeric value.
  */
 export declare function ceil(expression: Expression): FunctionExpression;
-
 /**
  *
  * Creates an expression that calculates the character length of a string field in UTF8.
@@ -1726,7 +1715,6 @@ export declare function charLength(fieldName: string): FunctionExpression;
 export declare function charLength(
   stringExpression: Expression
 ): FunctionExpression;
-
 /**
  * Creates an expression that returns the first non-null, non-absent argument, without evaluating
  * the rest of the arguments. When all arguments are null or absent, returns the last argument.
@@ -1822,7 +1810,6 @@ export declare function collectionId(fieldName: string): FunctionExpression;
 export declare function collectionId(
   expression: Expression
 ): FunctionExpression;
-
 /**
  * Options defining how a CollectionStage is evaluated. See {@link @firebase/firestore/pipelines#PipelineSource.(collection:1)}.
  */
@@ -1830,7 +1817,7 @@ export declare type CollectionStageOptions = StageOptions & {
   /**
    * Name or reference to the collection that will be used as the Pipeline source.
    */
-  collection: string | Query;
+  collection: string | CollectionReference;
   /**
    * Specifies the name of an index to be used for a query, overriding the query optimizer's default choice.
    * This can be useful for performance tuning in specific scenarios where the default index selection
@@ -1840,7 +1827,6 @@ export declare type CollectionStageOptions = StageOptions & {
    */
   forceIndex?: string;
 };
-
 /**
  * Creates an expression that concatenates strings, arrays, or blobs. Types cannot be mixed.
  *
@@ -1982,6 +1968,7 @@ export declare function constant(value: Bytes): Expression;
 export declare function constant(value: DocumentReference): Expression;
 
 /* Excluded declaration from this release type: constant */
+
 /**
  * Creates a `Constant` instance for a VectorValue value.
  *
@@ -1989,7 +1976,6 @@ export declare function constant(value: DocumentReference): Expression;
  * @returns A new `Constant` instance.
  */
 export declare function constant(value: VectorValue): Expression;
-
 /**
  *
  * Calculates the Cosine distance between a field's vector value and a literal vector value.
@@ -2135,7 +2121,6 @@ export declare function countDistinct(
 export declare function countIf(
   booleanExpr: BooleanExpression
 ): AggregateFunction;
-
 /**
  * @public
  * Creates an expression that represents the current document being processed.
@@ -2167,11 +2152,11 @@ export declare function currentDocument(): Expression;
  */
 export declare function currentTimestamp(): FunctionExpression;
 
+/* Excluded from this release type: DatabaseId */
 /**
  * Options defining how a DatabaseStage is evaluated. See {@link @firebase/firestore/pipelines#PipelineSource.(database:1)}.
  */
 export declare type DatabaseStageOptions = StageOptions & {};
-
 /**
  * @public
  * Options defining how a DefineStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(define:1)}.
@@ -2183,7 +2168,6 @@ export declare type DefineStageOptions = StageOptions & {
    */
   variables: AliasedExpression[];
 };
-
 /**
  *
  * Creates an {@link @firebase/firestore/pipelines#Ordering} that sorts documents in descending order based on an expression.
@@ -2215,7 +2199,6 @@ export declare function descending(expr: Expression): Ordering;
  * @returns A new `Ordering` for descending sorting.
  */
 export declare function descending(fieldName: string): Ordering;
-
 /**
  * Options defining how a DistinctStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(distinct:1)}.
  */
@@ -2302,7 +2285,6 @@ export declare function divide(
   fieldName: string,
   value: unknown
 ): FunctionExpression;
-
 /**
  *
  * Creates an expression that returns the document ID from a path.
@@ -2335,6 +2317,7 @@ export declare function documentId(
   documentPathExpr: Expression
 ): FunctionExpression;
 
+/* Excluded from this release type: DocumentKey */
 /**
  * @beta
  * Perform a full-text search on all indexed search fields in the document.
@@ -2353,7 +2336,6 @@ export declare function documentId(
 export declare function documentMatches(
   rquery: string | Expression
 ): BooleanExpression;
-
 /**
  * Options defining how a DocumentsStage is evaluated. See {@link @firebase/firestore/pipelines#PipelineSource.(documents:1)}.
  */
@@ -2365,7 +2347,6 @@ export declare type DocumentsStageOptions = StageOptions & {
    */
   docs: Array<string | DocumentReference>;
 };
-
 /**
  *
  * Calculates the dot product between a field's vector value and a double array.
@@ -2517,7 +2498,6 @@ export declare function endsWith(
   stringExpression: Expression,
   suffix: Expression
 ): BooleanExpression;
-
 /**
  *
  * Creates an expression that checks if two expressions are equal.
@@ -2749,7 +2729,6 @@ export declare function euclideanDistance(
   vectorExpression: Expression,
   otherVectorExpression: Expression
 ): FunctionExpression;
-
 /**
  * Executes a pipeline and returns a Promise to represent the asynchronous operation.
  *
@@ -2895,6 +2874,7 @@ export declare function exp(fieldName: string): FunctionExpression;
  */
 export declare abstract class Expression {
   abstract readonly expressionType: ExpressionType;
+  /* Excluded from this release type: _toProto */
   /* Excluded from this release type: _readUserData */
   /**
    * Creates an expression that adds this expression to another expression.
@@ -5366,6 +5346,7 @@ export declare class Field extends Expression implements Selectable {
   private fieldPath;
   readonly expressionType: ExpressionType;
   selectable: true;
+  /* Excluded from this release type: __constructor */
   get fieldName(): string;
   get alias(): string;
   get expr(): Expression;
@@ -5379,6 +5360,8 @@ export declare class Field extends Expression implements Selectable {
    * @param location - Compute distance to this GeoPoint.
    */
   geoDistance(location: GeoPoint | Expression): Expression;
+  /* Excluded from this release type: _toProto */
+  /* Excluded from this release type: _readUserData */
 }
 
 /**
@@ -5408,7 +5391,7 @@ export declare function field(name: string): Field;
  * @returns A new {@link @firebase/firestore/pipelines#Field} instance representing the specified field.
  */
 export declare function field(path: FieldPath): Field;
-
+/* Excluded from this release type: FieldPath_2 */
 /**
  * Options defining how a FindNearestStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(findNearest:1)}.
  */
@@ -5444,6 +5427,7 @@ export declare type FindNearestStageOptions = StageOptions & {
   distanceField?: string;
 };
 
+/* Excluded from this release type: _FirebaseService */
 /**
  * Creates an aggregation that finds the first value of an expression across multiple stage
  * inputs.
@@ -5474,6 +5458,7 @@ export declare function first(expression: Expression): AggregateFunction;
 export declare function first(fieldName: string): AggregateFunction;
 
 /* Excluded from this release type: FirstPartyCredentialsSettings */
+
 /**
  * Creates an expression that computes the floor of a numeric value.
  *
@@ -5502,7 +5487,12 @@ export declare class FunctionExpression extends Expression {
   readonly name: string;
   readonly params: Expression[];
   readonly expressionType: ExpressionType;
-  constructor(name: string, params: Expression[]);
+  /* Excluded from this release type: _methodName */
+  /* Excluded from this release type: _options */
+  /* Excluded from this release type: _optionsUtil */
+  /* Excluded from this release type: _optionsProto */
+  /* Excluded from this release type: _toProto */
+  /* Excluded from this release type: _readUserData */
   private constructor();
 }
 
@@ -5529,7 +5519,6 @@ export declare function geoDistance(
   fieldName: string | Field,
   location: GeoPoint | Expression
 ): Expression;
-
 /**
  *
  * Creates an expression that checks if the first expression is greater than the second
@@ -5926,8 +5915,8 @@ export declare function ifNull(
   ifFieldName: string,
   elseValue: unknown
 ): FunctionExpression;
-
 /* Excluded from this release type: _internalPipelineToExecutePipelineRequestProto */
+
 /**
  *
  * Creates an expression that returns `true` if a value is absent. Otherwise,
@@ -6094,7 +6083,7 @@ export declare function join(
   arrayFieldName: string,
   delimiterExpression: Expression
 ): Expression;
-
+/* Excluded from this release type: JsonTypeDesc */
 /**
  * Creates an aggregation that finds the last value of an expression across multiple stage
  * inputs.
@@ -6140,6 +6129,7 @@ export declare function last(fieldName: string): AggregateFunction;
  * @returns A new `Expression` representing the length of the string, array, map, vector, or bytes.
  */
 declare function length_2(fieldName: string): FunctionExpression;
+
 /**
  * Creates an expression that calculates the length of a string, array, map, vector, or bytes.
  *
@@ -6397,7 +6387,6 @@ export declare type LimitStageOptions = StageOptions & {
    */
   limit: number;
 };
-
 /**
  * Creates an expression that computes the natural logarithm of a numeric value.
  *
@@ -6425,7 +6414,6 @@ export declare function ln(fieldName: string): FunctionExpression;
  * @returns A new `Expression` representing the natural logarithm of the numeric value.
  */
 export declare function ln(expression: Expression): FunctionExpression;
-
 /**
  * Creates an expression that computes the logarithm of an expression to a given base.
  *
@@ -6618,7 +6606,6 @@ export declare function logicalMinimum(
   second: Expression | unknown,
   ...others: Array<Expression | unknown>
 ): FunctionExpression;
-
 /**
  * Trims whitespace or a specified set of characters/bytes from the beginning of a string or byte array.
  *
@@ -6965,7 +6952,6 @@ export declare function mapSet(
   value: unknown,
   ...moreKeyValues: unknown[]
 ): FunctionExpression;
-
 /**
  * Creates an expression that returns the values of a map.
  *
@@ -7034,7 +7020,6 @@ export declare function maximum(expression: Expression): AggregateFunction;
  * @returns A new {@link @firebase/firestore/pipelines#AggregateFunction} representing the 'maximum' aggregation.
  */
 export declare function maximum(fieldName: string): AggregateFunction;
-
 /**
  *
  * Creates an aggregation that finds the minimum value of an expression across multiple stage
@@ -7181,7 +7166,6 @@ export declare function multiply(
   fieldName: string,
   second: Expression | unknown
 ): FunctionExpression;
-
 /**
  *
  * Creates an expression that performs a logical 'NOR' operation on multiple filter conditions.
@@ -7375,7 +7359,6 @@ export declare function notEqualAny(
   fieldName: string,
   arrayExpression: Expression
 ): BooleanExpression;
-
 /**
  * Options defining how an OffsetStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(offset:1)}.
  */
@@ -7403,7 +7386,6 @@ export declare type OneOf<T> = {
     [P in Exclude<keyof T, K>]?: undefined;
   };
 }[keyof T];
-
 /**
  *
  * Creates an expression that performs a logical 'OR' operation on multiple filter conditions.
@@ -7440,6 +7422,8 @@ export declare class Ordering {
     direction: 'ascending' | 'descending',
     _methodName: string | undefined
   );
+  /* Excluded from this release type: _toProto */
+  /* Excluded from this release type: _readUserData */
 }
 
 /**
@@ -7458,6 +7442,7 @@ export declare class Ordering {
 declare function parent_2(
   documentPath: string | DocumentReference
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the parent document reference of a document reference.
@@ -7475,6 +7460,7 @@ declare function parent_2(documentPathExpr: Expression): FunctionExpression;
 export { parent_2 as parent };
 
 export declare class Pipeline {
+  /* Excluded from this release type: newPipeline */
   /**
    * Adds new fields to outputs from previous stages.
    *
@@ -7485,24 +7471,50 @@ export declare class Pipeline {
    * The added fields are defined using {@link @firebase/firestore/pipelines#Selectable}s, which can be:
    *
    * <ul>
-   * <li>{@link @firebase/firestore/pipelines#Field}: References an existing document field.</li>
-   * <li>{@link @firebase/firestore/pipelines#Expression}: Either a literal value (see {@link @firebase/firestore/pipelines#(constant:1)}) or a computed value
-   * with an assigned alias using {@link @firebase/firestore/pipelines#Expression.(as:1)}.</li>
+   *  <li>{@link @firebase/firestore/pipelines#Field}: References an existing document field.</li>
+   *  <li>{@link @firebase/firestore/pipelines#Expression}: Either a literal value (see {@link @firebase/firestore/pipelines#(constant:1)}) or a computed value
+   *   with an assigned alias using {@link @firebase/firestore/pipelines#Expression.(as:1)}.</li>
    * </ul>
    *
    * @example
    * ```typescript
    * firestore.pipeline().collection("books")
-   * .addFields(
-   * field("rating").as("bookRating"), // Rename 'rating' to 'bookRating'
-   * add(field("quantity"), 5).as("totalCost")  // Calculate 'totalCost'
-   * );
+   *   .addFields(
+   *     field("rating").as("bookRating"), // Rename 'rating' to 'bookRating'
+   *     add(field("quantity"), 5).as("totalCost")  // Calculate 'totalCost'
+   *   );
    * ```
    * @param field - The first field to add to the documents, specified as a {@link @firebase/firestore/pipelines#Selectable}.
    * @param additionalFields - Optional additional fields to add to the documents, specified as {@link @firebase/firestore/pipelines#Selectable}s.
    * @returns A new Pipeline object with this stage appended to the stage list.
    */
   addFields(field: Selectable, ...additionalFields: Selectable[]): Pipeline;
+  /**
+   * Adds new fields to outputs from previous stages.
+   *
+   * This stage allows you to compute values on-the-fly based on existing data from previous
+   * stages or constants. You can use this to create new fields or overwrite existing ones (if there
+   * is name overlaps).
+   *
+   * The added fields are defined using {@link @firebase/firestore/pipelines#Selectable}s, which can be:
+   *
+   * <ul>
+   *  <li>{@link @firebase/firestore/pipelines#Field}: References an existing document field.</li>
+   *  <li>{@link @firebase/firestore/pipelines#Expression}: Either a literal value (see {@link @firebase/firestore/pipelines#(constant:1)}) or a computed value
+   *   with an assigned alias using {@link @firebase/firestore/pipelines#Expression.(as:1)}.</li>
+   * </ul>
+   *
+   * @example
+   * ```typescript
+   * firestore.pipeline().collection("books")
+   *   .addFields(
+   *     field("rating").as("bookRating"), // Rename 'rating' to 'bookRating'
+   *     add(field("quantity"), 5).as("totalCost")  // Calculate 'totalCost'
+   *   );
+   * ```
+   * @param options - An object that specifies required and optional parameters for the stage.
+   * @returns A new Pipeline object with this stage appended to the stage list.
+   */
   addFields(options: AddFieldsStageOptions): Pipeline;
   /**
    * Remove fields from outputs of previous stages.
@@ -7510,11 +7522,11 @@ export declare class Pipeline {
    * @example
    * ```typescript
    * firestore.pipeline().collection('books')
-   * // removes field 'rating' and 'cost' from the previous stage outputs.
-   * .removeFields(
-   * field('rating'),
-   * 'cost'
-   * );
+   *   // removes field 'rating' and 'cost' from the previous stage outputs.
+   *   .removeFields(
+   *     field('rating'),
+   *     'cost'
+   *   );
    * ```
    * @param fieldValue - The first field to remove.
    * @param additionalFields - Optional additional fields to remove.
@@ -7524,6 +7536,21 @@ export declare class Pipeline {
     fieldValue: Field | string,
     ...additionalFields: Array<Field | string>
   ): Pipeline;
+  /**
+   * Remove fields from outputs of previous stages.
+   *
+   * @example
+   * ```typescript
+   * firestore.pipeline().collection('books')
+   *   // removes field 'rating' and 'cost' from the previous stage outputs.
+   *   .removeFields(
+   *     field('rating'),
+   *     'cost'
+   *   );
+   * ```
+   * @param options - An object that specifies required and optional parameters for the stage.
+   * @returns A new Pipeline object with this stage appended to the stage list.
+   */
   removeFields(options: RemoveFieldsStageOptions): Pipeline;
   /**
    * Defines one or more variables in the pipeline's scope. `define` is used to bind a value to a
@@ -7539,12 +7566,12 @@ export declare class Pipeline {
    * @example
    * ```typescript
    * db.pipeline().collection("products")
-   * .define(
-   * field("price").multiply(0.9).as("discountedPrice"),
-   * field("stock").add(10).as("newStock")
-   * )
-   * .where(variable("discountedPrice").lessThan(100))
-   * .select(field("name"), variable("newStock"));
+   *   .define(
+   *     field("price").multiply(0.9).as("discountedPrice"),
+   *     field("stock").add(10).as("newStock")
+   *   )
+   *   .where(variable("discountedPrice").lessThan(100))
+   *   .select(field("name"), variable("newStock"));
    * ```
    * @param aliasedExpression - The first expression to bind to a variable.
    * @param additionalExpressions - Optional additional expression to bind to a variable.
@@ -7554,62 +7581,89 @@ export declare class Pipeline {
     aliasedExpression: AliasedExpression,
     ...additionalExpressions: AliasedExpression[]
   ): Pipeline;
+  /**
+   * Defines one or more variables in the pipeline's scope. `define` is used to bind a value to a
+   * variable for internal reuse within the pipeline body (accessed via the `variable()` function).
+   *
+   * This stage is useful for declaring reusable values or intermediate calculations that can be
+   * referenced multiple times in later parts of the pipeline, improving readability and
+   * maintainability.
+   *
+   * Each variable is defined using an {@link @firebase/firestore/pipelines#AliasedExpression}, which pairs an expression with a name
+   * (alias). The expression can be a simple constant, a field reference, or a complex computation.
+   *
+   * @example
+   * ```typescript
+   * db.pipeline().collection("products")
+   *   .define(
+   *     field("price").multiply(0.9).as("discountedPrice"),
+   *     field("stock").add(10).as("newStock")
+   *   )
+   *   .where(variable("discountedPrice").lessThan(100))
+   *   .select(field("name"), variable("newStock"));
+   * ```
+   * @param options - An object that specifies required and optional parameters for the stage.
+   * @returns A new Pipeline object with this stage appended to the stage list.
+   */
   define(options: DefineStageOptions): Pipeline;
   /**
    * Converts this Pipeline into an expression that evaluates to an array of results.
    *
    * <p>Result Unwrapping:</p>
    * <ul>
-   * <li>If the items have a single field, their values are unwrapped and returned directly in the array.</li>
-   * <li>If the items have multiple fields, they are returned as objects in the array</li>
+   *  <li>If the items have a single field, their values are unwrapped and returned directly in the array.</li>
+   *  <li>If the items have multiple fields, they are returned as objects in the array</li>
    * </ul>
    *
    * @example
    * ```typescript
    * // Get a list of reviewers for each book
    * db.pipeline().collection("books")
-   * .define(field("id").as("book_id"))
-   * .addFields(
-   * db.pipeline().collection("reviews")
-   * .where(field("book_id").equal(variable("book_id")))
-   * .select(field("reviewer"))
-   * .toArrayExpression()
-   * .as("reviewers")
-   * )
+   *     .define(field("id").as("book_id"))
+   *     .addFields(
+   *         db.pipeline().collection("reviews")
+   *             .where(field("book_id").equal(variable("book_id")))
+   *             .select(field("reviewer"))
+   *             .toArrayExpression()
+   *             .as("reviewers")
+   *     )
    * ```
+   *
    * Output:
    * ```json
    * [
-   * {
-   * "id": "1",
-   * "title": "1984",
-   * "reviewers": ["Alice", "Bob"]
-   * }
+   *   {
+   *     "id": "1",
+   *     "title": "1984",
+   *     "reviewers": ["Alice", "Bob"]
+   *   }
    * ]
    * ```
+   *
    * Multiple Fields:
    * ```typescript
    * // Get a list of reviews (reviewer and rating) for each book
    * db.pipeline().collection("books")
-   * .define(field("id").as("book_id"))
-   * .addFields(
-   * db.pipeline().collection("reviews")
-   * .where(field("book_id").equal(variable("book_id")))
-   * .select(field("reviewer"), field("rating"))
-   * .toArrayExpression()
-   * .as("reviews"))
+   *     .define(field("id").as("book_id"))
+   *     .addFields(
+   *         db.pipeline().collection("reviews")
+   *             .where(field("book_id").equal(variable("book_id")))
+   *             .select(field("reviewer"), field("rating"))
+   *             .toArrayExpression()
+   *             .as("reviews"))
    * ```
+   *
    * Output:
    * ```json
    * [
-   * {
-   * "id": "1",
-   * "title": "1984",
-   * "reviews": [
-   * { "reviewer": "Alice", "rating": 5 },
-   * { "reviewer": "Bob", "rating": 4 }
-   * ]
-   * }
+   *   {
+   *     "id": "1",
+   *     "title": "1984",
+   *     "reviews": [
+   *       { "reviewer": "Alice", "rating": 5 },
+   *       { "reviewer": "Bob", "rating": 4 }
+   *     ]
+   *   }
    * ]
    * ```
    * @returns An `Expression` representing the execution of this pipeline.
@@ -7623,50 +7677,53 @@ export declare class Pipeline {
    *
    * <p>Result Unwrapping:</p>
    * <ul>
-   * <li>If the item has a single field, its value is unwrapped and returned directly.</li>
-   * <li>If the item has multiple fields, they are returned as an object.</li>
+   *  <li>If the item has a single field, its value is unwrapped and returned directly.</li>
+   *  <li>If the item has multiple fields, they are returned as an object.</li>
    * </ul>
    *
    * @example
    * ```typescript
    * // Calculate average rating for a restaurant
    * db.pipeline().collection("restaurants").addFields(
-   * db.pipeline().collection("reviews")
-   * .where(field("restaurant_id").equal(variable("rid")))
-   * .aggregate(average("rating").as("avg"))
-   * // Unwraps the single "avg" field to a scalar double
-   * .toScalarExpression().as("average_rating")
+   *   db.pipeline().collection("reviews")
+   *     .where(field("restaurant_id").equal(variable("rid")))
+   *     .aggregate(average("rating").as("avg"))
+   *     // Unwraps the single "avg" field to a scalar double
+   *     .toScalarExpression().as("average_rating")
    * )
    * ```
+   *
    * Output:
    * ```json
    * {
-   * "name": "The Burger Joint",
-   * "average_rating": 4.5
+   *   "name": "The Burger Joint",
+   *   "average_rating": 4.5
    * }
    * ```
+   *
    * Multiple Fields:
    * ```typescript
    * // Calculate average rating AND count for a restaurant
    * db.pipeline().collection("restaurants").addFields(
-   * db.pipeline().collection("reviews")
-   * .where(field("restaurant_id").equal(variable("rid")))
-   * .aggregate(
-   * average("rating").as("avg"),
-   * count().as("count")
-   * )
-   * // Returns an object with "avg" and "count" fields
-   * .toScalarExpression().as("stats")
+   *   db.pipeline().collection("reviews")
+   *     .where(field("restaurant_id").equal(variable("rid")))
+   *     .aggregate(
+   *       average("rating").as("avg"),
+   *       count().as("count")
+   *     )
+   *     // Returns an object with "avg" and "count" fields
+   *     .toScalarExpression().as("stats")
    * )
    * ```
+   *
    * Output:
    * ```json
    * {
-   * "name": "The Burger Joint",
-   * "stats": {
-   * "avg": 4.5,
-   * "count": 100
-   * }
+   *   "name": "The Burger Joint",
+   *   "stats": {
+   *     "avg": 4.5,
+   *     "count": 100
+   *   }
    * }
    * ```
    * @returns An `Expression` representing the execution of this pipeline.
@@ -7678,10 +7735,10 @@ export declare class Pipeline {
    * <p>The selected fields are defined using {@link @firebase/firestore/pipelines#Selectable} expressions, which can be:
    *
    * <ul>
-   * <li>`string` : Name of an existing field</li>
-   * <li>{@link @firebase/firestore/pipelines#Field}: References an existing field.</li>
-   * <li>{@link @firebase/firestore/pipelines#AliasedExpression}: Represents the result of a function with an assigned alias name using
-   * {@link @firebase/firestore/pipelines#Expression.(as:1)}</li>
+   *   <li>`string` : Name of an existing field</li>
+   *   <li>{@link @firebase/firestore/pipelines#Field}: References an existing field.</li>
+   *   <li>{@link @firebase/firestore/pipelines#AliasedExpression}: Represents the result of a function with an assigned alias name using
+   *       {@link @firebase/firestore/pipelines#Expression.(as:1)}</li>
    * </ul>
    *
    * <p>If no selections are provided, the output of this stage is empty. Use {@link
@@ -7691,16 +7748,16 @@ export declare class Pipeline {
    * @example
    * ```typescript
    * db.pipeline().collection("books")
-   * .select(
-   * "firstName",
-   * field("lastName"),
-   * field("address").toUpper().as("upperAddress"),
-   * );
+   *   .select(
+   *     "firstName",
+   *     field("lastName"),
+   *     field("address").toUpper().as("upperAddress"),
+   *   );
    * ```
    * @param selection - The first field to include in the output documents, specified as {@link
-   * @firebase/firestore/pipelines#Selectable} expression or string value representing the field name.
+   *     @firebase/firestore/pipelines#Selectable} expression or string value representing the field name.
    * @param additionalSelections - Optional additional fields to include in the output documents, specified as {@link
-   * @firebase/firestore/pipelines#Selectable} expressions or `string` values representing field names.
+   *     @firebase/firestore/pipelines#Selectable} expressions or `string` values representing field names.
    * @returns A new Pipeline object with this stage appended to the stage list.
    */
   select(
@@ -7713,10 +7770,10 @@ export declare class Pipeline {
    * <p>The selected fields are defined using {@link @firebase/firestore/pipelines#Selectable} expressions, which can be:
    *
    * <ul>
-   * <li>`string`: Name of an existing field</li>
-   * <li>{@link @firebase/firestore/pipelines#Field}: References an existing field.</li>
-   * <li>{@link @firebase/firestore/pipelines#AliasedExpression}: Represents the result of a function with an assigned alias name using
-   * {@link @firebase/firestore/pipelines#Expression.(as:1)}</li>
+   *   <li>`string`: Name of an existing field</li>
+   *   <li>{@link @firebase/firestore/pipelines#Field}: References an existing field.</li>
+   *   <li>{@link @firebase/firestore/pipelines#AliasedExpression}: Represents the result of a function with an assigned alias name using
+   *       {@link @firebase/firestore/pipelines#Expression.(as:1)}</li>
    * </ul>
    *
    * <p>If no selections are provided, the output of this stage is empty. Use {@link
@@ -7726,11 +7783,11 @@ export declare class Pipeline {
    * @example
    * ```typescript
    * db.pipeline().collection("books")
-   * .select(
-   * "firstName",
-   * field("lastName"),
-   * field("address").toUpper().as("upperAddress"),
-   * );
+   *   .select(
+   *     "firstName",
+   *     field("lastName"),
+   *     field("address").toUpper().as("upperAddress"),
+   *   );
    * ```
    * @param options - An object that specifies required and optional parameters for the stage.
    * @returns A new Pipeline object with this stage appended to the stage list.
@@ -7745,22 +7802,22 @@ export declare class Pipeline {
    * @firebase/firestore/pipelines#BooleanExpression}, typically including but not limited to:
    *
    * <ul>
-   * <li>field comparators: {@link @firebase/firestore/pipelines#Expression.(equal:1)}, {@link @firebase/firestore/pipelines#Expression.(lessThan:1)}, {@link
-   * @firebase/firestore/pipelines#Expression.(greaterThan:1)}, etc.</li>
-   * <li>logical operators: {@link @firebase/firestore/pipelines#Expression.(and:1)}, {@link @firebase/firestore/pipelines#Expression.(or:1)}, {@link @firebase/firestore/pipelines#Expression.(not:1)}, etc.</li>
-   * <li>advanced functions: {@link @firebase/firestore/pipelines#Expression.(regexMatch:1)}, {@link
-   * @firebase/firestore/pipelines#Expression.(arrayContains:1)}, etc.</li>
+   *   <li>field comparators: {@link @firebase/firestore/pipelines#Expression.(equal:1)}, {@link @firebase/firestore/pipelines#Expression.(lessThan:1)}, {@link
+   *       @firebase/firestore/pipelines#Expression.(greaterThan:1)}, etc.</li>
+   *   <li>logical operators: {@link @firebase/firestore/pipelines#Expression.(and:1)}, {@link @firebase/firestore/pipelines#Expression.(or:1)}, {@link @firebase/firestore/pipelines#Expression.(not:1)}, etc.</li>
+   *   <li>advanced functions: {@link @firebase/firestore/pipelines#Expression.(regexMatch:1)}, {@link
+   *       @firebase/firestore/pipelines#Expression.(arrayContains:1)}, etc.</li>
    * </ul>
    *
    * @example
    * ```typescript
    * firestore.pipeline().collection("books")
-   * .where(
-   * and(
-   * greaterThan(field("rating"), 4.0),   // Filter for ratings greater than 4.0
-   * field("genre").equal("Science Fiction") // Equivalent to equal("genre", "Science Fiction")
-   * )
-   * );
+   *   .where(
+   *     and(
+   *         greaterThan(field("rating"), 4.0),   // Filter for ratings greater than 4.0
+   *         field("genre").equal("Science Fiction") // Equivalent to equal("genre", "Science Fiction")
+   *     )
+   *   );
    * ```
    * @param condition - The {@link @firebase/firestore/pipelines#BooleanExpression} to apply.
    * @returns A new Pipeline object with this stage appended to the stage list.
@@ -7775,22 +7832,22 @@ export declare class Pipeline {
    * @firebase/firestore/pipelines#BooleanExpression}, typically including but not limited to:
    *
    * <ul>
-   * <li>field comparators: {@link @firebase/firestore/pipelines#Expression.(eq:1)}, {@link @firebase/firestore/pipelines#Expression.(lt:1)} (less than), {@link
-   * @firebase/firestore/pipelines#Expression.(greaterThan:1)}, etc.</li>
-   * <li>logical operators: {@link @firebase/firestore/pipelines#Expression.(and:1)}, {@link @firebase/firestore/pipelines#Expression.(or:1)}, {@link @firebase/firestore/pipelines#Expression.(not:1)}, etc.</li>
-   * <li>advanced functions: {@link @firebase/firestore/pipelines#Expression.(regexMatch:1)}, {@link
-   * @firebase/firestore/pipelines#Expression.(arrayContains:1)}, etc.</li>
+   *   <li>field comparators: {@link @firebase/firestore/pipelines#Expression.(eq:1)}, {@link @firebase/firestore/pipelines#Expression.(lt:1)} (less than), {@link
+   *       @firebase/firestore/pipelines#Expression.(greaterThan:1)}, etc.</li>
+   *   <li>logical operators: {@link @firebase/firestore/pipelines#Expression.(and:1)}, {@link @firebase/firestore/pipelines#Expression.(or:1)}, {@link @firebase/firestore/pipelines#Expression.(not:1)}, etc.</li>
+   *   <li>advanced functions: {@link @firebase/firestore/pipelines#Expression.(regexMatch:1)}, {@link
+   *       @firebase/firestore/pipelines#Expression.(arrayContains:1)}, etc.</li>
    * </ul>
    *
    * @example
    * ```typescript
    * firestore.pipeline().collection("books")
-   * .where(
-   * and(
-   * greaterThan(field("rating"), 4.0),   // Filter for ratings greater than 4.0
-   * field("genre").equal("Science Fiction") // Equivalent to equal("genre", "Science Fiction")
-   * )
-   * );
+   *   .where(
+   *     and(
+   *         greaterThan(field("rating"), 4.0),   // Filter for ratings greater than 4.0
+   *         field("genre").equal("Science Fiction") // Equivalent to equal("genre", "Science Fiction")
+   *     )
+   *   );
    * ```
    * @param options - An object that specifies required and optional parameters for the stage.
    * @returns A new Pipeline object with this stage appended to the stage list.
@@ -7807,14 +7864,32 @@ export declare class Pipeline {
    * ```typescript
    * // Retrieve the second page of 20 results
    * firestore.pipeline().collection('books')
-   * .sort(field('published').descending())
-   * .offset(20)  // Skip the first 20 results
-   * .limit(20);   // Take the next 20 results
+   *     .sort(field('published').descending())
+   *     .offset(20)  // Skip the first 20 results
+   *     .limit(20);   // Take the next 20 results
    * ```
    * @param offset - The number of documents to skip.
    * @returns A new Pipeline object with this stage appended to the stage list.
    */
   offset(offset: number): Pipeline;
+  /**
+   * Skips the first `offset` number of documents from the results of previous stages.
+   *
+   * <p>This stage is useful for implementing pagination in your pipelines, allowing you to retrieve
+   * results in chunks. It is typically used in conjunction with {@link @firebase/firestore/pipelines#Pipeline.limit} to control the
+   * size of each page.
+   *
+   * @example
+   * ```typescript
+   * // Retrieve the second page of 20 results
+   * firestore.pipeline().collection('books')
+   *     .sort(field('published').descending())
+   *     .offset(20)  // Skip the first 20 results
+   *     .limit(20);   // Take the next 20 results
+   * ```
+   * @param options - An object that specifies required and optional parameters for the stage.
+   * @returns A new Pipeline object with this stage appended to the stage list.
+   */
   offset(options: OffsetStageOptions): Pipeline;
   /**
    * Limits the maximum number of documents returned by previous stages to `limit`.
@@ -7823,23 +7898,46 @@ export declare class Pipeline {
    * a potentially large result set. It's often used for:
    *
    * <ul>
-   * <li>Pagination: In combination with {@link @firebase/firestore/pipelines#Pipeline.offset} to retrieve specific pages of
-   * results.</li>
-   * <li>Limiting Data Retrieval: To prevent excessive data transfer and improve performance,
-   * especially when dealing with large collections.</li>
+   *   <li>Pagination: In combination with {@link @firebase/firestore/pipelines#Pipeline.offset} to retrieve specific pages of
+   *       results.</li>
+   *   <li>Limiting Data Retrieval: To prevent excessive data transfer and improve performance,
+   *       especially when dealing with large collections.</li>
    * </ul>
    *
    * @example
    * ```typescript
    * // Limit the results to the top 10 highest-rated books
    * firestore.pipeline().collection('books')
-   * .sort(field('rating').descending())
-   * .limit(10);
+   *     .sort(field('rating').descending())
+   *     .limit(10);
    * ```
    * @param limit - The maximum number of documents to return.
    * @returns A new Pipeline object with this stage appended to the stage list.
    */
   limit(limit: number): Pipeline;
+  /**
+   * Limits the maximum number of documents returned by previous stages to `limit`.
+   *
+   * <p>This stage is particularly useful when you want to retrieve a controlled subset of data from
+   * a potentially large result set. It's often used for:
+   *
+   * <ul>
+   *   <li>Pagination: In combination with {@link @firebase/firestore/pipelines#Pipeline.offset} to retrieve specific pages of
+   *       results.</li>
+   *   <li>Limiting Data Retrieval: To prevent excessive data transfer and improve performance,
+   *       especially when dealing with large collections.</li>
+   * </ul>
+   *
+   * @example
+   * ```typescript
+   * // Limit the results to the top 10 highest-rated books
+   * firestore.pipeline().collection('books')
+   *     .sort(field('rating').descending())
+   *     .limit(10);
+   * ```
+   * @param options - An object that specifies required and optional parameters for the stage.
+   * @returns A new Pipeline object with this stage appended to the stage list.
+   */
   limit(options: LimitStageOptions): Pipeline;
   /**
    * Returns a set of distinct values from the inputs to this stage.
@@ -7850,23 +7948,23 @@ export declare class Pipeline {
    * The parameters to this stage are defined using {@link @firebase/firestore/pipelines#Selectable} expressions or strings:
    *
    * <ul>
-   * <li> `string`: Name of an existing field</li>
-   * <li> {@link @firebase/firestore/pipelines#Field}: References an existing document field.</li>
-   * <li> {@link @firebase/firestore/pipelines#AliasedExpression}: Represents the result of a function with an assigned alias name
-   * using {@link @firebase/firestore/pipelines#Expression.(as:1)}.</li>
+   *  <li> `string`: Name of an existing field</li>
+   *  <li> {@link @firebase/firestore/pipelines#Field}: References an existing document field.</li>
+   *  <li> {@link @firebase/firestore/pipelines#AliasedExpression}: Represents the result of a function with an assigned alias name
+   *   using {@link @firebase/firestore/pipelines#Expression.(as:1)}.</li>
    * </ul>
    *
    * @example
    * ```typescript
    * // Get a list of unique author names in uppercase and genre combinations.
    * firestore.pipeline().collection("books")
-   * .distinct(toUpper(field("author")).as("authorName"), field("genre"), "publishedAt")
-   * .select("authorName");
+   *     .distinct(toUpper(field("author")).as("authorName"), field("genre"), "publishedAt")
+   *     .select("authorName");
    * ```
    * @param group - The {@link @firebase/firestore/pipelines#Selectable} expression or field name to consider when determining
-   * distinct value combinations.
+   *     distinct value combinations.
    * @param additionalGroups - Optional additional {@link @firebase/firestore/pipelines#Selectable} expressions to consider when determining distinct
-   * value combinations or strings representing field names.
+   *     value combinations or strings representing field names.
    * @returns A new {@link @firebase/firestore/pipelines#Pipeline} object with this stage appended to the stage list.
    */
   distinct(
@@ -7882,18 +7980,18 @@ export declare class Pipeline {
    * The parameters to this stage are defined using {@link @firebase/firestore/pipelines#Selectable} expressions or strings:
    *
    * <ul>
-   * <li>`string`: Name of an existing field</li>
-   * <li>{@link @firebase/firestore/pipelines#Field}: References an existing document field.</li>
-   * <li>{@link @firebase/firestore/pipelines#AliasedExpression}: Represents the result of a function with an assigned alias name
-   * using {@link @firebase/firestore/pipelines#Expression.(as:1)}.</li>
+   *  <li>`string`: Name of an existing field</li>
+   *  <li>{@link @firebase/firestore/pipelines#Field}: References an existing document field.</li>
+   *  <li>{@link @firebase/firestore/pipelines#AliasedExpression}: Represents the result of a function with an assigned alias name
+   *   using {@link @firebase/firestore/pipelines#Expression.(as:1)}.</li>
    * </ul>
    *
    * @example
    * ```typescript
    * // Get a list of unique author names in uppercase and genre combinations.
    * firestore.pipeline().collection("books")
-   * .distinct(toUpper(field("author")).as("authorName"), field("genre"), "publishedAt")
-   * .select("authorName");
+   *     .distinct(toUpper(field("author")).as("authorName"), field("genre"), "publishedAt")
+   *     .select("authorName");
    * ```
    * @param options - An object that specifies required and optional parameters for the stage.
    * @returns A new {@link @firebase/firestore/pipelines#Pipeline} object with this stage appended to the stage list.
@@ -7910,15 +8008,15 @@ export declare class Pipeline {
    * ```typescript
    * // Calculate the average rating and the total number of books
    * firestore.pipeline().collection("books")
-   * .aggregate(
-   * field("rating").average().as("averageRating"),
-   * countAll().as("totalBooks")
-   * );
+   *     .aggregate(
+   *         field("rating").average().as("averageRating"),
+   *         countAll().as("totalBooks")
+   *     );
    * ```
    * @param accumulator - The first {@link @firebase/firestore/pipelines#AliasedAggregate}, wrapping an {@link @firebase/firestore/pipelines#AggregateFunction}
-   * and providing a name for the accumulated results.
+   *     and providing a name for the accumulated results.
    * @param additionalAccumulators - Optional additional {@link @firebase/firestore/pipelines#AliasedAggregate}, each wrapping an {@link @firebase/firestore/pipelines#AggregateFunction}
-   * and providing a name for the accumulated results.
+   *     and providing a name for the accumulated results.
    * @returns A new Pipeline object with this stage appended to the stage list.
    */
   aggregate(
@@ -7932,24 +8030,24 @@ export declare class Pipeline {
    * grouped by one or more fields or functions. You can specify:
    *
    * <ul>
-   * <li>Grouping Fields or Functions: One or more fields or functions to group the documents
-   * by. For each distinct combination of values in these fields, a separate group is created.
-   * If no grouping fields are provided, a single group containing all documents is used. Not
-   * specifying groups is the same as putting the entire inputs into one group.</li>
-   * <li>Accumulators: One or more accumulation operations to perform within each group. These
-   * are defined using {@link @firebase/firestore/pipelines#AliasedAggregate} expressions, which are typically created by
-   * calling {@link @firebase/firestore/pipelines#Expression.(as:1)} on {@link @firebase/firestore/pipelines#AggregateFunction} instances. Each aggregation
-   * calculates a value (e.g., sum, average, count) based on the documents within its group.</li>
+   *   <li>Grouping Fields or Functions: One or more fields or functions to group the documents
+   *       by. For each distinct combination of values in these fields, a separate group is created.
+   *       If no grouping fields are provided, a single group containing all documents is used. Not
+   *       specifying groups is the same as putting the entire inputs into one group.</li>
+   *   <li>Accumulators: One or more accumulation operations to perform within each group. These
+   *       are defined using {@link @firebase/firestore/pipelines#AliasedAggregate} expressions, which are typically created by
+   *       calling {@link @firebase/firestore/pipelines#Expression.(as:1)} on {@link @firebase/firestore/pipelines#AggregateFunction} instances. Each aggregation
+   *       calculates a value (e.g., sum, average, count) based on the documents within its group.</li>
    * </ul>
    *
    * @example
    * ```typescript
    * // Calculate the average rating for each genre.
    * firestore.pipeline().collection("books")
-   * .aggregate({
-   * accumulators: [average(field("rating")).as("avg_rating")],
-   * groups: ["genre"]
-   * });
+   *   .aggregate({
+   *       accumulators: [average(field("rating")).as("avg_rating")],
+   *       groups: ["genre"]
+   *       });
    * ```
    * @param options - An object that specifies required and optional parameters for the stage.
    * @returns A new {@link @firebase/firestore/pipelines#Pipeline} object with this stage appended to the stage
@@ -7966,14 +8064,15 @@ export declare class Pipeline {
    * // Find the 10 most similar books based on the book description.
    * const bookDescription = "Lorem ipsum...";
    * const queryVector: number[] = ...; // compute embedding of `bookDescription`
+   *
    * firestore.pipeline().collection("books")
-   * .findNearest({
-   * field: 'embedding',
-   * vectorValue: queryVector,
-   * distanceMeasure: 'euclidean',
-   * limit: 10,                        // optional
-   * distanceField: 'computedDistance' // optional
-   * });
+   *     .findNearest({
+   *       field: 'embedding',
+   *       vectorValue: queryVector,
+   *       distanceMeasure: 'euclidean',
+   *       limit: 10,                        // optional
+   *       distanceField: 'computedDistance' // optional
+   *     });
    * ```
    * @param options - An object that specifies required and optional parameters for the stage.
    * @returns A new {@link @firebase/firestore/pipelines#Pipeline} object with this stage appended to the stage list.
@@ -7990,13 +8089,13 @@ export declare class Pipeline {
    * // Full-text search example
    * firestore.pipeline().collection("restaurants")
    * .search({
-   * query: documentMatches("waffles OR pancakes"),
-   * sort: [
-   * score().descending(),
-   * ],
-   * addFields: [
-   * score().as("searchScore"),
-   * ]
+   *   query: documentMatches("waffles OR pancakes"),
+   *   sort: [
+   *     score().descending(),
+   *   ],
+   *   addFields: [
+   *     score().as("searchScore"),
+   *   ]
    * })
    * ```
    * @example
@@ -8004,10 +8103,10 @@ export declare class Pipeline {
    * // Geo distance search example
    * const queryLocation = new GeoPoint(0, 0);
    * db.pipeline().collection('restaurants').search({
-   * query: field('location').geoDistance(queryLocation).lessThanOrEqual(1000),
-   * sort: [
-   * score().descending(),
-   * ],
+   *   query: field('location').geoDistance(queryLocation).lessThanOrEqual(1000),
+   *   sort: [
+   *     score().descending(),
+   *   ],
    * })
    * ```
    * @param options - An object that specifies parameters for the stage.
@@ -8029,16 +8128,38 @@ export declare class Pipeline {
    * // Sort books by rating in descending order, and then by title in ascending order for books
    * // with the same rating
    * firestore.pipeline().collection("books")
-   * .sort(
-   * field("rating").descending(),
-   * field("title").ascending()
-   * );
+   *     .sort(
+   *         field("rating").descending(),
+   *         field("title").ascending()
+   *     );
    * ```
    * @param ordering - The first {@link @firebase/firestore/pipelines#Ordering} instance specifying the sorting criteria.
    * @param additionalOrderings - Optional additional {@link @firebase/firestore/pipelines#Ordering} instances specifying the additional sorting criteria.
    * @returns A new {@link @firebase/firestore/pipelines#Pipeline} object with this stage appended to the stage list.
    */
   sort(ordering: Ordering, ...additionalOrderings: Ordering[]): Pipeline;
+  /**
+   * Sorts the documents from previous stages based on one or more {@link @firebase/firestore/pipelines#Ordering} criteria.
+   *
+   * <p>This stage allows you to order the results of your pipeline. You can specify multiple {@link
+   * @firebase/firestore/pipelines#Ordering} instances to sort by multiple fields in ascending or descending order. If documents
+   * have the same value for a field used for sorting, the next specified ordering will be used. If
+   * all orderings result in equal comparison, the documents are considered equal and the order is
+   * unspecified.
+   *
+   * @example
+   * ```typescript
+   * // Sort books by rating in descending order, and then by title in ascending order for books
+   * // with the same rating
+   * firestore.pipeline().collection("books")
+   *     .sort(
+   *         field("rating").descending(),
+   *         field("title").ascending()
+   *     );
+   * ```
+   * @param options - An object that specifies required and optional parameters for the stage.
+   * @returns A new {@link @firebase/firestore/pipelines#Pipeline} object with this stage appended to the stage list.
+   */
   sort(options: SortStageOptions): Pipeline;
   /**
    * Fully overwrites all fields in a document with those coming from a nested map.
@@ -8056,8 +8177,10 @@ export declare class Pipeline {
    * //    'mother': 'Jane Doe'
    * //   }
    * // }
+   *
    * // Emit parents as document.
    * firestore.pipeline().collection('people').replaceWith('parents');
+   *
    * // Output
    * // {
    * //  'father': 'John Doe Sr.',
@@ -8084,13 +8207,15 @@ export declare class Pipeline {
    * //    'mother': 'Jane Doe'
    * //   }
    * // }
+   *
    * // Emit parents as document.
    * firestore.pipeline().collection('people').replaceWith(map({
-   * foo: 'bar',
-   * info: {
-   * name: field('name')
-   * }
+   *   foo: 'bar',
+   *   info: {
+   *     name: field('name')
+   *   }
    * }));
+   *
    * // Output
    * // {
    * //  'father': 'John Doe Sr.',
@@ -8101,6 +8226,40 @@ export declare class Pipeline {
    * @returns A new {@link @firebase/firestore/pipelines#Pipeline} object with this stage appended to the stage list.
    */
   replaceWith(expr: Expression): Pipeline;
+  /**
+   * Fully overwrites all fields in a document with those coming from a map.
+   *
+   * <p>This stage allows you to emit a map value as a document. Each key of the map becomes a field
+   * on the document that contains the corresponding value.
+   *
+   * @example
+   * ```typescript
+   * // Input.
+   * // {
+   * //  'name': 'John Doe Jr.',
+   * //  'parents': {
+   * //    'father': 'John Doe Sr.',
+   * //    'mother': 'Jane Doe'
+   * //   }
+   * // }
+   *
+   * // Emit parents as document.
+   * firestore.pipeline().collection('people').replaceWith(map({
+   *   foo: 'bar',
+   *   info: {
+   *     name: field('name')
+   *   }
+   * }));
+   *
+   * // Output
+   * // {
+   * //  'father': 'John Doe Sr.',
+   * //  'mother': 'Jane Doe'
+   * // }
+   * ```
+   * @param options - An object that specifies required and optional parameters for the stage.
+   * @returns A new {@link @firebase/firestore/pipelines#Pipeline} object with this stage appended to the stage list.
+   */
   replaceWith(options: ReplaceWithStageOptions): Pipeline;
   /**
    * Performs a pseudo-random sampling of the documents from the previous stage.
@@ -8114,7 +8273,7 @@ export declare class Pipeline {
    * ```typescript
    * // Sample 25 books, if available.
    * firestore.pipeline().collection('books')
-   * .sample(25);
+   *     .sample(25);
    * ```
    * @param documents - The number of documents to sample.
    * @returns A new {@link @firebase/firestore/pipelines#Pipeline} object with this stage appended to the stage list.
@@ -8130,10 +8289,11 @@ export declare class Pipeline {
    * ```typescript
    * // Sample 10 books, if available.
    * firestore.pipeline().collection("books")
-   * .sample({ documents: 10 });
+   *     .sample({ documents: 10 });
+   *
    * // Sample 50% of books.
    * firestore.pipeline().collection("books")
-   * .sample({ percentage: 0.5 });
+   *     .sample({ percentage: 0.5 });
    * ```
    * @param options - An object that specifies required and optional parameters for the stage.
    * @returns A new {@link @firebase/firestore/pipelines#Pipeline} object with this stage appended to the stage list.
@@ -8150,12 +8310,28 @@ export declare class Pipeline {
    * ```typescript
    * // Emit documents from books collection and magazines collection.
    * firestore.pipeline().collection('books')
-   * .union(firestore.pipeline().collection('magazines'));
+   *     .union(firestore.pipeline().collection('magazines'));
    * ```
    * @param other - The other {@link @firebase/firestore/pipelines#Pipeline} that is part of union.
    * @returns A new {@link @firebase/firestore/pipelines#Pipeline} object with this stage appended to the stage list.
    */
   union(other: Pipeline): Pipeline;
+  /**
+   * Performs union of all documents from two pipelines, including duplicates.
+   *
+   * <p>This stage will pass through documents from previous stage, and also pass through documents
+   * from previous stage of the `other` {@link @firebase/firestore/pipelines#Pipeline} given in parameter. The order of documents
+   * emitted from this stage is undefined.
+   *
+   * @example
+   * ```typescript
+   * // Emit documents from books collection and magazines collection.
+   * firestore.pipeline().collection('books')
+   *     .union(firestore.pipeline().collection('magazines'));
+   * ```
+   * @param options - An object that specifies required and optional parameters for the stage.
+   * @returns A new {@link @firebase/firestore/pipelines#Pipeline} object with this stage appended to the stage list.
+   */
   union(options: UnionStageOptions): Pipeline;
   /**
    * Produces a document for each element in an input array.
@@ -8173,9 +8349,11 @@ export declare class Pipeline {
    * ```typescript
    * // Input:
    * // { "title": "The Hitchhiker's Guide to the Galaxy", "tags": [ "comedy", "space", "adventure" ], ... }
+   *
    * // Emit a book document for each tag of the book.
    * firestore.pipeline().collection("books")
-   * .unnest(field("tags").as('tag'), 'tagIndex');
+   *     .unnest(field("tags").as('tag'), 'tagIndex');
+   *
    * // Output:
    * // { "title": "The Hitchhiker's Guide to the Galaxy", "tag": "comedy", "tagIndex": 0, ... }
    * // { "title": "The Hitchhiker's Guide to the Galaxy", "tag": "space", "tagIndex": 1, ... }
@@ -8186,6 +8364,35 @@ export declare class Pipeline {
    * @returns A new {@link @firebase/firestore/pipelines#Pipeline} object with this stage appended to the stage list.
    */
   unnest(selectable: Selectable, indexField?: string): Pipeline;
+  /**
+   * Produces a document for each element in an input array.
+   *
+   * For each previous stage document, this stage will emit zero or more augmented documents. The
+   * input array specified by the `selectable` parameter, will emit an augmented document for each input array element. The input array element will
+   * augment the previous stage document by setting the `alias` field  with the array element value.
+   *
+   * When `selectable` evaluates to a non-array value (ex: number, null, absent), then the stage becomes a no-op for
+   * the current input document, returning it as is with the `alias` field absent.
+   *
+   * No documents are emitted when `selectable` evaluates to an empty array.
+   *
+   * @example
+   * ```typescript
+   * // Input:
+   * // { "title": "The Hitchhiker's Guide to the Galaxy", "tags": [ "comedy", "space", "adventure" ], ... }
+   *
+   * // Emit a book document for each tag of the book.
+   * firestore.pipeline().collection("books")
+   *     .unnest(field("tags").as('tag'), 'tagIndex');
+   *
+   * // Output:
+   * // { "title": "The Hitchhiker's Guide to the Galaxy", "tag": "comedy", "tagIndex": 0, ... }
+   * // { "title": "The Hitchhiker's Guide to the Galaxy", "tag": "space", "tagIndex": 1, ... }
+   * // { "title": "The Hitchhiker's Guide to the Galaxy", "tag": "adventure", "tagIndex": 2, ... }
+   * ```
+   * @param options - An object that specifies required and optional parameters for the stage.
+   * @returns A new {@link @firebase/firestore/pipelines#Pipeline} object with this stage appended to the stage list.
+   */
   unnest(options: UnnestStageOptions): Pipeline;
   /**
    * Adds a raw stage to the pipeline.
@@ -8200,8 +8407,8 @@ export declare class Pipeline {
    * ```typescript
    * // Assume we don't have a built-in 'where' stage
    * firestore.pipeline().collection('books')
-   * .rawStage('where', [field('published').lessThan(1900)]) // Custom 'where' stage
-   * .select('title', 'author');
+   *     .rawStage('where', [field('published').lessThan(1900)]) // Custom 'where' stage
+   *     .select('title', 'author');
    * ```
    * @param name - The unique name of the raw stage to add.
    * @param params - A list of parameters to configure the raw stage's behavior.
@@ -8211,7 +8418,9 @@ export declare class Pipeline {
   rawStage(
     name: string,
     params: unknown[],
-    options?: { [key: string]: Expression | unknown }
+    options?: {
+      [key: string]: Expression | unknown;
+    }
   ): Pipeline;
 }
 
@@ -8415,7 +8624,7 @@ export declare class PipelineSource<PipelineType> {
    * Returns all documents from the entire collection. The collection can be nested.
    * @param collection - Name or reference to the collection that will be used as the Pipeline source.
    */
-  collection(collection: string | Query): PipelineType;
+  collection(collection: string | CollectionReference): PipelineType;
   /**
    * Returns all documents from the entire collection. The collection can be nested.
    * @param options - Options defining how this CollectionStage is evaluated.
@@ -8535,7 +8744,9 @@ export declare function pow(
  * @returns A new `Expression` representing the power operation.
  */
 export declare function pow(base: string, exponent: number): FunctionExpression;
+/* Excluded from this release type: PrivateSettings */
 
+/* Excluded from this release type: Property */
 /**
  *
  * Creates an expression that generates a random number between 0.0 and 1.0 but not including 1.0.
@@ -8549,7 +8760,6 @@ export declare function pow(base: string, exponent: number): FunctionExpression;
  * @returns A new `Expression` representing the rand operation.
  */
 export declare function rand(): FunctionExpression;
-
 /**
  *
  * Creates an expression that checks if a string field contains a specified regular expression as
@@ -8883,7 +9093,6 @@ export declare function regexMatch(
   stringExpression: Expression,
   pattern: Expression
 ): BooleanExpression;
-
 /**
  * Options defining how a RemoveFieldsStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(removeFields:1)}.
  */
@@ -8904,8 +9113,8 @@ export declare type ReplaceWithStageOptions = StageOptions & {
    */
   map: Expression | string;
 };
-
 /* Excluded from this release type: ResourcePath */
+
 /**
  *
  * Creates an expression that reverses a string.
@@ -9070,7 +9279,6 @@ export declare type SampleStageOptions = StageOptions &
      */
     documents: number;
   }>;
-
 /**
  * @beta
  *
@@ -9170,6 +9378,8 @@ export declare type SearchStageOptions = StageOptions & {
  */
 export declare interface Selectable {
   selectable: true;
+  /* Excluded from this release type: alias */
+  /* Excluded from this release type: expr */
 }
 
 /**
@@ -9182,7 +9392,6 @@ export declare type SelectStageOptions = StageOptions & {
    */
   selections: Array<Selectable | string>;
 };
-
 /**
  * Options defining how a SortStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(sort:1)}.
  */
@@ -9297,7 +9506,6 @@ export declare function sqrt(expression: Expression): FunctionExpression;
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the square root of the numeric value.
  */
 export declare function sqrt(fieldName: string): FunctionExpression;
-
 /**
  * Options defining how a Stage is evaluated.
  */
@@ -9698,7 +9906,6 @@ export declare function stringReverse(
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the reversed string.
  */
 export declare function stringReverse(field: string): FunctionExpression;
-
 /**
  * @public
  * Creates a new Pipeline targeted at a subcollection relative to the current document context.
@@ -9927,7 +10134,6 @@ export declare function switchOn(
   result: Expression,
   ...others: Array<BooleanExpression | Expression>
 ): FunctionExpression;
-
 /**
  * Specify time granularity for expressions.
  */
@@ -9951,7 +10157,6 @@ export declare type TimeGranularity =
  * Specify time parts for `timestampExtract` expressions.
  */
 export declare type TimePart = TimeGranularity | 'dayofweek' | 'dayofyear';
-
 /**
  *
  * Creates an expression that adds a specified amount of time to a timestamp.
@@ -10419,7 +10624,6 @@ export declare function timestampTruncate(
  */
 export declare type TimeUnit =
   'microsecond' | 'millisecond' | 'second' | 'minute' | 'hour' | 'day';
-
 /**
  *
  * Creates an expression that converts a string field to lowercase.
@@ -10483,7 +10687,6 @@ export declare function toUpper(fieldName: string): FunctionExpression;
 export declare function toUpper(
   stringExpression: Expression
 ): FunctionExpression;
-
 /**
  *
  * Creates an expression that removes leading and trailing whitespace from a string or byte array.
@@ -10595,6 +10798,7 @@ export declare function trunc(
 ): FunctionExpression;
 
 /* Excluded from this release type: TSType */
+
 /**
  * Creates an expression that returns the data type of the data in the specified field.
  *
@@ -10624,7 +10828,6 @@ export declare function type(fieldName: string): FunctionExpression;
  * @returns A new `Expression` representing the data type.
  */
 export declare function type(expression: Expression): FunctionExpression;
-
 /**
  * Options defining how a UnionStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(union:1)}.
  */
@@ -10758,7 +10961,6 @@ export declare type UnnestStageOptions = StageOptions & {
    */
   indexField?: string;
 };
-
 /**
  * @public
  * Creates an expression that retrieves the value of a variable bound via `define()`.
@@ -10810,7 +11012,6 @@ export declare function vectorLength(
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the length of the array.
  */
 export declare function vectorLength(fieldName: string): FunctionExpression;
-
 /**
  * Options defining how a WhereStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(where:1)}.
  */
@@ -10820,7 +11021,6 @@ export declare type WhereStageOptions = StageOptions & {
    */
   condition: BooleanExpression;
 };
-
 /**
  *
  * Creates an expression that performs a logical 'XOR' (exclusive OR) operation on multiple BooleanExpressions.

@@ -1,21 +1,20 @@
-import type {
-  Bytes,
-  DocumentData,
-  DocumentReference,
-  FieldPath,
-  FieldValue,
-  Firestore,
-  FirestoreDataConverter,
-  GeoPoint,
-  PartialWithFieldValue,
-  Primitive,
-  Query,
-  QueryDocumentSnapshot,
-  SetOptions,
-  Timestamp,
-  VectorValue,
-  WithFieldValue
-} from './index';
+import type { Bytes } from './index';
+
+import type { CollectionReference } from './index';
+
+import type { DocumentData } from './index';
+
+import type { DocumentReference } from './index';
+
+import type { FieldPath } from './index';
+
+import type { GeoPoint } from './index';
+
+import type { Query } from './index';
+
+import type { Timestamp } from './index';
+
+import type { VectorValue } from './index';
 
 /**
  * Firestore Lite Pipelines
@@ -25,15 +24,6 @@ import type {
  * directly to the backend, and `onSnapshot()` APIs are not supported.
  * @packageDocumentation
  */
-import { DocumentData as DocumentData_2 } from '@firebase/firestore-types';
-
-import { EmulatorMockTokenOptions } from '@firebase/util';
-
-import { FirebaseApp } from '@firebase/app';
-
-import { FirebaseError } from '@firebase/util';
-
-import { SetOptions as SetOptions_2 } from '@firebase/firestore-types';
 
 /**
  * Creates an expression that computes the absolute value of a numeric value.
@@ -51,6 +41,7 @@ export declare function abs(expr: Expression): FunctionExpression;
  */
 export declare function abs(fieldName: string): FunctionExpression;
 
+/* Excluded from this release type: AbstractUserDataWriter */
 /**
  *
  * Creates an expression that adds two expressions together.
@@ -129,6 +120,8 @@ export declare class AggregateFunction {
    *     AggregateFunction and associates it with the provided alias.
    */
   as(name: string): AliasedAggregate;
+  /* Excluded from this release type: _toProto */
+  /* Excluded from this release type: _readUserData */
 }
 
 /**
@@ -159,6 +152,7 @@ export declare class AliasedAggregate {
     alias: string,
     _methodName: string | undefined
   );
+  /* Excluded from this release type: _readUserData */
 }
 
 export declare class AliasedExpression implements Selectable {
@@ -167,6 +161,7 @@ export declare class AliasedExpression implements Selectable {
   exprType: ExpressionType;
   selectable: true;
   constructor(expr: Expression, alias: string, _methodName: string | undefined);
+  /* Excluded from this release type: _readUserData */
 }
 
 /**
@@ -190,7 +185,6 @@ export declare function and(
   second: BooleanExpression,
   ...more: BooleanExpression[]
 ): BooleanExpression;
-
 /**
  *
  * Creates an expression that creates a Firestore array value from an input array.
@@ -1485,8 +1479,8 @@ export declare function ascending(expr: Expression): Ordering;
  * @returns A new `Ordering` for ascending sorting.
  */
 export declare function ascending(fieldName: string): Ordering;
-
 /* Excluded from this release type: AuthTokenFactory */
+
 /**
  *
  * Creates an aggregation that calculates the average (mean) of values from an expression across
@@ -1631,6 +1625,8 @@ export declare abstract class BooleanExpression extends Expression {
    * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the 'ifError' operation.
    */
   ifError(catchValue: unknown): FunctionExpression;
+  /* Excluded from this release type: _toProto */
+  /* Excluded from this release type: _readUserData */
 }
 
 /**
@@ -1662,8 +1658,8 @@ export declare function byteLength(expr: Expression): FunctionExpression;
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the length of the string in bytes.
  */
 export declare function byteLength(fieldName: string): FunctionExpression;
-
 /* Excluded from this release type: ByteString */
+
 /**
  * Creates an expression that computes the ceiling of a numeric value.
  *
@@ -1691,7 +1687,6 @@ export declare function ceil(fieldName: string): FunctionExpression;
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the ceiling of the numeric value.
  */
 export declare function ceil(expression: Expression): FunctionExpression;
-
 /**
  *
  * Creates an expression that calculates the character length of a string field in UTF8.
@@ -1723,7 +1718,6 @@ export declare function charLength(fieldName: string): FunctionExpression;
 export declare function charLength(
   stringExpression: Expression
 ): FunctionExpression;
-
 /**
  * Creates an expression that returns the first non-null, non-absent argument, without evaluating
  * the rest of the arguments. When all arguments are null or absent, returns the last argument.
@@ -1819,7 +1813,6 @@ export declare function collectionId(fieldName: string): FunctionExpression;
 export declare function collectionId(
   expression: Expression
 ): FunctionExpression;
-
 /**
  * Options defining how a CollectionStage is evaluated. See {@link @firebase/firestore/pipelines#PipelineSource.(collection:1)}.
  */
@@ -1827,7 +1820,7 @@ export declare type CollectionStageOptions = StageOptions & {
   /**
    * Name or reference to the collection that will be used as the Pipeline source.
    */
-  collection: string | Query;
+  collection: string | CollectionReference;
   /**
    * Specifies the name of an index to be used for a query, overriding the query optimizer's default choice.
    * This can be useful for performance tuning in specific scenarios where the default index selection
@@ -1837,7 +1830,6 @@ export declare type CollectionStageOptions = StageOptions & {
    */
   forceIndex?: string;
 };
-
 /**
  * Creates an expression that concatenates strings, arrays, or blobs. Types cannot be mixed.
  *
@@ -1902,6 +1894,7 @@ export declare function conditional(
 ): FunctionExpression;
 
 /* Excluded from this release type: Constant */
+
 /**
  * Creates a `Constant` instance for a number value.
  *
@@ -1980,6 +1973,7 @@ export declare function constant(value: Bytes): Expression;
 export declare function constant(value: DocumentReference): Expression;
 
 /* Excluded declaration from this release type: constant */
+
 /**
  * Creates a `Constant` instance for a VectorValue value.
  *
@@ -1987,7 +1981,6 @@ export declare function constant(value: DocumentReference): Expression;
  * @returns A new `Constant` instance.
  */
 export declare function constant(value: VectorValue): Expression;
-
 /**
  *
  * Calculates the Cosine distance between a field's vector value and a literal vector value.
@@ -2133,7 +2126,6 @@ export declare function countDistinct(
 export declare function countIf(
   booleanExpr: BooleanExpression
 ): AggregateFunction;
-
 /**
  * @public
  * Creates an expression that represents the current document being processed.
@@ -2165,11 +2157,11 @@ export declare function currentDocument(): Expression;
  */
 export declare function currentTimestamp(): FunctionExpression;
 
+/* Excluded from this release type: DatabaseId */
 /**
  * Options defining how a DatabaseStage is evaluated. See {@link @firebase/firestore/pipelines#PipelineSource.(database:1)}.
  */
 export declare type DatabaseStageOptions = StageOptions & {};
-
 /**
  * @public
  * Options defining how a DefineStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(define:1)}.
@@ -2181,7 +2173,6 @@ export declare type DefineStageOptions = StageOptions & {
    */
   variables: AliasedExpression[];
 };
-
 /**
  *
  * Creates an {@link @firebase/firestore/pipelines#Ordering} that sorts documents in descending order based on an expression.
@@ -2213,7 +2204,6 @@ export declare function descending(expr: Expression): Ordering;
  * @returns A new `Ordering` for descending sorting.
  */
 export declare function descending(fieldName: string): Ordering;
-
 /**
  * Options defining how a DistinctStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(distinct:1)}.
  */
@@ -2300,7 +2290,6 @@ export declare function divide(
   fieldName: string,
   value: unknown
 ): FunctionExpression;
-
 /**
  *
  * Creates an expression that returns the document ID from a path.
@@ -2333,6 +2322,7 @@ export declare function documentId(
   documentPathExpr: Expression
 ): FunctionExpression;
 
+/* Excluded from this release type: DocumentKey */
 /**
  * @beta
  * Perform a full-text search on all indexed search fields in the document.
@@ -2351,7 +2341,6 @@ export declare function documentId(
 export declare function documentMatches(
   rquery: string | Expression
 ): BooleanExpression;
-
 /**
  * Options defining how a DocumentsStage is evaluated. See {@link @firebase/firestore/pipelines#PipelineSource.(documents:1)}.
  */
@@ -2363,7 +2352,6 @@ export declare type DocumentsStageOptions = StageOptions & {
    */
   docs: Array<string | DocumentReference>;
 };
-
 /**
  *
  * Calculates the dot product between a field's vector value and a double array.
@@ -2515,7 +2503,6 @@ export declare function endsWith(
   stringExpression: Expression,
   suffix: Expression
 ): BooleanExpression;
-
 /**
  *
  * Creates an expression that checks if two expressions are equal.
@@ -2747,7 +2734,6 @@ export declare function euclideanDistance(
   vectorExpression: Expression,
   otherVectorExpression: Expression
 ): FunctionExpression;
-
 /**
  * Executes this pipeline and returns a Promise to represent the asynchronous operation.
  *
@@ -2856,6 +2842,7 @@ export declare function exp(fieldName: string): FunctionExpression;
  */
 export declare abstract class Expression {
   abstract readonly expressionType: ExpressionType;
+  /* Excluded from this release type: _toProto */
   /* Excluded from this release type: _readUserData */
   /**
    * Creates an expression that adds this expression to another expression.
@@ -5327,6 +5314,7 @@ export declare class Field extends Expression implements Selectable {
   private fieldPath;
   readonly expressionType: ExpressionType;
   selectable: true;
+  /* Excluded from this release type: __constructor */
   get fieldName(): string;
   get alias(): string;
   get expr(): Expression;
@@ -5340,6 +5328,8 @@ export declare class Field extends Expression implements Selectable {
    * @param location - Compute distance to this GeoPoint.
    */
   geoDistance(location: GeoPoint | Expression): Expression;
+  /* Excluded from this release type: _toProto */
+  /* Excluded from this release type: _readUserData */
 }
 
 /**
@@ -5369,7 +5359,7 @@ export declare function field(name: string): Field;
  * @returns A new {@link @firebase/firestore/pipelines#Field} instance representing the specified field.
  */
 export declare function field(path: FieldPath): Field;
-
+/* Excluded from this release type: FieldPath_2 */
 /**
  * Options defining how a FindNearestStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(findNearest:1)}.
  */
@@ -5405,6 +5395,7 @@ export declare type FindNearestStageOptions = StageOptions & {
   distanceField?: string;
 };
 
+/* Excluded from this release type: _FirebaseService */
 /**
  * Creates an aggregation that finds the first value of an expression across multiple stage
  * inputs.
@@ -5435,6 +5426,7 @@ export declare function first(expression: Expression): AggregateFunction;
 export declare function first(fieldName: string): AggregateFunction;
 
 /* Excluded from this release type: FirstPartyCredentialsSettings */
+
 /**
  * Creates an expression that computes the floor of a numeric value.
  *
@@ -5463,7 +5455,12 @@ export declare class FunctionExpression extends Expression {
   readonly name: string;
   readonly params: Expression[];
   readonly expressionType: ExpressionType;
-  constructor(name: string, params: Expression[]);
+  /* Excluded from this release type: _methodName */
+  /* Excluded from this release type: _options */
+  /* Excluded from this release type: _optionsUtil */
+  /* Excluded from this release type: _optionsProto */
+  /* Excluded from this release type: _toProto */
+  /* Excluded from this release type: _readUserData */
   private constructor();
 }
 
@@ -5490,7 +5487,6 @@ export declare function geoDistance(
   fieldName: string | Field,
   location: GeoPoint | Expression
 ): Expression;
-
 /**
  *
  * Creates an expression that checks if the first expression is greater than the second
@@ -5887,7 +5883,6 @@ export declare function ifNull(
   ifFieldName: string,
   elseValue: unknown
 ): FunctionExpression;
-
 /**
  *
  * Creates an expression that returns `true` if a value is absent. Otherwise,
@@ -6054,7 +6049,7 @@ export declare function join(
   arrayFieldName: string,
   delimiterExpression: Expression
 ): Expression;
-
+/* Excluded from this release type: JsonTypeDesc */
 /**
  * Creates an aggregation that finds the last value of an expression across multiple stage
  * inputs.
@@ -6100,6 +6095,7 @@ export declare function last(fieldName: string): AggregateFunction;
  * @returns A new `Expression` representing the length of the string, array, map, vector, or bytes.
  */
 declare function length_2(fieldName: string): FunctionExpression;
+
 /**
  * Creates an expression that calculates the length of a string, array, map, vector, or bytes.
  *
@@ -6357,7 +6353,6 @@ export declare type LimitStageOptions = StageOptions & {
    */
   limit: number;
 };
-
 /**
  * Creates an expression that computes the natural logarithm of a numeric value.
  *
@@ -6385,7 +6380,6 @@ export declare function ln(fieldName: string): FunctionExpression;
  * @returns A new `Expression` representing the natural logarithm of the numeric value.
  */
 export declare function ln(expression: Expression): FunctionExpression;
-
 /**
  * Creates an expression that computes the logarithm of an expression to a given base.
  *
@@ -6578,7 +6572,6 @@ export declare function logicalMinimum(
   second: Expression | unknown,
   ...others: Array<Expression | unknown>
 ): FunctionExpression;
-
 /**
  * Trims whitespace or a specified set of characters/bytes from the beginning of a string or byte array.
  *
@@ -6925,7 +6918,6 @@ export declare function mapSet(
   value: unknown,
   ...moreKeyValues: unknown[]
 ): FunctionExpression;
-
 /**
  * Creates an expression that returns the values of a map.
  *
@@ -6994,7 +6986,6 @@ export declare function maximum(expression: Expression): AggregateFunction;
  * @returns A new {@link @firebase/firestore/pipelines#AggregateFunction} representing the 'maximum' aggregation.
  */
 export declare function maximum(fieldName: string): AggregateFunction;
-
 /**
  *
  * Creates an aggregation that finds the minimum value of an expression across multiple stage
@@ -7141,7 +7132,6 @@ export declare function multiply(
   fieldName: string,
   second: Expression | unknown
 ): FunctionExpression;
-
 /**
  *
  * Creates an expression that performs a logical 'NOR' operation on multiple filter conditions.
@@ -7335,7 +7325,6 @@ export declare function notEqualAny(
   fieldName: string,
   arrayExpression: Expression
 ): BooleanExpression;
-
 /**
  * Options defining how an OffsetStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(offset:1)}.
  */
@@ -7363,7 +7352,6 @@ export declare type OneOf<T> = {
     [P in Exclude<keyof T, K>]?: undefined;
   };
 }[keyof T];
-
 /**
  *
  * Creates an expression that performs a logical 'OR' operation on multiple filter conditions.
@@ -7400,6 +7388,8 @@ export declare class Ordering {
     direction: 'ascending' | 'descending',
     _methodName: string | undefined
   );
+  /* Excluded from this release type: _toProto */
+  /* Excluded from this release type: _readUserData */
 }
 
 /**
@@ -7418,6 +7408,7 @@ export declare class Ordering {
 declare function parent_2(
   documentPath: string | DocumentReference
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the parent document reference of a document reference.
@@ -7472,6 +7463,11 @@ export { parent_2 as parent };
  * ```
  */
 export declare class Pipeline {
+  /* Excluded from this release type: _db */
+  /* Excluded from this release type: userDataReader */
+  /* Excluded from this release type: _userDataWriter */
+  /* Excluded from this release type: stages */
+  /* Excluded from this release type: __constructor */
   /**
    * Adds new fields to outputs from previous stages.
    *
@@ -8469,6 +8465,8 @@ export declare class Pipeline {
       [key: string]: Expression | unknown;
     }
   ): Pipeline;
+  /* Excluded from this release type: _toProto */
+  /* Excluded from this release type: newPipeline */
 }
 
 /**
@@ -8602,7 +8600,7 @@ export declare class PipelineSource<PipelineType> {
    * Returns all documents from the entire collection. The collection can be nested.
    * @param collection - Name or reference to the collection that will be used as the Pipeline source.
    */
-  collection(collection: string | Query): PipelineType;
+  collection(collection: string | CollectionReference): PipelineType;
   /**
    * Returns all documents from the entire collection. The collection can be nested.
    * @param options - Options defining how this CollectionStage is evaluated.
@@ -8722,7 +8720,9 @@ export declare function pow(
  * @returns A new `Expression` representing the power operation.
  */
 export declare function pow(base: string, exponent: number): FunctionExpression;
+/* Excluded from this release type: PrivateSettings */
 
+/* Excluded from this release type: Property */
 /**
  *
  * Creates an expression that generates a random number between 0.0 and 1.0 but not including 1.0.
@@ -8736,7 +8736,6 @@ export declare function pow(base: string, exponent: number): FunctionExpression;
  * @returns A new `Expression` representing the rand operation.
  */
 export declare function rand(): FunctionExpression;
-
 /**
  *
  * Creates an expression that checks if a string field contains a specified regular expression as
@@ -9070,7 +9069,6 @@ export declare function regexMatch(
   stringExpression: Expression,
   pattern: Expression
 ): BooleanExpression;
-
 /**
  * Options defining how a RemoveFieldsStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(removeFields:1)}.
  */
@@ -9091,8 +9089,8 @@ export declare type ReplaceWithStageOptions = StageOptions & {
    */
   map: Expression | string;
 };
-
 /* Excluded from this release type: ResourcePath */
+
 /**
  *
  * Creates an expression that reverses a string.
@@ -9257,7 +9255,6 @@ export declare type SampleStageOptions = StageOptions &
      */
     documents: number;
   }>;
-
 /**
  * @beta
  *
@@ -9357,6 +9354,8 @@ export declare type SearchStageOptions = StageOptions & {
  */
 export declare interface Selectable {
   selectable: true;
+  /* Excluded from this release type: alias */
+  /* Excluded from this release type: expr */
 }
 
 /**
@@ -9369,7 +9368,6 @@ export declare type SelectStageOptions = StageOptions & {
    */
   selections: Array<Selectable | string>;
 };
-
 /**
  * Options defining how a SortStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(sort:1)}.
  */
@@ -9484,7 +9482,6 @@ export declare function sqrt(expression: Expression): FunctionExpression;
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the square root of the numeric value.
  */
 export declare function sqrt(fieldName: string): FunctionExpression;
-
 /**
  * Options defining how a Stage is evaluated.
  */
@@ -9885,7 +9882,6 @@ export declare function stringReverse(
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the reversed string.
  */
 export declare function stringReverse(field: string): FunctionExpression;
-
 /**
  * @public
  * Creates a new Pipeline targeted at a subcollection relative to the current document context.
@@ -10114,7 +10110,6 @@ export declare function switchOn(
   result: Expression,
   ...others: Array<BooleanExpression | Expression>
 ): FunctionExpression;
-
 /**
  * Specify time granularity for expressions.
  */
@@ -10138,7 +10133,6 @@ export declare type TimeGranularity =
  * Specify time parts for `timestampExtract` expressions.
  */
 export declare type TimePart = TimeGranularity | 'dayofweek' | 'dayofyear';
-
 /**
  *
  * Creates an expression that adds a specified amount of time to a timestamp.
@@ -10606,7 +10600,6 @@ export declare function timestampTruncate(
  */
 export declare type TimeUnit =
   'microsecond' | 'millisecond' | 'second' | 'minute' | 'hour' | 'day';
-
 /**
  *
  * Creates an expression that converts a string field to lowercase.
@@ -10670,7 +10663,6 @@ export declare function toUpper(fieldName: string): FunctionExpression;
 export declare function toUpper(
   stringExpression: Expression
 ): FunctionExpression;
-
 /**
  *
  * Creates an expression that removes leading and trailing whitespace from a string or byte array.
@@ -10782,6 +10774,7 @@ export declare function trunc(
 ): FunctionExpression;
 
 /* Excluded from this release type: TSType */
+
 /**
  * Creates an expression that returns the data type of the data in the specified field.
  *
@@ -10811,7 +10804,6 @@ export declare function type(fieldName: string): FunctionExpression;
  * @returns A new `Expression` representing the data type.
  */
 export declare function type(expression: Expression): FunctionExpression;
-
 /**
  * Options defining how a UnionStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(union:1)}.
  */
@@ -10945,7 +10937,6 @@ export declare type UnnestStageOptions = StageOptions & {
    */
   indexField?: string;
 };
-
 /**
  * @public
  * Creates an expression that retrieves the value of a variable bound via `define()`.
@@ -10997,7 +10988,6 @@ export declare function vectorLength(
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the length of the array.
  */
 export declare function vectorLength(fieldName: string): FunctionExpression;
-
 /**
  * Options defining how a WhereStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(where:1)}.
  */
@@ -11007,7 +10997,6 @@ export declare type WhereStageOptions = StageOptions & {
    */
   condition: BooleanExpression;
 };
-
 /**
  *
  * Creates an expression that performs a logical 'XOR' (exclusive OR) operation on multiple BooleanExpressions.

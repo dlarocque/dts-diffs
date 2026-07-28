@@ -6,14 +6,16 @@
  * directly to the backend, and `onSnapshot()` APIs are not supported.
  * @packageDocumentation
  */
-import { FirebaseApp } from '@firebase/app';
-
-import { LogLevelString as LogLevel } from '@firebase/logger';
 
 import { EmulatorMockTokenOptions } from '@firebase/util';
 
+import { FirebaseApp } from '@firebase/app';
+
 import { FirebaseError } from '@firebase/util';
 
+import { LogLevelString as LogLevel } from '@firebase/logger';
+
+/* Excluded from this release type: AbstractUserDataWriter */
 /**
  * Add a new document to specified `CollectionReference` with the given data,
  * assigning it a document ID automatically.
@@ -53,6 +55,7 @@ export declare class AggregateField<T> {
   readonly type = 'AggregateField';
   /** Indicates the aggregation operation of this AggregateField. */
   readonly aggregateType: AggregateType;
+  /* Excluded from this release type: __constructor */
 }
 
 /**
@@ -89,7 +92,6 @@ export declare class AggregateQuerySnapshot<
    * `AggregateQuerySnapshot` were performed.
    */
   readonly query: Query<AppModelType, DbModelType>;
-  private constructor();
   /**
    * Returns the results of the aggregations performed over the underlying
    * query.
@@ -102,6 +104,8 @@ export declare class AggregateQuerySnapshot<
    * query.
    */
   data(): AggregateSpecData<AggregateSpecType>;
+  /* Excluded from this release type: _fieldsProto */
+  private constructor();
 }
 
 /**
@@ -159,7 +163,6 @@ export declare type AggregateType = 'count' | 'avg' | 'sum';
 export declare function and(
   ...queryConstraints: QueryFilterConstraint[]
 ): QueryCompositeFilterConstraint;
-
 /**
  * Returns a special value that can be used with {@link (setDoc:1)} or {@link
  * updateDoc:1} that tells the server to remove the given elements from any
@@ -186,8 +189,8 @@ export declare function arrayRemove(...elements: unknown[]): FieldValue;
  * `updateDoc()`.
  */
 export declare function arrayUnion(...elements: unknown[]): FieldValue;
-
 /* Excluded from this release type: AuthTokenFactory */
+
 /**
  * Create an AggregateField object that can be used to compute the average of
  * a specified field over a range of documents in the result set of a query.
@@ -201,7 +204,6 @@ export declare function average(
  * An immutable object representing an array of bytes.
  */
 export declare class Bytes {
-  private constructor();
   /**
    * Creates a new `Bytes` object from the given Base64 string, converting it to
    * bytes.
@@ -254,8 +256,10 @@ export declare class Bytes {
    * {@link FirestoreError} if an error occurs.
    */
   static fromJSON(json: object): Bytes;
+  private constructor();
 }
 
+/* Excluded from this release type: ByteString */
 /**
  * Helper for calculating the nested fields for a given type T1. This is needed
  * to distribute union types such as `undefined | {...}` (happens for optional
@@ -268,7 +272,6 @@ export declare class Bytes {
  */
 export declare type ChildUpdateFields<K extends string, V> =
   V extends Record<string, unknown> ? AddPrefixToKeys<K, UpdateData<V>> : never;
-
 /**
  * Gets a `CollectionReference` instance that refers to the collection at
  * the specified absolute path.
@@ -355,7 +358,6 @@ export declare class CollectionReference<
 > extends Query<AppModelType, DbModelType> {
   /** The type of this Firestore reference. */
   readonly type = 'collection';
-  private constructor();
   /** The collection's identifier. */
   get id(): string;
   /**
@@ -394,6 +396,7 @@ export declare class CollectionReference<
   withConverter(
     converter: null
   ): CollectionReference<DocumentData, DocumentData>;
+  private constructor();
 }
 
 /**
@@ -417,13 +420,12 @@ export declare function connectFirestoreEmulator(
     mockUserToken?: EmulatorMockTokenOptions | string;
   }
 ): void;
-
 /**
  * Create an AggregateField object that can be used to compute the count of
  * documents in the result set of a query.
  */
 export declare function count(): AggregateField<number>;
-
+/* Excluded from this release type: DatabaseId */
 /**
  * Deletes the document referred to by the specified `DocumentReference`.
  *
@@ -446,7 +448,6 @@ export declare function deleteDoc<
  * {@link @firebase/firestore/lite#(setDoc:1)} with `{merge: true}` to mark a field for deletion.
  */
 export declare function deleteField(): FieldValue;
-
 /**
  * Gets a `DocumentReference` instance that refers to the document at the
  * specified absolute path.
@@ -519,6 +520,8 @@ export declare interface DocumentData {
  */
 export declare function documentId(): FieldPath;
 
+/* Excluded from this release type: DocumentKey */
+
 /**
  * A `DocumentReference` refers to a document location in a Firestore database
  * and can be used to write, read, or listen to the location. The document at
@@ -539,7 +542,6 @@ export declare class DocumentReference<
    * This is useful for performing transactions, for example.
    */
   readonly firestore: Firestore;
-  private constructor();
   /**
    * The document's identifier within its collection.
    */
@@ -611,6 +613,7 @@ export declare class DocumentReference<
     json: object,
     converter: FirestoreDataConverter<NewAppModelType, NewDbModelType>
   ): DocumentReference<NewAppModelType, NewDbModelType>;
+  private constructor();
 }
 
 /**
@@ -626,7 +629,6 @@ export declare class DocumentSnapshot<
   AppModelType = DocumentData,
   DbModelType extends DocumentData = DocumentData
 > {
-  protected constructor();
   /** Property of the `DocumentSnapshot` that provides the document's ID. */
   get id(): string;
   /**
@@ -658,6 +660,7 @@ export declare class DocumentSnapshot<
    * field exists in the document.
    */
   get(fieldPath: string | FieldPath): any;
+  protected constructor();
 }
 
 export { EmulatorMockTokenOptions };
@@ -738,17 +741,20 @@ export declare class FieldPath {
   isEqual(other: FieldPath): boolean;
 }
 
+/* Excluded from this release type: FieldPath_2 */
+
 /**
  * Sentinel values that can be used when writing document fields with `set()`
  * or `update()`.
  */
 export declare abstract class FieldValue {
-  private constructor();
   /** Compares `FieldValue`s for equality. */
   abstract isEqual(other: FieldValue): boolean;
+  private constructor();
 }
 
 /* Excluded from this release type: _FirebaseService */
+
 /**
  * The Cloud Firestore service interface.
  *
@@ -759,7 +765,6 @@ export declare class Firestore {
    * Whether it's a Firestore or Firestore Lite instance.
    */
   type: 'firestore-lite' | 'firestore';
-  private constructor();
   /**
    * The {@link @firebase/app#FirebaseApp} associated with this `Firestore` service
    * instance.
@@ -767,6 +772,7 @@ export declare class Firestore {
   get app(): FirebaseApp;
   /** Returns a JSON-serializable representation of this `Firestore` instance. */
   toJSON(): object;
+  private constructor();
 }
 
 /**
@@ -1082,6 +1088,7 @@ export declare type FirestoreErrorCode =
   | 'unavailable'
   | 'data-loss'
   | 'unauthenticated';
+/* Excluded from this release type: FirstPartyCredentialsSettings */
 
 /**
  * An immutable object representing a geographic location in Firestore. The
@@ -1278,7 +1285,6 @@ export declare function getFirestore(
   app: FirebaseApp,
   databaseId: string
 ): Firestore;
-
 /**
  * Returns a special value that can be used with {@link @firebase/firestore/lite#(setDoc:1)} or {@link
  * @firebase/firestore/lite#(updateDoc:1)} that tells the server to increment the field's current value by
@@ -1299,7 +1305,6 @@ export declare function getFirestore(
  * `updateDoc()`
  */
 export declare function increment(n: number): FieldValue;
-
 /**
  * Initializes a new instance of Cloud Firestore with the provided settings.
  * Can only be called before any other functions, including
@@ -1334,7 +1339,7 @@ export declare function initializeFirestore(
   settings: Settings,
   databaseId?: string
 ): Firestore;
-
+/* Excluded from this release type: JsonTypeDesc */
 /**
  * Creates a {@link QueryLimitConstraint} that only returns the first matching
  * documents.
@@ -1355,9 +1360,7 @@ export declare function limit(limit: number): QueryLimitConstraint;
  * @returns The created {@link QueryLimitConstraint}.
  */
 export declare function limitToLast(limit: number): QueryLimitConstraint;
-
 export { LogLevel };
-
 /**
  * Returns a special value that can be used with {@link @firebase/firestore/lite#(setDoc:1)} or {@link
  * @firebase/firestore/lite#(updateDoc:1)} that tells the server to set the field to the numeric maximum of the
@@ -1368,7 +1371,6 @@ export { LogLevel };
  * `updateDoc()`
  */
 export declare function maximum(n: number): FieldValue;
-
 /**
  * Returns a special value that can be used with {@link @firebase/firestore/lite#(setDoc:1)} or {@link
  * @firebase/firestore/lite#(updateDoc:1)} that tells the server to set the field to the numeric minimum of the
@@ -1379,7 +1381,6 @@ export declare function maximum(n: number): FieldValue;
  * `updateDoc()`
  */
 export declare function minimum(n: number): FieldValue;
-
 /**
  * For each field (e.g. 'bar'), find all nested keys (e.g. {'bar.baz': T1,
  * 'bar.qux': T2}). Intersect them together to make a single map containing
@@ -1391,7 +1392,6 @@ export declare type NestedUpdateFields<T extends Record<string, unknown>> =
       [K in keyof T & string]: ChildUpdateFields<K, T[K]>;
     }[keyof T & string]
   >;
-
 /**
  * Creates a new {@link QueryCompositeFilterConstraint} that is a disjunction of
  * the given filter constraints. A disjunction filter includes a document if it
@@ -1405,7 +1405,6 @@ export declare type NestedUpdateFields<T extends Record<string, unknown>> =
 export declare function or(
   ...queryConstraints: QueryFilterConstraint[]
 ): QueryCompositeFilterConstraint;
-
 /**
  * Creates a {@link QueryOrderByConstraint} that sorts the query result by the
  * specified field, optionally in descending order instead of ascending.
@@ -1428,7 +1427,6 @@ export declare function orderBy(
  * (descending or ascending).
  */
 export declare type OrderByDirection = 'desc' | 'asc';
-
 /**
  * Similar to TypeScript's `Partial<T>`, but allows nested fields to be
  * omitted and FieldValues to be passed in as property values.
@@ -1442,7 +1440,6 @@ export declare type PartialWithFieldValue<T> =
             [K in keyof T]?: PartialWithFieldValue<T[K]> | FieldValue;
           }
         : never);
-
 /**
  * These types primarily exist to support the `UpdateData`,
  * `WithFieldValue`, and `PartialWithFieldValue` types and are not consumed
@@ -1450,6 +1447,10 @@ export declare type PartialWithFieldValue<T> =
  */
 /** Primitive types. */
 export declare type Primitive = string | number | boolean | undefined | null;
+
+/* Excluded from this release type: PrivateSettings */
+
+/* Excluded from this release type: Property */
 
 /**
  * A `Query` refers to a query which you can read or listen to. You can also
@@ -1470,7 +1471,6 @@ export declare class Query<
    * transactions, etc.).
    */
   readonly firestore: Firestore;
-  protected constructor();
   /**
    * Removes the current converter.
    *
@@ -1494,6 +1494,7 @@ export declare class Query<
   >(
     converter: FirestoreDataConverter<NewAppModelType, NewDbModelType>
   ): Query<NewAppModelType, NewDbModelType>;
+  protected constructor();
 }
 
 /**
@@ -1542,6 +1543,7 @@ export declare function query<AppModelType, DbModelType extends DocumentData>(
 export declare class QueryCompositeFilterConstraint {
   /** The type of this query constraint */
   readonly type: 'or' | 'and';
+  /* Excluded from this release type: __constructor */
 }
 
 /**
@@ -1602,6 +1604,7 @@ export declare class QueryDocumentSnapshot<
 export declare class QueryEndAtConstraint extends QueryConstraint {
   /** The type of this query constraint */
   readonly type: 'endBefore' | 'endAt';
+  /* Excluded from this release type: __constructor */
 }
 
 /**
@@ -1631,6 +1634,7 @@ export declare function queryEqual<
 export declare class QueryFieldFilterConstraint extends QueryConstraint {
   /** The type of this query constraint */
   readonly type = 'where';
+  /* Excluded from this release type: __constructor */
 }
 
 /**
@@ -1650,6 +1654,7 @@ export declare type QueryFilterConstraint =
 export declare class QueryLimitConstraint extends QueryConstraint {
   /** The type of this query constraint */
   readonly type: 'limit' | 'limitToLast';
+  /* Excluded from this release type: __constructor */
 }
 
 /**
@@ -1679,6 +1684,7 @@ export declare type QueryNonFilterConstraint =
 export declare class QueryOrderByConstraint extends QueryConstraint {
   /** The type of this query constraint */
   readonly type = 'orderBy';
+  /* Excluded from this release type: __constructor */
 }
 
 /**
@@ -1697,7 +1703,6 @@ export declare class QuerySnapshot<
    * `QuerySnapshot`.
    */
   readonly query: Query<AppModelType, DbModelType>;
-  private constructor();
   /** An array of all the documents in the `QuerySnapshot`. */
   get docs(): Array<QueryDocumentSnapshot<AppModelType, DbModelType>>;
   /** The number of documents in the `QuerySnapshot`. */
@@ -1717,6 +1722,7 @@ export declare class QuerySnapshot<
     ) => void,
     thisArg?: unknown
   ): void;
+  private constructor();
 }
 
 /**
@@ -1729,6 +1735,7 @@ export declare class QuerySnapshot<
 export declare class QueryStartAtConstraint extends QueryConstraint {
   /** The type of this query constraint */
   readonly type: 'startAt' | 'startAfter';
+  /* Excluded from this release type: __constructor */
 }
 
 /**
@@ -1750,8 +1757,8 @@ export declare function refEqual<
     | DocumentReference<AppModelType, DbModelType>
     | CollectionReference<AppModelType, DbModelType>
 ): boolean;
-
 /* Excluded from this release type: ResourcePath */
+
 /**
  * Executes the given `updateFunction` and then attempts to commit the changes
  * applied within the transaction. If any document read within the transaction
@@ -1776,13 +1783,11 @@ export declare function runTransaction<T>(
   updateFunction: (transaction: Transaction) => Promise<T>,
   options?: TransactionOptions
 ): Promise<T>;
-
 /**
  * Returns a sentinel used with {@link @firebase/firestore/lite#(setDoc:1)} or {@link @firebase/firestore/lite#(updateDoc:1)} to
  * include a server-generated timestamp in the written data.
  */
 export declare function serverTimestamp(): FieldValue;
-
 /**
  * Writes to the document referred to by the specified `DocumentReference`. If
  * the document does not yet exist, it will be created.
@@ -1891,6 +1896,7 @@ export declare interface Settings {
    * network behavior and understand the implications of HTTP/2 flow control.
    */
   grpcFlowControlWindow?: number;
+  /* Excluded from this release type: _customHeaders */
 }
 
 /**
@@ -1911,7 +1917,6 @@ export declare function snapshotEqual<
     | DocumentSnapshot<AppModelType, DbModelType>
     | QuerySnapshot<AppModelType, DbModelType>
 ): boolean;
-
 /**
  * Creates a {@link QueryStartAtConstraint} that modifies the result set to
  * start after the provided document (exclusive). The starting position is
@@ -1966,14 +1971,12 @@ export declare function startAt<AppModelType, DbModelType extends DocumentData>(
 export declare function startAt(
   ...fieldValues: unknown[]
 ): QueryStartAtConstraint;
-
 /**
  * Create an AggregateField object that can be used to compute the sum of
  * a specified field over a range of documents in the result set of a query.
  * @param field - Specifies the field to sum across the result set.
  */
 export declare function sum(field: string | FieldPath): AggregateField<number>;
-
 /**
  * Terminates the provided `Firestore` instance.
  *
@@ -2116,7 +2119,6 @@ export declare class Timestamp {
  * {@link runTransaction}.
  */
 export declare class Transaction {
-  private constructor();
   /**
    * Reads the document referenced by the provided {@link DocumentReference}.
    *
@@ -2202,6 +2204,7 @@ export declare class Transaction {
   delete<AppModelType, DbModelType extends DocumentData>(
     documentRef: DocumentReference<AppModelType, DbModelType>
   ): this;
+  private constructor();
 }
 
 /**
@@ -2228,6 +2231,7 @@ export declare interface TransactionOptions {
   readonly maxAttempts?: number;
 }
 
+/* Excluded from this release type: TSType */
 /**
  * Given a union type `U = T1 | T2 | ...`, returns an intersected type
  * `(T1 & T2 & ...)`.
@@ -2243,7 +2247,6 @@ export declare type UnionToIntersection<U> = (
 ) extends (k: infer I) => void
   ? I
   : never;
-
 /**
  * Update data (for use with {@link (updateDoc:1)}) that consists of field paths
  * (e.g. 'foo' or 'foo.baz') mapped to values. Fields that contain dots
@@ -2314,7 +2317,6 @@ export declare function updateDoc<
   value: unknown,
   ...moreFieldsAndValues: unknown[]
 ): Promise<void>;
-
 /**
  * Creates a new `VectorValue` constructed with a copy of the given array of numbers.
  *
@@ -2411,7 +2413,6 @@ export declare type WithFieldValue<T> =
  * called.
  */
 export declare class WriteBatch {
-  private constructor();
   /**
    * Writes to the document referred to by the provided {@link
    * DocumentReference}. If the document does not exist yet, it will be created.
@@ -2500,6 +2501,7 @@ export declare class WriteBatch {
    * resolve while you're offline).
    */
   commit(): Promise<void>;
+  private constructor();
 }
 
 /**

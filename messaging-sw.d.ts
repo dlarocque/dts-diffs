@@ -1,6 +1,10 @@
 import { FirebaseApp } from '@firebase/app';
 
-import { NextFn, Observer, Unsubscribe } from '@firebase/util';
+import { NextFn } from '@firebase/util';
+
+import { Observer } from '@firebase/util';
+
+import { Unsubscribe } from '@firebase/util';
 
 /**
  * Enables or disables Firebase Cloud Messaging message delivery metrics export to BigQuery. By
@@ -37,6 +41,7 @@ export declare interface FcmOptions {
 }
 
 /* Excluded from this release type: _FirebaseMessagingName */
+
 /**
  * Retrieves a Firebase Cloud Messaging instance.
  *
@@ -131,7 +136,6 @@ export declare interface Messaging {
    */
   app: FirebaseApp;
 }
-
 export { NextFn };
 
 /**
@@ -159,7 +163,6 @@ export declare interface NotificationPayload {
    */
   icon?: string;
 }
-
 export { Observer };
 
 /**
@@ -221,7 +224,6 @@ export declare interface RegisterOptions {
   /** Optional service worker registration. See {@link GetTokenOptions.serviceWorkerRegistration}. */
   serviceWorkerRegistration?: ServiceWorkerRegistration;
 }
-
 export { Unsubscribe };
 
 export {};
