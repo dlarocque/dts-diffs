@@ -23,7 +23,6 @@ export declare function child(
   parent: DatabaseReference,
   path: string
 ): DatabaseReference;
-
 /**
  * Modify the provided instance to communicate with the Realtime Database
  * emulator.
@@ -212,7 +211,6 @@ export declare class DataSnapshot {
   val(): any;
   private constructor();
 }
-
 export { EmulatorMockTokenOptions };
 
 /**
@@ -315,7 +313,6 @@ export declare function equalTo(
   value: number | string | boolean | null,
   key?: string
 ): QueryConstraint;
-
 /**
  * One of the following strings: "value", "child_added", "child_changed",
  * "child_removed", or "child_moved."
@@ -393,7 +390,6 @@ export declare function goOffline(db: Database): void;
  * @param db - The instance to reconnect.
  */
 export declare function goOnline(db: Database): void;
-
 /**
  * Returns a placeholder value that can be used to atomically increment the
  * current database value by the provided delta.
@@ -1168,7 +1164,6 @@ export declare function orderByPriority(): QueryConstraint;
  * {@link https://firebase.google.com/docs/database/web/lists-of-data#sort_data | Sort data}.
  */
 export declare function orderByValue(): QueryConstraint;
-
 /**
  * Generates a new child location using a unique key and returns its
  * `Reference`.
@@ -1414,7 +1409,6 @@ export declare function runTransaction(
   transactionUpdate: (currentData: any) => unknown,
   options?: TransactionOptions
 ): Promise<TransactionResult>;
-
 /**
  * @license
  * Copyright 2020 Google LLC
@@ -1511,7 +1505,6 @@ export declare function setWithPriority(
   value: unknown,
   priority: string | number | null
 ): Promise<void>;
-
 /**
  * Creates a `QueryConstraint` with the specified starting point (exclusive).
  *

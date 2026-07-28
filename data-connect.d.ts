@@ -193,7 +193,6 @@ export declare interface DataConnectSubscription<Data, Variables> {
 /* Excluded from this release type: DataConnectTransportInterface */
 
 export declare type DataSource = typeof SOURCE_CACHE | typeof SOURCE_SERVER;
-
 /**
  * Execute Mutation
  * @param mutationRef mutation to execute
