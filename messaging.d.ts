@@ -27,6 +27,7 @@ import { NextFn, Observer, Unsubscribe } from '@firebase/util';
  * @public
  */
 export declare function deleteToken(messaging: Messaging): Promise<boolean>;
+
 /**
  * Options for features provided by the FCM SDK for Web. See {@link
  * https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#webpushfcmoptions |
@@ -44,6 +45,7 @@ export declare interface FcmOptions {
    */
   analyticsLabel?: string;
 }
+
 /* Excluded from this release type: _FirebaseMessagingName */
 /**
  * Retrieves a Firebase Cloud Messaging instance.
@@ -53,6 +55,7 @@ export declare interface FcmOptions {
  * @public
  */
 export declare function getMessaging(app?: FirebaseApp): Messaging;
+
 /**
  * Subscribes the {@link Messaging} instance to push notifications. Returns a Firebase Cloud
  * Messaging registration token that can be used to send push messages to that {@link Messaging}
@@ -75,6 +78,7 @@ export declare function getToken(
   messaging: Messaging,
   options?: GetTokenOptions
 ): Promise<string>;
+
 /**
  * Options for {@link getToken}.
  *
@@ -102,6 +106,7 @@ export declare interface GetTokenOptions {
    */
   serviceWorkerRegistration?: ServiceWorkerRegistration;
 }
+
 /**
  * @license
  * Copyright 2020 Google LLC
@@ -125,6 +130,7 @@ export declare interface GetTokenOptions {
  * @public
  */
 export declare function isSupported(): Promise<boolean>;
+
 /**
  * Message payload that contains the notification payload that is represented with
  * {@link NotificationPayload} and the data payload that contains an arbitrary
@@ -162,6 +168,7 @@ export declare interface MessagePayload {
    */
   messageId: string;
 }
+
 /**
  * Public interface of the Firebase Cloud Messaging SDK.
  *
@@ -173,7 +180,9 @@ export declare interface Messaging {
    */
   app: FirebaseApp;
 }
+
 export { NextFn };
+
 /**
  * Display notification details. Details are sent through the
  * {@link https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#notification | Send API}.
@@ -199,7 +208,9 @@ export declare interface NotificationPayload {
    */
   icon?: string;
 }
+
 export { Observer };
+
 /**
  * When a push message is received and the user is currently on a page for your origin, the
  * message is passed to the page and an `onMessage()` event is dispatched with the payload of
@@ -217,6 +228,7 @@ export declare function onMessage(
   messaging: Messaging,
   nextOrObserver: NextFn<MessagePayload> | Observer<MessagePayload>
 ): Unsubscribe;
+
 /**
  * Subscribes to an event that the app instance is registered with FCM via Firebase Installation ID (FID).
  * Use the FID passed to the callback to upload it to your application server. When you receive an FID
@@ -232,6 +244,7 @@ export declare function onRegistered(
   messaging: Messaging,
   nextOrObserver: NextFn<string> | Observer<string>
 ): Unsubscribe;
+
 /**
  * Subscribes to an event that the app instance is unregistered from FCM (FID no longer active).
  * Use this to notify your backend to remove this FID to prevent 404 errors on send.
@@ -246,6 +259,7 @@ export declare function onUnregistered(
   messaging: Messaging,
   nextOrObserver: NextFn<string> | Observer<string>
 ): Unsubscribe;
+
 /**
  * Registers the app instance with FCM using its Firebase Installation ID (FID). The FID is
  * delivered via the {@link onRegistered} callback, not as a return value. Call this to establish
@@ -263,6 +277,7 @@ export declare function register(
   messaging: Messaging,
   options?: RegisterOptions
 ): Promise<void>;
+
 /**
  * Options for {@link register}. Same shape as GetTokenOptions for SW and VAPID configuration.
  *
@@ -274,6 +289,7 @@ export declare interface RegisterOptions {
   /** Optional service worker registration. See {@link GetTokenOptions.serviceWorkerRegistration}. */
   serviceWorkerRegistration?: ServiceWorkerRegistration;
 }
+
 /**
  * Unregisters the app instance from FCM by deleting its FID-based registration.
  * On success, triggers {@link onUnregistered} (if registered) with the unregistered FID.
@@ -283,5 +299,7 @@ export declare interface RegisterOptions {
  * @public
  */
 export declare function unregister(messaging: Messaging): Promise<void>;
+
 export { Unsubscribe };
+
 export {};

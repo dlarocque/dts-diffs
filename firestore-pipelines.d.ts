@@ -22,16 +22,22 @@ import type {
   VectorValue,
   WithFieldValue
 } from './index';
+
 /**
  * Cloud Firestore
  *
  * @packageDocumentation
  */
 import { DocumentData as DocumentData_2 } from '@firebase/firestore-types';
+
 import { EmulatorMockTokenOptions } from '@firebase/util';
+
 import { FirebaseApp } from '@firebase/app';
+
 import { FirebaseError } from '@firebase/util';
+
 import { SetOptions as SetOptions_2 } from '@firebase/firestore-types';
+
 /**
  * Creates an expression that computes the absolute value of a numeric value.
  *
@@ -39,6 +45,7 @@ import { SetOptions as SetOptions_2 } from '@firebase/firestore-types';
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the absolute value of the numeric value.
  */
 export declare function abs(expr: Expression): FunctionExpression;
+
 /**
  * Creates an expression that computes the absolute value of a numeric value.
  *
@@ -46,6 +53,7 @@ export declare function abs(expr: Expression): FunctionExpression;
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the absolute value of the numeric value.
  */
 export declare function abs(fieldName: string): FunctionExpression;
+
 /**
  *
  * Creates an expression that adds two expressions together.
@@ -65,6 +73,7 @@ export declare function add(
   first: Expression,
   second: Expression | unknown
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that adds a field's value to an expression.
@@ -84,6 +93,7 @@ export declare function add(
   fieldName: string,
   second: Expression | unknown
 ): FunctionExpression;
+
 /**
  * Options defining how an AddFieldsStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(addFields:1)}.
  */
@@ -94,6 +104,7 @@ export declare type AddFieldsStageOptions = StageOptions & {
    */
   fields: Selectable[];
 };
+
 /**
  *
  * A class that represents an aggregate function.
@@ -122,6 +133,7 @@ export declare class AggregateFunction {
    */
   as(name: string): AliasedAggregate;
 }
+
 /**
  * Options defining how an AggregateStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(aggregate:1)}.
  */
@@ -137,6 +149,7 @@ export declare type AggregateStageOptions = StageOptions & {
    */
   groups?: Array<string | Selectable>;
 };
+
 /**
  *
  * An AggregateFunction with alias.
@@ -150,6 +163,7 @@ export declare class AliasedAggregate {
     _methodName: string | undefined
   );
 }
+
 export declare class AliasedExpression implements Selectable {
   readonly expr: Expression;
   readonly alias: string;
@@ -157,6 +171,7 @@ export declare class AliasedExpression implements Selectable {
   selectable: true;
   constructor(expr: Expression, alias: string, _methodName: string | undefined);
 }
+
 /**
  *
  * Creates an expression that performs a logical 'AND' operation on multiple filter conditions.
@@ -178,6 +193,7 @@ export declare function and(
   second: BooleanExpression,
   ...more: BooleanExpression[]
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that creates a Firestore array value from an input array.
@@ -192,6 +208,7 @@ export declare function and(
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the array function.
  */
 export declare function array(elements: unknown[]): FunctionExpression;
+
 /**
  * Creates an aggregation that collects all values of an expression across multiple stage
  * inputs into an array.
@@ -210,6 +227,7 @@ export declare function array(elements: unknown[]): FunctionExpression;
  * @returns A new {@link @firebase/firestore/pipelines#AggregateFunction} representing the 'array_agg' aggregation.
  */
 export declare function arrayAgg(expression: Expression): AggregateFunction;
+
 /**
  * Creates an aggregation that collects all values of a field across multiple stage inputs
  * into an array.
@@ -228,6 +246,7 @@ export declare function arrayAgg(expression: Expression): AggregateFunction;
  * @returns A new {@link @firebase/firestore/pipelines#AggregateFunction} representing the 'array_agg' aggregation.
  */
 export declare function arrayAgg(fieldName: string): AggregateFunction;
+
 /**
  * Creates an aggregation that collects all distinct values of an expression across multiple stage
  * inputs into an array.
@@ -248,6 +267,7 @@ export declare function arrayAgg(fieldName: string): AggregateFunction;
 export declare function arrayAggDistinct(
   expression: Expression
 ): AggregateFunction;
+
 /**
  * Creates an aggregation that collects all distinct values of a field across multiple stage inputs
  * into an array.
@@ -266,6 +286,7 @@ export declare function arrayAggDistinct(
  * @returns A new {@link @firebase/firestore/pipelines#AggregateFunction} representing the 'array_agg_distinct' aggregation.
  */
 export declare function arrayAggDistinct(fieldName: string): AggregateFunction;
+
 /**
  *
  * Creates an expression that concatenates an array expression with other arrays.
@@ -286,6 +307,7 @@ export declare function arrayConcat(
   secondArray: Expression | unknown[],
   ...otherArrays: Array<Expression | unknown[]>
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that concatenates a field's array value with other arrays.
@@ -306,6 +328,7 @@ export declare function arrayConcat(
   secondArray: Expression | unknown[],
   ...otherArrays: Array<Expression | unknown[]>
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that checks if an array expression contains a specific element.
@@ -324,6 +347,7 @@ export declare function arrayContains(
   array: Expression,
   element: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if an array expression contains a specific element.
@@ -342,6 +366,7 @@ export declare function arrayContains(
   array: Expression,
   element: unknown
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a field's array value contains a specific element.
@@ -360,6 +385,7 @@ export declare function arrayContains(
   fieldName: string,
   element: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a field's array value contains a specific value.
@@ -378,6 +404,7 @@ export declare function arrayContains(
   fieldName: string,
   element: unknown
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if an array expression contains all the specified elements.
@@ -396,6 +423,7 @@ export declare function arrayContainsAll(
   array: Expression,
   values: Array<Expression | unknown>
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a field's array value contains all the specified values or
@@ -415,6 +443,7 @@ export declare function arrayContainsAll(
   fieldName: string,
   values: Array<Expression | unknown>
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if an array expression contains all the specified elements.
@@ -433,6 +462,7 @@ export declare function arrayContainsAll(
   array: Expression,
   arrayExpression: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a field's array value contains all the specified values or
@@ -452,6 +482,7 @@ export declare function arrayContainsAll(
   fieldName: string,
   arrayExpression: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if an array expression contains any of the specified
@@ -471,6 +502,7 @@ export declare function arrayContainsAny(
   array: Expression,
   values: Array<Expression | unknown>
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a field's array value contains any of the specified
@@ -491,6 +523,7 @@ export declare function arrayContainsAny(
   fieldName: string,
   values: Array<Expression | unknown>
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if an array expression contains any of the specified
@@ -510,6 +543,7 @@ export declare function arrayContainsAny(
   array: Expression,
   values: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a field's array value contains any of the specified
@@ -530,6 +564,7 @@ export declare function arrayContainsAny(
   fieldName: string,
   values: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that filters an array using a provided alias and predicate expression.
@@ -550,6 +585,7 @@ export declare function arrayFilter(
   alias: string,
   filter: BooleanExpression
 ): FunctionExpression;
+
 /**
  * Creates an expression that filters an array using a provided alias and predicate expression.
  *
@@ -569,6 +605,7 @@ export declare function arrayFilter(
   alias: string,
   filter: BooleanExpression
 ): FunctionExpression;
+
 /**
  * Creates an expression that returns the first element of an array.
  *
@@ -582,6 +619,7 @@ export declare function arrayFilter(
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the first element.
  */
 export declare function arrayFirst(fieldName: string): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the first element of an array.
@@ -598,6 +636,7 @@ export declare function arrayFirst(fieldName: string): FunctionExpression;
 export declare function arrayFirst(
   arrayExpression: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the first `n` elements of an array.
@@ -616,6 +655,7 @@ export declare function arrayFirstN(
   fieldName: string,
   n: number
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the first `n` elements of an array.
@@ -634,6 +674,7 @@ export declare function arrayFirstN(
   fieldName: string,
   n: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the first `n` elements of an array.
@@ -652,6 +693,7 @@ export declare function arrayFirstN(
   arrayExpression: Expression,
   n: number
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the first `n` elements of an array.
@@ -670,6 +712,7 @@ export declare function arrayFirstN(
   arrayExpression: Expression,
   n: Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that indexes into an array from the beginning or end
  * and return the element. If the offset exceeds the array length, an error is
@@ -689,6 +732,7 @@ export declare function arrayGet(
   arrayField: string,
   offset: number
 ): FunctionExpression;
+
 /**
  * Creates an expression that indexes into an array from the beginning or end
  * and return the element. If the offset exceeds the array length, an error is
@@ -709,6 +753,7 @@ export declare function arrayGet(
   arrayField: string,
   offsetExpr: Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that indexes into an array from the beginning or end
  * and return the element. If the offset exceeds the array length, an error is
@@ -728,6 +773,7 @@ export declare function arrayGet(
   arrayExpression: Expression,
   offset: number
 ): FunctionExpression;
+
 /**
  * Creates an expression that indexes into an array from the beginning or end
  * and return the element. If the offset exceeds the array length, an error is
@@ -748,6 +794,7 @@ export declare function arrayGet(
   arrayExpression: Expression,
   offsetExpr: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the first index of the search value in an array.
@@ -767,6 +814,7 @@ export declare function arrayIndexOf(
   fieldName: string,
   search: unknown | Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the first index of the search value in an array.
@@ -786,6 +834,7 @@ export declare function arrayIndexOf(
   arrayExpression: Expression,
   search: unknown | Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns all indices of the search value in an array.
@@ -804,6 +853,7 @@ export declare function arrayIndexOfAll(
   fieldName: string,
   search: unknown | Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns all indices of the search value in an array.
@@ -822,6 +872,7 @@ export declare function arrayIndexOfAll(
   arrayExpression: Expression,
   search: unknown | Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the last element of an array.
@@ -836,6 +887,7 @@ export declare function arrayIndexOfAll(
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the last element.
  */
 export declare function arrayLast(fieldName: string): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the last element of an array.
@@ -852,6 +904,7 @@ export declare function arrayLast(fieldName: string): FunctionExpression;
 export declare function arrayLast(
   arrayExpression: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the last index of the search value in an array.
@@ -871,6 +924,7 @@ export declare function arrayLastIndexOf(
   fieldName: string,
   search: unknown | Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the last index of the search value in an array.
@@ -890,6 +944,7 @@ export declare function arrayLastIndexOf(
   arrayExpression: Expression,
   search: unknown | Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the last `n` elements of an array.
@@ -908,6 +963,7 @@ export declare function arrayLastN(
   fieldName: string,
   n: number
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the last `n` elements of an array.
@@ -926,6 +982,7 @@ export declare function arrayLastN(
   fieldName: string,
   n: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the last `n` elements of an array.
@@ -944,6 +1001,7 @@ export declare function arrayLastN(
   arrayExpression: Expression,
   n: number
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the last `n` elements of an array.
@@ -962,6 +1020,7 @@ export declare function arrayLastN(
   arrayExpression: Expression,
   n: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that calculates the length of an array in a specified field.
@@ -976,6 +1035,7 @@ export declare function arrayLastN(
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the length of the array.
  */
 export declare function arrayLength(fieldName: string): FunctionExpression;
+
 /**
  *
  * Creates an expression that calculates the length of an array expression.
@@ -990,6 +1050,7 @@ export declare function arrayLength(fieldName: string): FunctionExpression;
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the length of the array.
  */
 export declare function arrayLength(array: Expression): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the maximum value in an array.
@@ -1004,6 +1065,7 @@ export declare function arrayLength(array: Expression): FunctionExpression;
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the maximum value.
  */
 export declare function arrayMaximum(fieldName: string): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the maximum value in an array.
@@ -1020,6 +1082,7 @@ export declare function arrayMaximum(fieldName: string): FunctionExpression;
 export declare function arrayMaximum(
   arrayExpression: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the largest `n` elements of an array.
@@ -1042,6 +1105,7 @@ export declare function arrayMaximumN(
   fieldName: string,
   n: number
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the largest `n` elements of an array.
@@ -1064,6 +1128,7 @@ export declare function arrayMaximumN(
   fieldName: string,
   n: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the largest `n` elements of an array.
@@ -1086,6 +1151,7 @@ export declare function arrayMaximumN(
   arrayExpression: Expression,
   n: number
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the largest `n` elements of an array.
@@ -1108,6 +1174,7 @@ export declare function arrayMaximumN(
   arrayExpression: Expression,
   n: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the minimum value in an array.
@@ -1122,6 +1189,7 @@ export declare function arrayMaximumN(
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the minimum value.
  */
 export declare function arrayMinimum(fieldName: string): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the minimum value in an array.
@@ -1138,6 +1206,7 @@ export declare function arrayMinimum(fieldName: string): FunctionExpression;
 export declare function arrayMinimum(
   arrayExpression: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the smallest `n` elements of an array.
@@ -1160,6 +1229,7 @@ export declare function arrayMinimumN(
   fieldName: string,
   n: number
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the smallest `n` elements of an array.
@@ -1182,6 +1252,7 @@ export declare function arrayMinimumN(
   fieldName: string,
   n: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the smallest `n` elements of an array.
@@ -1204,6 +1275,7 @@ export declare function arrayMinimumN(
   arrayExpression: Expression,
   n: number
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the smallest `n` elements of an array.
@@ -1226,6 +1298,7 @@ export declare function arrayMinimumN(
   arrayExpression: Expression,
   n: Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that returns a slice of an array from `offset` with `length` elements.
  *
@@ -1248,6 +1321,7 @@ export declare function arraySlice(
   offset: number | Expression,
   length?: number | Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that returns a slice of an array from `offset` with `length` elements.
  *
@@ -1270,6 +1344,7 @@ export declare function arraySlice(
   offset: number | Expression,
   length?: number | Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that computes the sum of the elements in an array.
  *
@@ -1283,6 +1358,7 @@ export declare function arraySlice(
  * @returns A new `Expression` representing the sum of the elements in the array.
  */
 export declare function arraySum(fieldName: string): FunctionExpression;
+
 /**
  * Creates an expression that computes the sum of the elements in an array.
  *
@@ -1296,6 +1372,7 @@ export declare function arraySum(fieldName: string): FunctionExpression;
  * @returns A new `Expression` representing the sum of the elements in the array.
  */
 export declare function arraySum(expression: Expression): FunctionExpression;
+
 /**
  * Creates an expression that applies a provided transformation to each element in an array.
  *
@@ -1315,6 +1392,7 @@ export declare function arrayTransform(
   elementAlias: string,
   transform: Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that applies a provided transformation to each element in an array.
  *
@@ -1334,6 +1412,7 @@ export declare function arrayTransform(
   elementAlias: string,
   transform: Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that applies a provided transformation to each element in an array, providing the element's index to the transformation expression.
  *
@@ -1355,6 +1434,7 @@ export declare function arrayTransformWithIndex(
   indexAlias: string,
   transform: Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that applies a provided transformation to each element in an array, providing the element's index to the transformation expression.
  *
@@ -1376,6 +1456,7 @@ export declare function arrayTransformWithIndex(
   indexAlias: string,
   transform: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an {@link @firebase/firestore/pipelines#Ordering} that sorts documents in ascending order based on an expression.
@@ -1391,6 +1472,7 @@ export declare function arrayTransformWithIndex(
  * @returns A new `Ordering` for ascending sorting.
  */
 export declare function ascending(expr: Expression): Ordering;
+
 /**
  *
  * Creates an {@link @firebase/firestore/pipelines#Ordering} that sorts documents in ascending order based on a field.
@@ -1406,6 +1488,7 @@ export declare function ascending(expr: Expression): Ordering;
  * @returns A new `Ordering` for ascending sorting.
  */
 export declare function ascending(fieldName: string): Ordering;
+
 /* Excluded from this release type: AuthTokenFactory */
 /**
  *
@@ -1422,6 +1505,7 @@ export declare function ascending(fieldName: string): Ordering;
  * @returns A new {@link @firebase/firestore/pipelines#AggregateFunction} representing the 'average' aggregation.
  */
 export declare function average(expression: Expression): AggregateFunction;
+
 /**
  *
  * Creates an aggregation that calculates the average (mean) of a field's values across multiple
@@ -1437,6 +1521,7 @@ export declare function average(expression: Expression): AggregateFunction;
  * @returns A new {@link @firebase/firestore/pipelines#AggregateFunction} representing the 'average' aggregation.
  */
 export declare function average(fieldName: string): AggregateFunction;
+
 /**
  *
  * An interface that represents a filter condition.
@@ -1550,6 +1635,7 @@ export declare abstract class BooleanExpression extends Expression {
    */
   ifError(catchValue: unknown): FunctionExpression;
 }
+
 /**
  *
  * Creates an expression that calculates the byte length of a string in UTF-8, or just the length of a Blob.
@@ -1564,6 +1650,7 @@ export declare abstract class BooleanExpression extends Expression {
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the length of the string in bytes.
  */
 export declare function byteLength(expr: Expression): FunctionExpression;
+
 /**
  *
  * Creates an expression that calculates the length of a string represented by a field in UTF-8 bytes, or just the length of a Blob.
@@ -1578,6 +1665,7 @@ export declare function byteLength(expr: Expression): FunctionExpression;
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the length of the string in bytes.
  */
 export declare function byteLength(fieldName: string): FunctionExpression;
+
 /* Excluded from this release type: ByteString */
 /**
  * Creates an expression that computes the ceiling of a numeric value.
@@ -1592,6 +1680,7 @@ export declare function byteLength(fieldName: string): FunctionExpression;
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the ceiling of the numeric value.
  */
 export declare function ceil(fieldName: string): FunctionExpression;
+
 /**
  * Creates an expression that computes the ceiling of a numeric value.
  *
@@ -1605,6 +1694,7 @@ export declare function ceil(fieldName: string): FunctionExpression;
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the ceiling of the numeric value.
  */
 export declare function ceil(expression: Expression): FunctionExpression;
+
 /**
  *
  * Creates an expression that calculates the character length of a string field in UTF8.
@@ -1619,6 +1709,7 @@ export declare function ceil(expression: Expression): FunctionExpression;
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the length of the string.
  */
 export declare function charLength(fieldName: string): FunctionExpression;
+
 /**
  *
  * Creates an expression that calculates the character length of a string expression in UTF-8.
@@ -1635,6 +1726,7 @@ export declare function charLength(fieldName: string): FunctionExpression;
 export declare function charLength(
   stringExpression: Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that returns the first non-null, non-absent argument, without evaluating
  * the rest of the arguments. When all arguments are null or absent, returns the last argument.
@@ -1656,6 +1748,7 @@ export declare function coalesce(
   replacement: Expression | unknown,
   ...others: Array<Expression | unknown>
 ): FunctionExpression;
+
 /**
  * Creates an expression that returns the first non-null, non-absent argument, without evaluating
  * the rest of the arguments. When all arguments are null or absent, returns the last argument.
@@ -1677,6 +1770,7 @@ export declare function coalesce(
   replacement: Expression | unknown,
   ...others: Array<Expression | unknown>
 ): FunctionExpression;
+
 /**
  * Defines the configuration options for a CollectionGroupStage within a pipeline.
  * This type extends {@link @firebase/firestore/pipelines#StageOptions} and provides specific settings for how a collection group
@@ -1698,6 +1792,7 @@ export declare type CollectionGroupStageOptions = StageOptions & {
    */
   forceIndex?: string;
 };
+
 /**
  * Creates an expression that returns the collection ID from a path.
  *
@@ -1711,6 +1806,7 @@ export declare type CollectionGroupStageOptions = StageOptions & {
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the collectionId operation.
  */
 export declare function collectionId(fieldName: string): FunctionExpression;
+
 /**
  * Creates an expression that returns the collection ID from a path.
  *
@@ -1726,6 +1822,7 @@ export declare function collectionId(fieldName: string): FunctionExpression;
 export declare function collectionId(
   expression: Expression
 ): FunctionExpression;
+
 /**
  * Options defining how a CollectionStage is evaluated. See {@link @firebase/firestore/pipelines#PipelineSource.(collection:1)}.
  */
@@ -1743,6 +1840,7 @@ export declare type CollectionStageOptions = StageOptions & {
    */
   forceIndex?: string;
 };
+
 /**
  * Creates an expression that concatenates strings, arrays, or blobs. Types cannot be mixed.
  *
@@ -1762,6 +1860,7 @@ export declare function concat(
   second: Expression | unknown,
   ...others: Array<Expression | unknown>
 ): FunctionExpression;
+
 /**
  * Creates an expression that concatenates strings, arrays, or blobs. Types cannot be mixed.
  *
@@ -1781,6 +1880,7 @@ export declare function concat(
   second: Expression | unknown,
   ...others: Array<Expression | unknown>
 ): FunctionExpression;
+
 /**
  *
  * Creates a conditional expression that evaluates to a 'then' expression if a condition is true
@@ -1803,6 +1903,7 @@ export declare function conditional(
   thenExpr: Expression,
   elseExpr: Expression
 ): FunctionExpression;
+
 /**
  * Creates a `Constant` instance for a number value.
  *
@@ -1815,6 +1916,7 @@ export declare function constant(
     preferIntegers?: boolean;
   }
 ): Expression;
+
 /**
  * Creates a `Constant` instance for a string value.
  *
@@ -1822,6 +1924,7 @@ export declare function constant(
  * @returns A new `Constant` instance.
  */
 export declare function constant(value: string): Expression;
+
 /**
  * Creates a `BooleanExpression` instance for a boolean value.
  *
@@ -1829,6 +1932,7 @@ export declare function constant(value: string): Expression;
  * @returns A new `Constant` instance.
  */
 export declare function constant(value: boolean): BooleanExpression;
+
 /**
  * Creates a `Constant` instance for a null value.
  *
@@ -1836,6 +1940,7 @@ export declare function constant(value: boolean): BooleanExpression;
  * @returns A new `Constant` instance.
  */
 export declare function constant(value: null): Expression;
+
 /**
  * Creates a `Constant` instance for a GeoPoint value.
  *
@@ -1843,6 +1948,7 @@ export declare function constant(value: null): Expression;
  * @returns A new `Constant` instance.
  */
 export declare function constant(value: GeoPoint): Expression;
+
 /**
  * Creates a `Constant` instance for a Timestamp value.
  *
@@ -1850,6 +1956,7 @@ export declare function constant(value: GeoPoint): Expression;
  * @returns A new `Constant` instance.
  */
 export declare function constant(value: Timestamp): Expression;
+
 /**
  * Creates a `Constant` instance for a Date value.
  *
@@ -1857,6 +1964,7 @@ export declare function constant(value: Timestamp): Expression;
  * @returns A new `Constant` instance.
  */
 export declare function constant(value: Date): Expression;
+
 /**
  * Creates a `Constant` instance for a Bytes value.
  *
@@ -1864,6 +1972,7 @@ export declare function constant(value: Date): Expression;
  * @returns A new `Constant` instance.
  */
 export declare function constant(value: Bytes): Expression;
+
 /**
  * Creates a `Constant` instance for a DocumentReference value.
  *
@@ -1871,6 +1980,7 @@ export declare function constant(value: Bytes): Expression;
  * @returns A new `Constant` instance.
  */
 export declare function constant(value: DocumentReference): Expression;
+
 /* Excluded declaration from this release type: constant */
 /**
  * Creates a `Constant` instance for a VectorValue value.
@@ -1879,6 +1989,7 @@ export declare function constant(value: DocumentReference): Expression;
  * @returns A new `Constant` instance.
  */
 export declare function constant(value: VectorValue): Expression;
+
 /**
  *
  * Calculates the Cosine distance between a field's vector value and a literal vector value.
@@ -1897,6 +2008,7 @@ export declare function cosineDistance(
   fieldName: string,
   vector: number[] | VectorValue
 ): FunctionExpression;
+
 /**
  *
  * Calculates the Cosine distance between a field's vector value and a vector expression.
@@ -1915,6 +2027,7 @@ export declare function cosineDistance(
   fieldName: string,
   vectorExpression: Expression
 ): FunctionExpression;
+
 /**
  *
  * Calculates the Cosine distance between a vector expression and a vector literal.
@@ -1933,6 +2046,7 @@ export declare function cosineDistance(
   vectorExpression: Expression,
   vector: number[] | VectorValue
 ): FunctionExpression;
+
 /**
  *
  * Calculates the Cosine distance between two vector expressions.
@@ -1951,6 +2065,7 @@ export declare function cosineDistance(
   vectorExpression: Expression,
   otherVectorExpression: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an aggregation that counts the number of stage inputs with valid evaluations of the
@@ -1966,6 +2081,7 @@ export declare function cosineDistance(
  * @returns A new {@link @firebase/firestore/pipelines#AggregateFunction} representing the 'count' aggregation.
  */
 export declare function count(expression: Expression): AggregateFunction;
+
 /**
  * Creates an aggregation that counts the number of stage inputs where the input field exists.
  *
@@ -1979,6 +2095,7 @@ export declare function count(expression: Expression): AggregateFunction;
  * @returns A new {@link @firebase/firestore/pipelines#AggregateFunction} representing the 'count' aggregation.
  */
 export declare function count(fieldName: string): AggregateFunction;
+
 /**
  * Creates an aggregation that counts the total number of stage inputs.
  *
@@ -1991,6 +2108,7 @@ export declare function count(fieldName: string): AggregateFunction;
  * @returns A new {@link @firebase/firestore/pipelines#AggregateFunction} representing the 'countAll' aggregation.
  */
 export declare function countAll(): AggregateFunction;
+
 /**
  * Creates an aggregation that counts the number of distinct values of a field.
  *
@@ -2000,6 +2118,7 @@ export declare function countAll(): AggregateFunction;
 export declare function countDistinct(
   expr: Expression | string
 ): AggregateFunction;
+
 /**
  * Creates an aggregation that counts the number of stage inputs where the provided
  * boolean expression evaluates to true.
@@ -2016,6 +2135,7 @@ export declare function countDistinct(
 export declare function countIf(
   booleanExpr: BooleanExpression
 ): AggregateFunction;
+
 /**
  * @public
  * Creates an expression that represents the current document being processed.
@@ -2032,6 +2152,7 @@ export declare function countIf(
  * @returns An {@link @firebase/firestore/pipelines#Expression} representing the current document.
  */
 export declare function currentDocument(): Expression;
+
 /**
  *
  * Creates an expression that evaluates to the current server timestamp.
@@ -2045,10 +2166,12 @@ export declare function currentDocument(): Expression;
  * @returns A new Expression representing the current server timestamp.
  */
 export declare function currentTimestamp(): FunctionExpression;
+
 /**
  * Options defining how a DatabaseStage is evaluated. See {@link @firebase/firestore/pipelines#PipelineSource.(database:1)}.
  */
 export declare type DatabaseStageOptions = StageOptions & {};
+
 /**
  * @public
  * Options defining how a DefineStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(define:1)}.
@@ -2060,6 +2183,7 @@ export declare type DefineStageOptions = StageOptions & {
    */
   variables: AliasedExpression[];
 };
+
 /**
  *
  * Creates an {@link @firebase/firestore/pipelines#Ordering} that sorts documents in descending order based on an expression.
@@ -2075,6 +2199,7 @@ export declare type DefineStageOptions = StageOptions & {
  * @returns A new `Ordering` for descending sorting.
  */
 export declare function descending(expr: Expression): Ordering;
+
 /**
  *
  * Creates an {@link @firebase/firestore/pipelines#Ordering} that sorts documents in descending order based on a field.
@@ -2090,6 +2215,7 @@ export declare function descending(expr: Expression): Ordering;
  * @returns A new `Ordering` for descending sorting.
  */
 export declare function descending(fieldName: string): Ordering;
+
 /**
  * Options defining how a DistinctStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(distinct:1)}.
  */
@@ -2100,6 +2226,7 @@ export declare type DistinctStageOptions = StageOptions & {
    */
   groups: Array<string | Selectable>;
 };
+
 /**
  *
  * Creates an expression that divides two expressions.
@@ -2118,6 +2245,7 @@ export declare function divide(
   left: Expression,
   right: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that divides an expression by a constant value.
@@ -2136,6 +2264,7 @@ export declare function divide(
   expression: Expression,
   value: unknown
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that divides a field's value by an expression.
@@ -2154,6 +2283,7 @@ export declare function divide(
   fieldName: string,
   expressions: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that divides a field's value by a constant value.
@@ -2172,6 +2302,7 @@ export declare function divide(
   fieldName: string,
   value: unknown
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the document ID from a path.
@@ -2187,6 +2318,7 @@ export declare function divide(
 export declare function documentId(
   documentPath: string | DocumentReference
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the document ID from a path.
@@ -2202,6 +2334,7 @@ export declare function documentId(
 export declare function documentId(
   documentPathExpr: Expression
 ): FunctionExpression;
+
 /**
  * @beta
  * Perform a full-text search on all indexed search fields in the document.
@@ -2220,6 +2353,7 @@ export declare function documentId(
 export declare function documentMatches(
   rquery: string | Expression
 ): BooleanExpression;
+
 /**
  * Options defining how a DocumentsStage is evaluated. See {@link @firebase/firestore/pipelines#PipelineSource.(documents:1)}.
  */
@@ -2231,6 +2365,7 @@ export declare type DocumentsStageOptions = StageOptions & {
    */
   docs: Array<string | DocumentReference>;
 };
+
 /**
  *
  * Calculates the dot product between a field's vector value and a double array.
@@ -2249,6 +2384,7 @@ export declare function dotProduct(
   fieldName: string,
   vector: number[] | VectorValue
 ): FunctionExpression;
+
 /**
  *
  * Calculates the dot product between a field's vector value and a vector expression.
@@ -2267,6 +2403,7 @@ export declare function dotProduct(
   fieldName: string,
   vectorExpression: Expression
 ): FunctionExpression;
+
 /**
  *
  * Calculates the dot product between a vector expression and a double array.
@@ -2285,6 +2422,7 @@ export declare function dotProduct(
   vectorExpression: Expression,
   vector: number[] | VectorValue
 ): FunctionExpression;
+
 /**
  *
  * Calculates the dot product between two vector expressions.
@@ -2303,6 +2441,7 @@ export declare function dotProduct(
   vectorExpression: Expression,
   otherVectorExpression: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that checks if a field's value ends with a given postfix.
@@ -2321,6 +2460,7 @@ export declare function endsWith(
   fieldName: string,
   suffix: string
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a field's value ends with a given postfix.
@@ -2339,6 +2479,7 @@ export declare function endsWith(
   fieldName: string,
   suffix: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a string expression ends with a given postfix.
@@ -2357,6 +2498,7 @@ export declare function endsWith(
   stringExpression: Expression,
   suffix: string
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a string expression ends with a given postfix.
@@ -2375,6 +2517,7 @@ export declare function endsWith(
   stringExpression: Expression,
   suffix: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if two expressions are equal.
@@ -2393,6 +2536,7 @@ export declare function equal(
   left: Expression,
   right: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if an expression is equal to a constant value.
@@ -2411,6 +2555,7 @@ export declare function equal(
   expression: Expression,
   value: unknown
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a field's value is equal to an expression.
@@ -2429,6 +2574,7 @@ export declare function equal(
   fieldName: string,
   expression: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a field's value is equal to a constant value.
@@ -2447,6 +2593,7 @@ export declare function equal(
   fieldName: string,
   value: unknown
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if an expression, when evaluated, is equal to any of the provided values or
@@ -2466,6 +2613,7 @@ export declare function equalAny(
   expression: Expression,
   values: Array<Expression | unknown>
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if an expression is equal to any of the provided values.
@@ -2484,6 +2632,7 @@ export declare function equalAny(
   expression: Expression,
   arrayExpression: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a field's value is equal to any of the provided values or
@@ -2503,6 +2652,7 @@ export declare function equalAny(
   fieldName: string,
   values: Array<Expression | unknown>
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a field's value is equal to any of the provided values or
@@ -2522,6 +2672,7 @@ export declare function equalAny(
   fieldName: string,
   arrayExpression: Expression
 ): BooleanExpression;
+
 /**
  *
  * Calculates the Euclidean distance between a field's vector value and a double array.
@@ -2540,6 +2691,7 @@ export declare function euclideanDistance(
   fieldName: string,
   vector: number[] | VectorValue
 ): FunctionExpression;
+
 /**
  *
  * Calculates the Euclidean distance between a field's vector value and a vector expression.
@@ -2558,6 +2710,7 @@ export declare function euclideanDistance(
   fieldName: string,
   vectorExpression: Expression
 ): FunctionExpression;
+
 /**
  *
  * Calculates the Euclidean distance between a vector expression and a double array.
@@ -2577,6 +2730,7 @@ export declare function euclideanDistance(
   vectorExpression: Expression,
   vector: number[] | VectorValue
 ): FunctionExpression;
+
 /**
  *
  * Calculates the Euclidean distance between two vector expressions.
@@ -2595,6 +2749,7 @@ export declare function euclideanDistance(
   vectorExpression: Expression,
   otherVectorExpression: Expression
 ): FunctionExpression;
+
 /**
  * Executes a pipeline and returns a Promise to represent the asynchronous operation.
  *
@@ -2629,6 +2784,7 @@ export declare function euclideanDistance(
  * @returns A Promise representing the asynchronous pipeline execution.
  */
 export declare function execute(pipeline: Pipeline): Promise<PipelineSnapshot>;
+
 /**
  * Executes a pipeline and returns a Promise to represent the asynchronous operation.
  *
@@ -2665,6 +2821,7 @@ export declare function execute(pipeline: Pipeline): Promise<PipelineSnapshot>;
 export declare function execute(
   options: PipelineExecuteOptions
 ): Promise<PipelineSnapshot>;
+
 /**
  *
  * Creates an expression that checks if a field exists.
@@ -2679,6 +2836,7 @@ export declare function execute(
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the 'exists' check.
  */
 export declare function exists(value: Expression): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a field exists.
@@ -2693,6 +2851,7 @@ export declare function exists(value: Expression): BooleanExpression;
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the 'exists' check.
  */
 export declare function exists(fieldName: string): BooleanExpression;
+
 /**
  * Creates an expression that computes e to the power of the expression's result.
  *
@@ -2705,6 +2864,7 @@ export declare function exists(fieldName: string): BooleanExpression;
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the exp of the numeric value.
  */
 export declare function exp(expression: Expression): FunctionExpression;
+
 /**
  * Creates an expression that computes e to the power of the expression's result.
  *
@@ -2717,6 +2877,7 @@ export declare function exp(expression: Expression): FunctionExpression;
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the exp of the numeric value.
  */
 export declare function exp(fieldName: string): FunctionExpression;
+
 /**
  *
  * Represents an expression that can be evaluated to a value within the execution of a {@link
@@ -5168,6 +5329,7 @@ export declare abstract class Expression {
    */
   as(name: string): AliasedExpression;
 }
+
 /**
  *
  * An enumeration of the different types of expressions.
@@ -5181,6 +5343,7 @@ export declare type ExpressionType =
   | 'AliasedExpression'
   | 'Variable'
   | 'PipelineValue';
+
 /**
  *
  * Represents a reference to a field in a Firestore document, or outputs of a {@link @firebase/firestore/pipelines#Pipeline} stage.
@@ -5217,6 +5380,7 @@ export declare class Field extends Expression implements Selectable {
    */
   geoDistance(location: GeoPoint | Expression): Expression;
 }
+
 /**
  * Creates a {@link @firebase/firestore/pipelines#Field} instance representing the field at the given path.
  *
@@ -5236,6 +5400,7 @@ export declare class Field extends Expression implements Selectable {
  * @returns A new {@link @firebase/firestore/pipelines#Field} instance representing the specified field.
  */
 export declare function field(name: string): Field;
+
 /**
  * Creates a {@link @firebase/firestore/pipelines#Field} instance representing the field at the given path.
  *
@@ -5243,6 +5408,7 @@ export declare function field(name: string): Field;
  * @returns A new {@link @firebase/firestore/pipelines#Field} instance representing the specified field.
  */
 export declare function field(path: FieldPath): Field;
+
 /**
  * Options defining how a FindNearestStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(findNearest:1)}.
  */
@@ -5277,6 +5443,7 @@ export declare type FindNearestStageOptions = StageOptions & {
    */
   distanceField?: string;
 };
+
 /**
  * Creates an aggregation that finds the first value of an expression across multiple stage
  * inputs.
@@ -5291,6 +5458,7 @@ export declare type FindNearestStageOptions = StageOptions & {
  * @returns A new {@link @firebase/firestore/pipelines#AggregateFunction} representing the 'first' aggregation.
  */
 export declare function first(expression: Expression): AggregateFunction;
+
 /**
  * Creates an aggregation that finds the first value of a field across multiple stage inputs.
  *
@@ -5304,6 +5472,7 @@ export declare function first(expression: Expression): AggregateFunction;
  * @returns A new {@link @firebase/firestore/pipelines#AggregateFunction} representing the 'first' aggregation.
  */
 export declare function first(fieldName: string): AggregateFunction;
+
 /* Excluded from this release type: FirstPartyCredentialsSettings */
 /**
  * Creates an expression that computes the floor of a numeric value.
@@ -5312,6 +5481,7 @@ export declare function first(fieldName: string): AggregateFunction;
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the floor of the numeric value.
  */
 export declare function floor(expr: Expression): FunctionExpression;
+
 /**
  * Creates an expression that computes the floor of a numeric value.
  *
@@ -5319,6 +5489,7 @@ export declare function floor(expr: Expression): FunctionExpression;
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the floor of the numeric value.
  */
 export declare function floor(fieldName: string): FunctionExpression;
+
 /**
  *
  * This class defines the base class for Firestore {@link @firebase/firestore/pipelines#Pipeline} functions, which can be evaluated within pipeline
@@ -5334,6 +5505,7 @@ export declare class FunctionExpression extends Expression {
   constructor(name: string, params: Expression[]);
   private constructor();
 }
+
 /**
  * @beta
  * Evaluates to the distance in meters between the location in the specified
@@ -5357,6 +5529,7 @@ export declare function geoDistance(
   fieldName: string | Field,
   location: GeoPoint | Expression
 ): Expression;
+
 /**
  *
  * Creates an expression that checks if the first expression is greater than the second
@@ -5376,6 +5549,7 @@ export declare function greaterThan(
   left: Expression,
   right: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if an expression is greater than a constant value.
@@ -5394,6 +5568,7 @@ export declare function greaterThan(
   expression: Expression,
   value: unknown
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a field's value is greater than an expression.
@@ -5412,6 +5587,7 @@ export declare function greaterThan(
   fieldName: string,
   expression: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a field's value is greater than a constant value.
@@ -5430,6 +5606,7 @@ export declare function greaterThan(
   fieldName: string,
   value: unknown
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if the first expression is greater than or equal to the
@@ -5449,6 +5626,7 @@ export declare function greaterThanOrEqual(
   left: Expression,
   right: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if an expression is greater than or equal to a constant
@@ -5468,6 +5646,7 @@ export declare function greaterThanOrEqual(
   expression: Expression,
   value: unknown
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a field's value is greater than or equal to an expression.
@@ -5486,6 +5665,7 @@ export declare function greaterThanOrEqual(
   fieldName: string,
   value: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a field's value is greater than or equal to a constant
@@ -5505,6 +5685,7 @@ export declare function greaterThanOrEqual(
   fieldName: string,
   value: unknown
 ): BooleanExpression;
+
 /**
  * Creates an expression that returns the `elseExpr` argument if `ifExpr` is absent, else return
  * the result of the `ifExpr` argument evaluation.
@@ -5524,6 +5705,7 @@ export declare function ifAbsent(
   ifExpr: Expression,
   elseExpr: Expression
 ): Expression;
+
 /**
  * Creates an expression that returns the `elseValue` argument if `ifExpr` is absent, else
  * return the result of the `ifExpr` argument evaluation.
@@ -5543,6 +5725,7 @@ export declare function ifAbsent(
   ifExpr: Expression,
   elseValue: unknown
 ): Expression;
+
 /**
  * Creates an expression that returns the `elseExpr` argument if `ifFieldName` is absent, else
  * return the value of the field.
@@ -5563,6 +5746,7 @@ export declare function ifAbsent(
   ifFieldName: string,
   elseExpr: Expression
 ): Expression;
+
 /**
  * Creates an expression that returns the `elseValue` argument if `ifFieldName` is absent, else
  * return the value of the field.
@@ -5582,6 +5766,7 @@ export declare function ifAbsent(
   ifFieldName: string | Expression,
   elseValue: Expression | unknown
 ): Expression;
+
 /**
  *
  * Creates an expression that returns the `catch` argument if there is an
@@ -5605,6 +5790,7 @@ export declare function ifError(
   tryExpr: BooleanExpression,
   catchExpr: BooleanExpression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that returns the `catch` argument if there is an
@@ -5626,6 +5812,7 @@ export declare function ifError(
   tryExpr: Expression,
   catchExpr: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the `catch` argument if there is an
@@ -5647,6 +5834,7 @@ export declare function ifError(
   tryExpr: Expression,
   catchValue: unknown
 ): FunctionExpression;
+
 /**
  * Creates an expression that returns the `elseExpr` argument if `ifExpr` is null, else
  * return the result of the `ifExpr` argument evaluation.
@@ -5669,6 +5857,7 @@ export declare function ifNull(
   ifExpr: Expression,
   elseExpr: Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that returns the `elseValue` argument if `ifExpr` is null, else
  * return the result of the `ifExpr` argument evaluation.
@@ -5691,6 +5880,7 @@ export declare function ifNull(
   ifExpr: Expression,
   elseValue: unknown
 ): FunctionExpression;
+
 /**
  * Creates an expression that returns the `elseExpr` argument if `ifFieldName` field is null, else
  * return the value of the field.
@@ -5713,6 +5903,7 @@ export declare function ifNull(
   ifFieldName: string,
   elseExpr: Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that returns the `elseValue` argument if `ifFieldName` field is null, else
  * return the value of the field.
@@ -5735,6 +5926,7 @@ export declare function ifNull(
   ifFieldName: string,
   elseValue: unknown
 ): FunctionExpression;
+
 /* Excluded from this release type: _internalPipelineToExecutePipelineRequestProto */
 /**
  *
@@ -5751,6 +5943,7 @@ export declare function ifNull(
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the 'isAbsent' check.
  */
 export declare function isAbsent(value: Expression): BooleanExpression;
+
 /**
  *
  * Creates an expression that returns `true` if a field is absent. Otherwise,
@@ -5766,6 +5959,7 @@ export declare function isAbsent(value: Expression): BooleanExpression;
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the 'isAbsent' check.
  */
 export declare function isAbsent(field: string): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a given expression produces an error.
@@ -5780,6 +5974,7 @@ export declare function isAbsent(field: string): BooleanExpression;
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the 'isError' check.
  */
 export declare function isError(value: Expression): BooleanExpression;
+
 /**
  * Creates an expression that checks if the value in the specified field is of the given type.
  *
@@ -5803,6 +5998,7 @@ export declare function isType(
   fieldName: string,
   type: string
 ): BooleanExpression;
+
 /**
  * Creates an expression that checks if the result of an expression is of the given type.
  *
@@ -5826,6 +6022,7 @@ export declare function isType(
   expression: Expression,
   type: string
 ): BooleanExpression;
+
 /**
  * Creates an expression that joins the elements of an array into a string.
  *
@@ -5843,6 +6040,7 @@ export declare function join(
   arrayFieldName: string,
   delimiter: string
 ): Expression;
+
 /**
  * Creates an expression that joins the elements of an array into a string.
  *
@@ -5860,6 +6058,7 @@ export declare function join(
   arrayExpression: Expression,
   delimiterExpression: Expression
 ): Expression;
+
 /**
  * Creates an expression that joins the elements of an array into a string.
  *
@@ -5877,6 +6076,7 @@ export declare function join(
   arrayExpression: Expression,
   delimiter: string
 ): Expression;
+
 /**
  * Creates an expression that joins the elements of an array into a string.
  *
@@ -5894,6 +6094,7 @@ export declare function join(
   arrayFieldName: string,
   delimiterExpression: Expression
 ): Expression;
+
 /**
  * Creates an aggregation that finds the last value of an expression across multiple stage
  * inputs.
@@ -5908,6 +6109,7 @@ export declare function join(
  * @returns A new {@link @firebase/firestore/pipelines#AggregateFunction} representing the 'last' aggregation.
  */
 export declare function last(expression: Expression): AggregateFunction;
+
 /**
  * Creates an aggregation that finds the last value of a field across multiple stage inputs.
  *
@@ -5921,6 +6123,7 @@ export declare function last(expression: Expression): AggregateFunction;
  * @returns A new {@link @firebase/firestore/pipelines#AggregateFunction} representing the 'last' aggregation.
  */
 export declare function last(fieldName: string): AggregateFunction;
+
 /**
  * Creates an expression that calculates the length of a string, array, map, vector, or bytes.
  *
@@ -5954,6 +6157,7 @@ declare function length_2(fieldName: string): FunctionExpression;
  */
 declare function length_2(expression: Expression): FunctionExpression;
 export { length_2 as length };
+
 /**
  *
  * Creates an expression that checks if the first expression is less than the second expression.
@@ -5972,6 +6176,7 @@ export declare function lessThan(
   left: Expression,
   right: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if an expression is less than a constant value.
@@ -5990,6 +6195,7 @@ export declare function lessThan(
   expression: Expression,
   value: unknown
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a field's value is less than an expression.
@@ -6008,6 +6214,7 @@ export declare function lessThan(
   fieldName: string,
   expression: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a field's value is less than a constant value.
@@ -6026,6 +6233,7 @@ export declare function lessThan(
   fieldName: string,
   value: unknown
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if the first expression is less than or equal to the second
@@ -6045,6 +6253,7 @@ export declare function lessThanOrEqual(
   left: Expression,
   right: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if an expression is less than or equal to a constant value.
@@ -6063,6 +6272,7 @@ export declare function lessThanOrEqual(
   expression: Expression,
   value: unknown
 ): BooleanExpression;
+
 /**
  * Creates an expression that checks if a field's value is less than or equal to an expression.
  *
@@ -6080,6 +6290,7 @@ export declare function lessThanOrEqual(
   fieldName: string,
   expression: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a field's value is less than or equal to a constant value.
@@ -6098,6 +6309,7 @@ export declare function lessThanOrEqual(
   fieldName: string,
   value: unknown
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that performs a case-sensitive wildcard string comparison against a
@@ -6117,6 +6329,7 @@ export declare function like(
   fieldName: string,
   pattern: string
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that performs a case-sensitive wildcard string comparison against a
@@ -6136,6 +6349,7 @@ export declare function like(
   fieldName: string,
   pattern: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that performs a case-sensitive wildcard string comparison.
@@ -6154,6 +6368,7 @@ export declare function like(
   stringExpression: Expression,
   pattern: string
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that performs a case-sensitive wildcard string comparison.
@@ -6172,6 +6387,7 @@ export declare function like(
   stringExpression: Expression,
   pattern: Expression
 ): BooleanExpression;
+
 /**
  * Options defining how a LimitStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(limit:1)}.
  */
@@ -6181,6 +6397,7 @@ export declare type LimitStageOptions = StageOptions & {
    */
   limit: number;
 };
+
 /**
  * Creates an expression that computes the natural logarithm of a numeric value.
  *
@@ -6194,6 +6411,7 @@ export declare type LimitStageOptions = StageOptions & {
  * @returns A new `Expression` representing the natural logarithm of the numeric value.
  */
 export declare function ln(fieldName: string): FunctionExpression;
+
 /**
  * Creates an expression that computes the natural logarithm of a numeric value.
  *
@@ -6207,6 +6425,7 @@ export declare function ln(fieldName: string): FunctionExpression;
  * @returns A new `Expression` representing the natural logarithm of the numeric value.
  */
 export declare function ln(expression: Expression): FunctionExpression;
+
 /**
  * Creates an expression that computes the logarithm of an expression to a given base.
  *
@@ -6224,6 +6443,7 @@ export declare function log(
   expression: Expression,
   base: number
 ): FunctionExpression;
+
 /**
  * Creates an expression that computes the logarithm of an expression to a given base.
  *
@@ -6241,6 +6461,7 @@ export declare function log(
   expression: Expression,
   base: Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that computes the logarithm of a field to a given base.
  *
@@ -6258,6 +6479,7 @@ export declare function log(
   fieldName: string,
   base: number
 ): FunctionExpression;
+
 /**
  * Creates an expression that computes the logarithm of a field to a given base.
  *
@@ -6275,6 +6497,7 @@ export declare function log(
   fieldName: string,
   base: Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that computes the base-10 logarithm of a numeric value.
  *
@@ -6288,6 +6511,7 @@ export declare function log(
  * @returns A new `Expression` representing the base-10 logarithm of the numeric value.
  */
 export declare function log10(fieldName: string): FunctionExpression;
+
 /**
  * Creates an expression that computes the base-10 logarithm of a numeric value.
  *
@@ -6301,6 +6525,7 @@ export declare function log10(fieldName: string): FunctionExpression;
  * @returns A new `Expression` representing the base-10 logarithm of the numeric value.
  */
 export declare function log10(expression: Expression): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the largest value between multiple input
@@ -6323,6 +6548,7 @@ export declare function logicalMaximum(
   second: Expression | unknown,
   ...others: Array<Expression | unknown>
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the largest value between multiple input
@@ -6345,6 +6571,7 @@ export declare function logicalMaximum(
   second: Expression | unknown,
   ...others: Array<Expression | unknown>
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the smallest value between multiple input
@@ -6367,6 +6594,7 @@ export declare function logicalMinimum(
   second: Expression | unknown,
   ...others: Array<Expression | unknown>
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the smallest value between a field's value
@@ -6390,6 +6618,7 @@ export declare function logicalMinimum(
   second: Expression | unknown,
   ...others: Array<Expression | unknown>
 ): FunctionExpression;
+
 /**
  * Trims whitespace or a specified set of characters/bytes from the beginning of a string or byte array.
  *
@@ -6411,6 +6640,7 @@ export declare function ltrim(
   fieldName: string,
   valueToTrim?: string | Expression | Bytes
 ): FunctionExpression;
+
 /**
  * Trims whitespace or a specified set of characters/bytes from the beginning of a string or byte array.
  *
@@ -6432,6 +6662,7 @@ export declare function ltrim(
   expression: Expression,
   valueToTrim?: string | Expression | Bytes
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that creates a Firestore map value from an input object.
@@ -6448,6 +6679,7 @@ export declare function ltrim(
 export declare function map(
   elements: Record<string, unknown>
 ): FunctionExpression;
+
 /**
  * Creates an expression that returns the entries of a map as an array of maps,
  * where each map contains a `"k"` property for the key and a `"v"` property for the value.
@@ -6467,6 +6699,7 @@ export declare function map(
  * @returns A new `Expression` representing the entries of the map.
  */
 export declare function mapEntries(mapField: string): FunctionExpression;
+
 /**
  * Creates an expression that returns the entries of a map as an array of maps,
  * where each map contains a `"k"` property for the key and a `"v"` property for the value.
@@ -6488,6 +6721,7 @@ export declare function mapEntries(mapField: string): FunctionExpression;
 export declare function mapEntries(
   mapExpression: Expression
 ): FunctionExpression;
+
 /**
  *
  * Accesses a value from a map (object) field using the provided key.
@@ -6506,6 +6740,7 @@ export declare function mapGet(
   fieldName: string,
   subField: string
 ): FunctionExpression;
+
 /**
  *
  * Accesses a value from a map (object) expression using the provided key.
@@ -6524,6 +6759,7 @@ export declare function mapGet(
   mapExpression: Expression,
   subField: string
 ): FunctionExpression;
+
 /**
  * Creates an expression that returns the keys of a map.
  *
@@ -6541,6 +6777,7 @@ export declare function mapGet(
  * @returns A new `Expression` representing the keys of the map.
  */
 export declare function mapKeys(mapField: string): FunctionExpression;
+
 /**
  * Creates an expression that returns the keys of a map.
  *
@@ -6558,6 +6795,7 @@ export declare function mapKeys(mapField: string): FunctionExpression;
  * @returns A new `Expression` representing the keys of the map.
  */
 export declare function mapKeys(mapExpression: Expression): FunctionExpression;
+
 /**
  *
  * Creates an expression that merges multiple map values.
@@ -6580,6 +6818,7 @@ export declare function mapMerge(
   secondMap: Record<string, unknown> | Expression,
   ...otherMaps: Array<Record<string, unknown> | Expression>
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that merges multiple map values.
@@ -6602,6 +6841,7 @@ export declare function mapMerge(
   secondMap: Record<string, unknown> | Expression,
   ...otherMaps: Array<Record<string, unknown> | Expression>
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that removes a key from the map at the specified field name.
@@ -6619,6 +6859,7 @@ export declare function mapRemove(
   mapField: string,
   key: string
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that removes a key from the map produced by evaluating an expression.
@@ -6636,6 +6877,7 @@ export declare function mapRemove(
   mapExpr: Expression,
   key: string
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that removes a key from the map at the specified field name.
@@ -6653,6 +6895,7 @@ export declare function mapRemove(
   mapField: string,
   keyExpr: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that removes a key from the map produced by evaluating an expression.
@@ -6670,6 +6913,7 @@ export declare function mapRemove(
   mapExpr: Expression,
   keyExpr: Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that returns a new map with the specified entries added or updated.
  *
@@ -6695,6 +6939,7 @@ export declare function mapSet(
   value: unknown,
   ...moreKeyValues: unknown[]
 ): FunctionExpression;
+
 /**
  * Creates an expression that returns a new map with the specified entries added or updated.
  *
@@ -6720,6 +6965,7 @@ export declare function mapSet(
   value: unknown,
   ...moreKeyValues: unknown[]
 ): FunctionExpression;
+
 /**
  * Creates an expression that returns the values of a map.
  *
@@ -6737,6 +6983,7 @@ export declare function mapSet(
  * @returns A new `Expression` representing the values of the map.
  */
 export declare function mapValues(mapField: string): FunctionExpression;
+
 /**
  * Creates an expression that returns the values of a map.
  *
@@ -6756,6 +7003,7 @@ export declare function mapValues(mapField: string): FunctionExpression;
 export declare function mapValues(
   mapExpression: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an aggregation that finds the maximum value of an expression across multiple stage
@@ -6771,6 +7019,7 @@ export declare function mapValues(
  * @returns A new {@link @firebase/firestore/pipelines#AggregateFunction} representing the 'maximum' aggregation.
  */
 export declare function maximum(expression: Expression): AggregateFunction;
+
 /**
  *
  * Creates an aggregation that finds the maximum value of a field across multiple stage inputs.
@@ -6785,6 +7034,7 @@ export declare function maximum(expression: Expression): AggregateFunction;
  * @returns A new {@link @firebase/firestore/pipelines#AggregateFunction} representing the 'maximum' aggregation.
  */
 export declare function maximum(fieldName: string): AggregateFunction;
+
 /**
  *
  * Creates an aggregation that finds the minimum value of an expression across multiple stage
@@ -6800,6 +7050,7 @@ export declare function maximum(fieldName: string): AggregateFunction;
  * @returns A new {@link @firebase/firestore/pipelines#AggregateFunction} representing the 'minimum' aggregation.
  */
 export declare function minimum(expression: Expression): AggregateFunction;
+
 /**
  *
  * Creates an aggregation that finds the minimum value of a field across multiple stage inputs.
@@ -6814,6 +7065,7 @@ export declare function minimum(expression: Expression): AggregateFunction;
  * @returns A new {@link @firebase/firestore/pipelines#AggregateFunction} representing the 'minimum' aggregation.
  */
 export declare function minimum(fieldName: string): AggregateFunction;
+
 /**
  *
  * Creates an expression that calculates the modulo (remainder) of dividing two expressions.
@@ -6832,6 +7084,7 @@ export declare function mod(
   left: Expression,
   right: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that calculates the modulo (remainder) of dividing an expression by a constant.
@@ -6850,6 +7103,7 @@ export declare function mod(
   expression: Expression,
   value: unknown
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that calculates the modulo (remainder) of dividing a field's value by an expression.
@@ -6868,6 +7122,7 @@ export declare function mod(
   fieldName: string,
   expression: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that calculates the modulo (remainder) of dividing a field's value by a constant.
@@ -6886,6 +7141,7 @@ export declare function mod(
   fieldName: string,
   value: unknown
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that multiplies two expressions together.
@@ -6905,6 +7161,7 @@ export declare function multiply(
   first: Expression,
   second: Expression | unknown
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that multiplies a field's value by an expression.
@@ -6924,6 +7181,7 @@ export declare function multiply(
   fieldName: string,
   second: Expression | unknown
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that performs a logical 'NOR' operation on multiple filter conditions.
@@ -6947,6 +7205,7 @@ export declare function nor(
   second: BooleanExpression,
   ...more: BooleanExpression[]
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that negates a filter condition.
@@ -6961,6 +7220,7 @@ export declare function nor(
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the negated filter condition.
  */
 export declare function not(booleanExpr: BooleanExpression): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if two expressions are not equal.
@@ -6979,6 +7239,7 @@ export declare function notEqual(
   left: Expression,
   right: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if an expression is not equal to a constant value.
@@ -6997,6 +7258,7 @@ export declare function notEqual(
   expression: Expression,
   value: unknown
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a field's value is not equal to an expression.
@@ -7015,6 +7277,7 @@ export declare function notEqual(
   fieldName: string,
   expression: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a field's value is not equal to a constant value.
@@ -7033,6 +7296,7 @@ export declare function notEqual(
   fieldName: string,
   value: unknown
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if an expression is not equal to any of the provided values
@@ -7052,6 +7316,7 @@ export declare function notEqualAny(
   element: Expression,
   values: Array<Expression | unknown>
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a field's value is not equal to any of the provided values
@@ -7071,6 +7336,7 @@ export declare function notEqualAny(
   fieldName: string,
   values: Array<Expression | unknown>
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if an expression is not equal to any of the provided values
@@ -7090,6 +7356,7 @@ export declare function notEqualAny(
   element: Expression,
   arrayExpression: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a field's value is not equal to any of the values in the evaluated expression.
@@ -7108,6 +7375,7 @@ export declare function notEqualAny(
   fieldName: string,
   arrayExpression: Expression
 ): BooleanExpression;
+
 /**
  * Options defining how an OffsetStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(offset:1)}.
  */
@@ -7117,6 +7385,7 @@ export declare type OffsetStageOptions = StageOptions & {
    */
   offset: number;
 };
+
 /**
  * Utility type to create an type that only allows one
  * property of the Type param T to be set.
@@ -7134,6 +7403,7 @@ export declare type OneOf<T> = {
     [P in Exclude<keyof T, K>]?: undefined;
   };
 }[keyof T];
+
 /**
  *
  * Creates an expression that performs a logical 'OR' operation on multiple filter conditions.
@@ -7155,6 +7425,7 @@ export declare function or(
   second: BooleanExpression,
   ...more: BooleanExpression[]
 ): BooleanExpression;
+
 /**
  *
  * Represents an ordering criterion for sorting documents in a Firestore pipeline.
@@ -7170,6 +7441,7 @@ export declare class Ordering {
     _methodName: string | undefined
   );
 }
+
 /**
  *
  * Creates an expression that returns the parent document reference of a document reference.
@@ -7201,6 +7473,7 @@ declare function parent_2(
  */
 declare function parent_2(documentPathExpr: Expression): FunctionExpression;
 export { parent_2 as parent };
+
 export declare class Pipeline {
   /**
    * Adds new fields to outputs from previous stages.
@@ -7941,6 +8214,7 @@ export declare class Pipeline {
     options?: { [key: string]: Expression | unknown }
   ): Pipeline;
 }
+
 /**
  * Options defining Pipeline execution.
  */
@@ -7999,6 +8273,7 @@ export declare interface PipelineExecuteOptions {
     [name: string]: unknown;
   };
 }
+
 /**
  *
  * A PipelineResult contains data read from a Firestore Pipeline. The data can be extracted with the
@@ -8074,6 +8349,7 @@ export declare class PipelineResult<AppModelType = DocumentData> {
    */
   get(fieldPath: string | FieldPath | Field): any;
 }
+
 /**
  * Test equality of two PipelineResults.
  * @param left - First PipelineResult to compare.
@@ -8083,6 +8359,7 @@ export declare function pipelineResultEqual(
   left: PipelineResult,
   right: PipelineResult
 ): boolean;
+
 /**
  * Represents the results of a Firestore pipeline execution.
  *
@@ -8121,6 +8398,7 @@ export declare class PipelineSnapshot {
    */
   get executionTime(): Timestamp;
 }
+
 /**
  * Provides the entry point for defining the data source of a Firestore {@link @firebase/firestore/pipelines#Pipeline}.
  *
@@ -8188,6 +8466,7 @@ export declare class PipelineSource<PipelineType> {
    */
   createFrom(query: Query): PipelineType;
 }
+
 /**
  * Creates an expression that returns the value of the base expression raised to the power of the exponent expression.
  *
@@ -8205,6 +8484,7 @@ export declare function pow(
   base: Expression,
   exponent: Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that returns the value of the base expression raised to the power of the exponent.
  *
@@ -8222,6 +8502,7 @@ export declare function pow(
   base: Expression,
   exponent: number
 ): FunctionExpression;
+
 /**
  * Creates an expression that returns the value of the base field raised to the power of the exponent expression.
  *
@@ -8239,6 +8520,7 @@ export declare function pow(
   base: string,
   exponent: Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that returns the value of the base field raised to the power of the exponent.
  *
@@ -8253,6 +8535,7 @@ export declare function pow(
  * @returns A new `Expression` representing the power operation.
  */
 export declare function pow(base: string, exponent: number): FunctionExpression;
+
 /**
  *
  * Creates an expression that generates a random number between 0.0 and 1.0 but not including 1.0.
@@ -8266,6 +8549,7 @@ export declare function pow(base: string, exponent: number): FunctionExpression;
  * @returns A new `Expression` representing the rand operation.
  */
 export declare function rand(): FunctionExpression;
+
 /**
  *
  * Creates an expression that checks if a string field contains a specified regular expression as
@@ -8285,6 +8569,7 @@ export declare function regexContains(
   fieldName: string,
   pattern: string
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a string field contains a specified regular expression as
@@ -8304,6 +8589,7 @@ export declare function regexContains(
   fieldName: string,
   pattern: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a string expression contains a specified regular
@@ -8323,6 +8609,7 @@ export declare function regexContains(
   stringExpression: Expression,
   pattern: string
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a string expression contains a specified regular
@@ -8342,6 +8629,7 @@ export declare function regexContains(
   stringExpression: Expression,
   pattern: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that returns the first substring of a string field that matches a
@@ -8363,6 +8651,7 @@ export declare function regexFind(
   fieldName: string,
   pattern: string
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the first substring of a string field that matches a
@@ -8384,6 +8673,7 @@ export declare function regexFind(
   fieldName: string,
   pattern: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the first substring of a string expression that matches
@@ -8405,6 +8695,7 @@ export declare function regexFind(
   stringExpression: Expression,
   pattern: string
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns the first substring of a string expression that matches
@@ -8426,6 +8717,7 @@ export declare function regexFind(
   stringExpression: Expression,
   pattern: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that evaluates to a list of all substrings in a string field that
@@ -8447,6 +8739,7 @@ export declare function regexFindAll(
   fieldName: string,
   pattern: string
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that evaluates to a list of all substrings in a string field that
@@ -8468,6 +8761,7 @@ export declare function regexFindAll(
   fieldName: string,
   pattern: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that evaluates to a list of all substrings in a string expression
@@ -8489,6 +8783,7 @@ export declare function regexFindAll(
   stringExpression: Expression,
   pattern: string
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that evaluates to a list of all substrings in a string expression
@@ -8510,6 +8805,7 @@ export declare function regexFindAll(
   stringExpression: Expression,
   pattern: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that checks if a string field matches a specified regular expression.
@@ -8528,6 +8824,7 @@ export declare function regexMatch(
   fieldName: string,
   pattern: string
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a string field matches a specified regular expression.
@@ -8546,6 +8843,7 @@ export declare function regexMatch(
   fieldName: string,
   pattern: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a string expression matches a specified regular
@@ -8565,6 +8863,7 @@ export declare function regexMatch(
   stringExpression: Expression,
   pattern: string
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a string expression matches a specified regular
@@ -8584,6 +8883,7 @@ export declare function regexMatch(
   stringExpression: Expression,
   pattern: Expression
 ): BooleanExpression;
+
 /**
  * Options defining how a RemoveFieldsStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(removeFields:1)}.
  */
@@ -8593,6 +8893,7 @@ export declare type RemoveFieldsStageOptions = StageOptions & {
    */
   fields: Array<Field | string>;
 };
+
 /**
  * Options defining how a ReplaceWithStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(replaceWith:1)}.
  */
@@ -8603,6 +8904,7 @@ export declare type ReplaceWithStageOptions = StageOptions & {
    */
   map: Expression | string;
 };
+
 /* Excluded from this release type: ResourcePath */
 /**
  *
@@ -8620,6 +8922,7 @@ export declare type ReplaceWithStageOptions = StageOptions & {
 export declare function reverse(
   stringExpression: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that reverses a string value in the specified field.
@@ -8634,6 +8937,7 @@ export declare function reverse(
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the reversed string.
  */
 export declare function reverse(field: string): FunctionExpression;
+
 /**
  * Creates an expression that rounds a numeric value to the nearest whole number.
  *
@@ -8647,6 +8951,7 @@ export declare function reverse(field: string): FunctionExpression;
  * @returns A new `Expression` representing the rounded value.
  */
 export declare function round(fieldName: string): FunctionExpression;
+
 /**
  * Creates an expression that rounds a numeric value to the nearest whole number.
  *
@@ -8660,6 +8965,7 @@ export declare function round(fieldName: string): FunctionExpression;
  * @returns A new `Expression` representing the rounded value.
  */
 export declare function round(expression: Expression): FunctionExpression;
+
 /**
  * Creates an expression that rounds a numeric value to the specified number of decimal places.
  *
@@ -8677,6 +8983,7 @@ export declare function round(
   fieldName: string,
   decimalPlaces: number | Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that rounds a numeric value to the specified number of decimal places.
  *
@@ -8694,6 +9001,7 @@ export declare function round(
   expression: Expression,
   decimalPlaces: number | Expression
 ): FunctionExpression;
+
 /**
  * Trims whitespace or a specified set of characters/bytes from the end of a string or byte array.
  *
@@ -8715,6 +9023,7 @@ export declare function rtrim(
   fieldName: string,
   valueToTrim?: string | Expression | Bytes
 ): FunctionExpression;
+
 /**
  * Trims whitespace or a specified set of characters/bytes from the end of a string or byte array.
  *
@@ -8736,6 +9045,7 @@ export declare function rtrim(
   expression: Expression,
   valueToTrim?: string | Expression | Bytes
 ): FunctionExpression;
+
 /**
  * Defines the options for evaluating a sample stage within a pipeline.
  * This type combines common {@link @firebase/firestore/pipelines#StageOptions} with a specific configuration
@@ -8760,6 +9070,7 @@ export declare type SampleStageOptions = StageOptions &
      */
     documents: number;
   }>;
+
 /**
  * @beta
  *
@@ -8779,6 +9090,7 @@ export declare type SampleStageOptions = StageOptions &
  * @remarks This Expression can only be used within a `search` stage.
  */
 export declare function score(): Expression;
+
 /**
  * @beta
  * Options defining how a search stage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(search:1)}.
@@ -8851,6 +9163,7 @@ export declare type SearchStageOptions = StageOptions & {
    */
   addFields?: Selectable[];
 };
+
 /**
  *
  * An interface that represents a selectable expression.
@@ -8858,6 +9171,7 @@ export declare type SearchStageOptions = StageOptions & {
 export declare interface Selectable {
   selectable: true;
 }
+
 /**
  * Options defining how a SelectStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(select:1)}.
  */
@@ -8868,6 +9182,7 @@ export declare type SelectStageOptions = StageOptions & {
    */
   selections: Array<Selectable | string>;
 };
+
 /**
  * Options defining how a SortStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(sort:1)}.
  */
@@ -8878,6 +9193,7 @@ export declare type SortStageOptions = StageOptions & {
    */
   orderings: Ordering[];
 };
+
 /**
  * Creates an expression that splits the value of a field on the provided delimiter.
  *
@@ -8896,6 +9212,7 @@ export declare function split(
   fieldName: string,
   delimiter: string
 ): FunctionExpression;
+
 /**
  * Creates an expression that splits the value of a field on the provided delimiter.
  *
@@ -8914,6 +9231,7 @@ export declare function split(
   fieldName: string,
   delimiter: Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that splits a string into an array of substrings based on the provided delimiter.
  *
@@ -8932,6 +9250,7 @@ export declare function split(
   expression: Expression,
   delimiter: string
 ): FunctionExpression;
+
 /**
  * Creates an expression that splits a string into an array of substrings based on the provided delimiter.
  *
@@ -8950,6 +9269,7 @@ export declare function split(
   expression: Expression,
   delimiter: Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that computes the square root of a numeric value.
  *
@@ -8963,6 +9283,7 @@ export declare function split(
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the square root of the numeric value.
  */
 export declare function sqrt(expression: Expression): FunctionExpression;
+
 /**
  * Creates an expression that computes the square root of a numeric value.
  *
@@ -8976,6 +9297,7 @@ export declare function sqrt(expression: Expression): FunctionExpression;
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the square root of the numeric value.
  */
 export declare function sqrt(fieldName: string): FunctionExpression;
+
 /**
  * Options defining how a Stage is evaluated.
  */
@@ -9001,6 +9323,7 @@ export declare type StageOptions = {
     [name: string]: unknown;
   };
 };
+
 /**
  *
  * Creates an expression that checks if a field's value starts with a given prefix.
@@ -9019,6 +9342,7 @@ export declare function startsWith(
   fieldName: string,
   prefix: string
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a field's value starts with a given prefix.
@@ -9037,6 +9361,7 @@ export declare function startsWith(
   fieldName: string,
   prefix: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a string expression starts with a given prefix.
@@ -9055,6 +9380,7 @@ export declare function startsWith(
   stringExpression: Expression,
   prefix: string
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a string expression starts with a given prefix.
@@ -9073,6 +9399,7 @@ export declare function startsWith(
   stringExpression: Expression,
   prefix: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that concatenates string functions, fields or constants together.
@@ -9093,6 +9420,7 @@ export declare function stringConcat(
   secondString: Expression | string,
   ...otherStrings: Array<Expression | string>
 ): FunctionExpression;
+
 /**
  * Creates an expression that concatenates string expressions together.
  *
@@ -9112,6 +9440,7 @@ export declare function stringConcat(
   secondString: Expression | string,
   ...otherStrings: Array<Expression | string>
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that checks if a string field contains a specified substring.
@@ -9130,6 +9459,7 @@ export declare function stringContains(
   fieldName: string,
   substring: string
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a string field contains a substring specified by an expression.
@@ -9148,6 +9478,7 @@ export declare function stringContains(
   fieldName: string,
   substring: Expression
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a string expression contains a specified substring.
@@ -9166,6 +9497,7 @@ export declare function stringContains(
   stringExpression: Expression,
   substring: string
 ): BooleanExpression;
+
 /**
  *
  * Creates an expression that checks if a string expression contains a substring specified by another expression.
@@ -9184,6 +9516,7 @@ export declare function stringContains(
   stringExpression: Expression,
   substring: Expression
 ): BooleanExpression;
+
 /**
  * Creates an expression that finds the index of the first occurrence of a substring or byte sequence.
  *
@@ -9201,6 +9534,7 @@ export declare function stringIndexOf(
   fieldName: string,
   search: string | Expression | Bytes
 ): FunctionExpression;
+
 /**
  * Creates an expression that finds the index of the first occurrence of a substring or byte sequence.
  *
@@ -9218,6 +9552,7 @@ export declare function stringIndexOf(
   expression: Expression,
   search: string | Expression | Bytes
 ): FunctionExpression;
+
 /**
  * Creates an expression that repeats a string or byte array a specified number of times.
  *
@@ -9235,6 +9570,7 @@ export declare function stringRepeat(
   fieldName: string,
   repetitions: number | Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that repeats a string or byte array a specified number of times.
  *
@@ -9252,6 +9588,7 @@ export declare function stringRepeat(
   expression: Expression,
   repetitions: number | Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that replaces all occurrences of a substring or byte sequence with a replacement.
  *
@@ -9271,6 +9608,7 @@ export declare function stringReplaceAll(
   find: string | Expression | Bytes,
   replacement: string | Expression | Bytes
 ): FunctionExpression;
+
 /**
  * Creates an expression that replaces all occurrences of a substring or byte sequence with a replacement.
  *
@@ -9290,6 +9628,7 @@ export declare function stringReplaceAll(
   find: string | Expression | Bytes,
   replacement: string | Expression | Bytes
 ): FunctionExpression;
+
 /**
  * Creates an expression that replaces the first occurrence of a substring or byte sequence with a replacement.
  *
@@ -9309,6 +9648,7 @@ export declare function stringReplaceOne(
   find: string | Expression | Bytes,
   replacement: string | Expression | Bytes
 ): FunctionExpression;
+
 /**
  * Creates an expression that replaces the first occurrence of a substring or byte sequence with a replacement.
  *
@@ -9328,6 +9668,7 @@ export declare function stringReplaceOne(
   find: string | Expression | Bytes,
   replacement: string | Expression | Bytes
 ): FunctionExpression;
+
 /**
  * Creates an expression that reverses a string.
  *
@@ -9343,6 +9684,7 @@ export declare function stringReplaceOne(
 export declare function stringReverse(
   stringExpression: Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that reverses a string value in the specified field.
  *
@@ -9356,6 +9698,7 @@ export declare function stringReverse(
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the reversed string.
  */
 export declare function stringReverse(field: string): FunctionExpression;
+
 /**
  * @public
  * Creates a new Pipeline targeted at a subcollection relative to the current document context.
@@ -9365,6 +9708,7 @@ export declare function stringReverse(field: string): FunctionExpression;
  * @param path - The relative path to the subcollection.
  */
 export declare function subcollection(path: string): Pipeline;
+
 /**
  * @public
  * Creates a new Pipeline targeted at a subcollection relative to the current document context.
@@ -9376,6 +9720,7 @@ export declare function subcollection(path: string): Pipeline;
 export declare function subcollection(
   options: SubcollectionStageOptions
 ): Pipeline;
+
 /**
  * @public
  * Options defining how a `SubcollectionStage` is evaluated.
@@ -9387,6 +9732,7 @@ export declare type SubcollectionStageOptions = StageOptions & {
    */
   path: string;
 };
+
 /**
  *
  * Creates an expression that returns a substring of a string or byte array.
@@ -9400,6 +9746,7 @@ export declare function substring(
   position: number,
   length?: number
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns a substring of a string or byte array.
@@ -9413,6 +9760,7 @@ export declare function substring(
   position: number,
   length?: number
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns a substring of a string or byte array.
@@ -9426,6 +9774,7 @@ export declare function substring(
   position: Expression,
   length?: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that returns a substring of a string or byte array.
@@ -9439,6 +9788,7 @@ export declare function substring(
   position: Expression,
   length?: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that subtracts two expressions.
@@ -9457,6 +9807,7 @@ export declare function subtract(
   left: Expression,
   right: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that subtracts a constant value from an expression.
@@ -9475,6 +9826,7 @@ export declare function subtract(
   expression: Expression,
   value: unknown
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that subtracts an expression from a field's value.
@@ -9493,6 +9845,7 @@ export declare function subtract(
   fieldName: string,
   expression: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that subtracts a constant value from a field's value.
@@ -9511,6 +9864,7 @@ export declare function subtract(
   fieldName: string,
   value: unknown
 ): FunctionExpression;
+
 /**
  *
  * Creates an aggregation that calculates the sum of values from an expression across multiple
@@ -9526,6 +9880,7 @@ export declare function subtract(
  * @returns A new {@link @firebase/firestore/pipelines#AggregateFunction} representing the 'sum' aggregation.
  */
 export declare function sum(expression: Expression): AggregateFunction;
+
 /**
  *
  * Creates an aggregation that calculates the sum of a field's values across multiple stage
@@ -9541,6 +9896,7 @@ export declare function sum(expression: Expression): AggregateFunction;
  * @returns A new {@link @firebase/firestore/pipelines#AggregateFunction} representing the 'sum' aggregation.
  */
 export declare function sum(fieldName: string): AggregateFunction;
+
 /**
  * Creates an expression that evaluates to the result corresponding to the first true condition.
  *
@@ -9571,6 +9927,7 @@ export declare function switchOn(
   result: Expression,
   ...others: Array<BooleanExpression | Expression>
 ): FunctionExpression;
+
 /**
  * Specify time granularity for expressions.
  */
@@ -9589,10 +9946,12 @@ export declare type TimeGranularity =
   | 'quarter'
   | 'year'
   | 'isoyear';
+
 /**
  * Specify time parts for `timestampExtract` expressions.
  */
 export declare type TimePart = TimeGranularity | 'dayofweek' | 'dayofyear';
+
 /**
  *
  * Creates an expression that adds a specified amount of time to a timestamp.
@@ -9613,6 +9972,7 @@ export declare function timestampAdd(
   unit: Expression,
   amount: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that adds a specified amount of time to a timestamp.
@@ -9633,6 +9993,7 @@ export declare function timestampAdd(
   unit: TimeUnit,
   amount: number
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that adds a specified amount of time to a timestamp represented by a field.
@@ -9653,11 +10014,13 @@ export declare function timestampAdd(
   unit: TimeUnit,
   amount: number
 ): FunctionExpression;
+
 export declare function timestampDiff(
   endFieldName: string,
   startFieldName: string,
   unit: TimeUnit | Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that calculates the difference between two timestamps.
  *
@@ -9677,6 +10040,7 @@ export declare function timestampDiff(
   startExpression: Expression,
   unit: TimeUnit | Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that calculates the difference between two timestamps.
  *
@@ -9696,6 +10060,7 @@ export declare function timestampDiff(
   startFieldName: string,
   unit: TimeUnit | Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that calculates the difference between two timestamps.
  *
@@ -9715,6 +10080,7 @@ export declare function timestampDiff(
   startExpression: Expression,
   unit: TimeUnit | Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that extracts a specified part from a timestamp.
  *
@@ -9735,6 +10101,7 @@ export declare function timestampExtract(
   part: TimePart,
   timezone?: string | Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that extracts a specified part from a timestamp.
  *
@@ -9755,6 +10122,7 @@ export declare function timestampExtract(
   part: Expression,
   timezone?: string | Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that extracts a specified part from a timestamp.
  *
@@ -9775,6 +10143,7 @@ export declare function timestampExtract(
   part: TimePart,
   timezone?: string | Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that extracts a specified part from a timestamp.
  *
@@ -9795,6 +10164,7 @@ export declare function timestampExtract(
   part: Expression,
   timezone?: string | Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that subtracts a specified amount of time from a timestamp.
@@ -9815,6 +10185,7 @@ export declare function timestampSubtract(
   unit: Expression,
   amount: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that subtracts a specified amount of time from a timestamp.
@@ -9835,6 +10206,7 @@ export declare function timestampSubtract(
   unit: TimeUnit,
   amount: number
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that subtracts a specified amount of time from a timestamp represented by a field.
@@ -9855,6 +10227,7 @@ export declare function timestampSubtract(
   unit: TimeUnit,
   amount: number
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that converts a timestamp expression to the number of microseconds since the Unix epoch (1970-01-01 00:00:00 UTC).
@@ -9871,6 +10244,7 @@ export declare function timestampSubtract(
 export declare function timestampToUnixMicros(
   expr: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that converts a timestamp field to the number of microseconds since the Unix epoch (1970-01-01 00:00:00 UTC).
@@ -9887,6 +10261,7 @@ export declare function timestampToUnixMicros(
 export declare function timestampToUnixMicros(
   fieldName: string
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that converts a timestamp expression to the number of milliseconds since the Unix epoch (1970-01-01 00:00:00 UTC).
@@ -9903,6 +10278,7 @@ export declare function timestampToUnixMicros(
 export declare function timestampToUnixMillis(
   expr: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that converts a timestamp field to the number of milliseconds since the Unix epoch (1970-01-01 00:00:00 UTC).
@@ -9919,6 +10295,7 @@ export declare function timestampToUnixMillis(
 export declare function timestampToUnixMillis(
   fieldName: string
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that converts a timestamp expression to the number of seconds since the Unix epoch (1970-01-01 00:00:00 UTC).
@@ -9935,6 +10312,7 @@ export declare function timestampToUnixMillis(
 export declare function timestampToUnixSeconds(
   expr: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that converts a timestamp field to the number of seconds since the Unix epoch (1970-01-01 00:00:00 UTC).
@@ -9951,6 +10329,7 @@ export declare function timestampToUnixSeconds(
 export declare function timestampToUnixSeconds(
   fieldName: string
 ): FunctionExpression;
+
 /**
  * Creates an expression that truncates a timestamp to a specified granularity.
  *
@@ -9971,6 +10350,7 @@ export declare function timestampTruncate(
   granularity: TimeGranularity,
   timezone?: string | Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that truncates a timestamp to a specified granularity.
  *
@@ -9991,6 +10371,7 @@ export declare function timestampTruncate(
   granularity: Expression,
   timezone?: string | Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that truncates a timestamp to a specified granularity.
  *
@@ -10011,6 +10392,7 @@ export declare function timestampTruncate(
   granularity: TimeGranularity,
   timezone?: string | Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that truncates a timestamp to a specified granularity.
  *
@@ -10031,11 +10413,13 @@ export declare function timestampTruncate(
   granularity: Expression,
   timezone?: string | Expression
 ): FunctionExpression;
+
 /**
  * Specify time units for expressions.
  */
 export declare type TimeUnit =
   'microsecond' | 'millisecond' | 'second' | 'minute' | 'hour' | 'day';
+
 /**
  *
  * Creates an expression that converts a string field to lowercase.
@@ -10050,6 +10434,7 @@ export declare type TimeUnit =
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the lowercase string.
  */
 export declare function toLower(fieldName: string): FunctionExpression;
+
 /**
  *
  * Creates an expression that converts a string expression to lowercase.
@@ -10066,6 +10451,7 @@ export declare function toLower(fieldName: string): FunctionExpression;
 export declare function toLower(
   stringExpression: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that converts a string field to uppercase.
@@ -10080,6 +10466,7 @@ export declare function toLower(
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the uppercase string.
  */
 export declare function toUpper(fieldName: string): FunctionExpression;
+
 /**
  *
  * Creates an expression that converts a string expression to uppercase.
@@ -10096,6 +10483,7 @@ export declare function toUpper(fieldName: string): FunctionExpression;
 export declare function toUpper(
   stringExpression: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that removes leading and trailing whitespace from a string or byte array.
@@ -10118,6 +10506,7 @@ export declare function trim(
   fieldName: string,
   valueToTrim?: string | Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that removes leading and trailing characters from a string or byte array expression.
@@ -10140,6 +10529,7 @@ export declare function trim(
   stringExpression: Expression,
   valueToTrim?: string | Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that truncates the numeric value of a field to an integer.
  *
@@ -10153,6 +10543,7 @@ export declare function trim(
  * @returns A new `Expression` representing the truncated value.
  */
 export declare function trunc(fieldName: string): FunctionExpression;
+
 /**
  * Creates an expression that truncates the numeric value of an expression to an integer.
  *
@@ -10166,6 +10557,7 @@ export declare function trunc(fieldName: string): FunctionExpression;
  * @returns A new `Expression` representing the truncated value.
  */
 export declare function trunc(expression: Expression): FunctionExpression;
+
 /**
  * Creates an expression that truncates a numeric expression to the specified number of decimal places.
  *
@@ -10183,6 +10575,7 @@ export declare function trunc(
   fieldName: string,
   decimalPlaces: number | Expression
 ): FunctionExpression;
+
 /**
  * Creates an expression that truncates a numeric value to the specified number of decimal places.
  *
@@ -10200,6 +10593,7 @@ export declare function trunc(
   expression: Expression,
   decimalPlaces: number | Expression
 ): FunctionExpression;
+
 /* Excluded from this release type: TSType */
 /**
  * Creates an expression that returns the data type of the data in the specified field.
@@ -10217,6 +10611,7 @@ export declare function trunc(
  * @returns A new `Expression` representing the data type.
  */
 export declare function type(fieldName: string): FunctionExpression;
+
 /**
  * Creates an expression that returns the data type of an expression's result.
  *
@@ -10229,6 +10624,7 @@ export declare function type(fieldName: string): FunctionExpression;
  * @returns A new `Expression` representing the data type.
  */
 export declare function type(expression: Expression): FunctionExpression;
+
 /**
  * Options defining how a UnionStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(union:1)}.
  */
@@ -10238,6 +10634,7 @@ export declare type UnionStageOptions = StageOptions & {
    */
   other: Pipeline;
 };
+
 /**
  *
  * Creates an expression that interprets an expression as the number of microseconds since the Unix epoch (1970-01-01 00:00:00 UTC)
@@ -10255,6 +10652,7 @@ export declare type UnionStageOptions = StageOptions & {
 export declare function unixMicrosToTimestamp(
   expr: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that interprets a field's value as the number of microseconds since the Unix epoch (1970-01-01 00:00:00 UTC)
@@ -10272,6 +10670,7 @@ export declare function unixMicrosToTimestamp(
 export declare function unixMicrosToTimestamp(
   fieldName: string
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that interprets an expression as the number of milliseconds since the Unix epoch (1970-01-01 00:00:00 UTC)
@@ -10289,6 +10688,7 @@ export declare function unixMicrosToTimestamp(
 export declare function unixMillisToTimestamp(
   expr: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that interprets a field's value as the number of milliseconds since the Unix epoch (1970-01-01 00:00:00 UTC)
@@ -10306,6 +10706,7 @@ export declare function unixMillisToTimestamp(
 export declare function unixMillisToTimestamp(
   fieldName: string
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that interprets an expression as the number of seconds since the Unix epoch (1970-01-01 00:00:00 UTC)
@@ -10323,6 +10724,7 @@ export declare function unixMillisToTimestamp(
 export declare function unixSecondsToTimestamp(
   expr: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that interprets a field's value as the number of seconds since the Unix epoch (1970-01-01 00:00:00 UTC)
@@ -10340,6 +10742,7 @@ export declare function unixSecondsToTimestamp(
 export declare function unixSecondsToTimestamp(
   fieldName: string
 ): FunctionExpression;
+
 /**
  * Represents the specific options available for configuring an `UnnestStage` within a pipeline.
  */
@@ -10355,6 +10758,7 @@ export declare type UnnestStageOptions = StageOptions & {
    */
   indexField?: string;
 };
+
 /**
  * @public
  * Creates an expression that retrieves the value of a variable bound via `define()`.
@@ -10374,6 +10778,7 @@ export declare type UnnestStageOptions = StageOptions & {
  * @returns An {@link @firebase/firestore/pipelines#Expression} representing the variable's value.
  */
 export declare function variable(name: string): Expression;
+
 /**
  *
  * Creates an expression that calculates the length of a Firestore Vector.
@@ -10390,6 +10795,7 @@ export declare function variable(name: string): Expression;
 export declare function vectorLength(
   vectorExpression: Expression
 ): FunctionExpression;
+
 /**
  *
  * Creates an expression that calculates the length of a Firestore Vector represented by a field.
@@ -10404,6 +10810,7 @@ export declare function vectorLength(
  * @returns A new {@link @firebase/firestore/pipelines#Expression} representing the length of the array.
  */
 export declare function vectorLength(fieldName: string): FunctionExpression;
+
 /**
  * Options defining how a WhereStage is evaluated. See {@link @firebase/firestore/pipelines#Pipeline.(where:1)}.
  */
@@ -10413,6 +10820,7 @@ export declare type WhereStageOptions = StageOptions & {
    */
   condition: BooleanExpression;
 };
+
 /**
  *
  * Creates an expression that performs a logical 'XOR' (exclusive OR) operation on multiple BooleanExpressions.
@@ -10437,4 +10845,5 @@ export declare function xor(
   second: BooleanExpression,
   ...additionalConditions: BooleanExpression[]
 ): BooleanExpression;
+
 export {};

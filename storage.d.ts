@@ -11,7 +11,9 @@ import {
   Subscribe,
   Unsubscribe
 } from '@firebase/util';
+
 import { FirebaseApp } from '@firebase/app';
+
 /**
  * Modify this {@link FirebaseStorage} instance to communicate with the Cloud Storage emulator.
  *
@@ -30,6 +32,7 @@ export declare function connectStorageEmulator(
     mockUserToken?: EmulatorMockTokenOptions | string;
   }
 ): void;
+
 /* Excluded from this release type: _dataFromString */
 /**
  * Deletes the object at this location.
@@ -38,7 +41,9 @@ export declare function connectStorageEmulator(
  * @returns A `Promise` that resolves if the deletion succeeds.
  */
 export declare function deleteObject(ref: StorageReference): Promise<void>;
+
 export { EmulatorMockTokenOptions };
+
 /* Excluded from this release type: _FbsBlob */
 /* Excluded from this release type: _FirebaseService */
 /**
@@ -60,6 +65,7 @@ export declare interface FirebaseStorage {
    */
   maxOperationRetryTime: number;
 }
+
 /* Excluded from this release type: _FirebaseStorageImpl */
 /**
  * The full set of object metadata, including read-only properties.
@@ -110,6 +116,7 @@ export declare interface FullMetadata extends UploadMetadata {
    */
   ref?: StorageReference | undefined;
 }
+
 /**
  * Downloads the data at the object's location. Returns an error if the object
  * is not found.
@@ -130,6 +137,7 @@ export declare function getBlob(
   ref: StorageReference,
   maxDownloadSizeBytes?: number
 ): Promise<Blob>;
+
 /**
  * Downloads the data at the object's location. Returns an error if the object
  * is not found.
@@ -148,6 +156,7 @@ export declare function getBytes(
   ref: StorageReference,
   maxDownloadSizeBytes?: number
 ): Promise<ArrayBuffer>;
+
 /* Excluded from this release type: _getChild */
 /**
  * Returns the download URL for the given {@link StorageReference}.
@@ -157,6 +166,7 @@ export declare function getBytes(
  *     URL for this object.
  */
 export declare function getDownloadURL(ref: StorageReference): Promise<string>;
+
 /**
  * A `Promise` that resolves with the metadata for this object. If this
  * object doesn't exist or metadata cannot be retrieved, the promise is
@@ -167,6 +177,7 @@ export declare function getDownloadURL(ref: StorageReference): Promise<string>;
 export declare function getMetadata(
   ref: StorageReference
 ): Promise<FullMetadata>;
+
 /**
  * Gets a {@link FirebaseStorage} instance for the given Firebase app.
  * @public
@@ -179,6 +190,7 @@ export declare function getStorage(
   app?: FirebaseApp,
   bucketUrl?: string
 ): FirebaseStorage;
+
 /**
  * Downloads the data at the object's location. Raises an error event if the
  * object is not found.
@@ -195,6 +207,7 @@ export declare function getStream(
   ref: StorageReference,
   maxDownloadSizeBytes?: number
 ): ReadableStream;
+
 /* Excluded from this release type: _invalidArgument */
 /* Excluded from this release type: _invalidRootOperation */
 /**
@@ -223,6 +236,7 @@ export declare function list(
   ref: StorageReference,
   options?: ListOptions
 ): Promise<ListResult>;
+
 /**
  * List all items (files) and prefixes (folders) under this storage reference.
  *
@@ -243,6 +257,7 @@ export declare function list(
  *      folder. `nextPageToken` is never returned.
  */
 export declare function listAll(ref: StorageReference): Promise<ListResult>;
+
 /**
  * The options `list()` accepts.
  * @public
@@ -259,6 +274,7 @@ export declare interface ListOptions {
    */
   pageToken?: string | null;
 }
+
 /**
  * Result returned by list().
  * @public
@@ -283,6 +299,7 @@ export declare interface ListResult {
    */
   nextPageToken?: string;
 }
+
 /**
  * Returns a {@link StorageReference} for the given url.
  * @param storage - {@link FirebaseStorage} instance.
@@ -293,6 +310,7 @@ export declare function ref(
   storage: FirebaseStorage,
   url?: string
 ): StorageReference;
+
 /**
  * Returns a {@link StorageReference} for the given path in the
  * default bucket.
@@ -305,6 +323,7 @@ export declare function ref(
   storageOrRef: FirebaseStorage | StorageReference,
   path?: string
 ): StorageReference;
+
 /**
  * Object metadata that can be set at any time.
  * @public
@@ -339,6 +358,7 @@ export declare interface SettableMetadata {
       }
     | undefined;
 }
+
 /**
  * An error returned by the Firebase Storage SDK.
  * @public
@@ -366,6 +386,7 @@ export declare class StorageError extends FirebaseError {
   get serverResponse(): null | string;
   set serverResponse(serverResponse: string | null);
 }
+
 /**
  * @public
  * Error codes that can be attached to `StorageError` objects.
@@ -397,6 +418,7 @@ export declare enum StorageErrorCode {
   INTERNAL_ERROR = 'internal-error',
   UNSUPPORTED_ENVIRONMENT = 'unsupported-environment'
 }
+
 /**
  * A stream observer for Firebase Storage.
  * @public
@@ -406,6 +428,7 @@ export declare interface StorageObserver<T> {
   error?: (error: StorageError) => void | null;
   complete?: CompleteFn | null;
 }
+
 /**
  * Represents a reference to a Google Cloud Storage object. Developers can
  * upload, download, and delete objects, as well as get/set object metadata.
@@ -445,6 +468,7 @@ export declare interface StorageReference {
    */
   parent: StorageReference | null;
 }
+
 /**
  * @license
  * Copyright 2017 Google LLC
@@ -467,6 +491,7 @@ export declare interface StorageReference {
  */
 export declare type StringFormat =
   (typeof StringFormat)[keyof typeof StringFormat];
+
 /**
  * An enumeration of the possible string formats for upload.
  * @public
@@ -505,11 +530,13 @@ export declare const StringFormat: {
    */
   readonly DATA_URL: 'data_url';
 };
+
 /**
  * An event that is triggered on a task.
  * @public
  */
 export declare type TaskEvent = 'state_changed';
+
 /* Excluded from this release type: _TaskEvent */
 /**
  * Represents the current state of a running upload.
@@ -517,6 +544,7 @@ export declare type TaskEvent = 'state_changed';
  */
 export declare type TaskState =
   'running' | 'paused' | 'success' | 'canceled' | 'error';
+
 /**
  * Updates the metadata for this object.
  * @public
@@ -530,6 +558,7 @@ export declare function updateMetadata(
   ref: StorageReference,
   metadata: SettableMetadata
 ): Promise<FullMetadata>;
+
 /**
  * Uploads data to this object's location.
  * The upload is not resumable.
@@ -544,6 +573,7 @@ export declare function uploadBytes(
   data: Blob | Uint8Array | ArrayBuffer,
   metadata?: UploadMetadata
 ): Promise<UploadResult>;
+
 /**
  * Uploads data to this object's location.
  * The upload can be paused and resumed, and exposes progress updates.
@@ -558,6 +588,7 @@ export declare function uploadBytesResumable(
   data: Blob | Uint8Array | ArrayBuffer,
   metadata?: UploadMetadata
 ): UploadTask;
+
 /**
  * Object metadata that can be set at upload.
  * @public
@@ -568,6 +599,7 @@ export declare interface UploadMetadata extends SettableMetadata {
    */
   md5Hash?: string | undefined;
 }
+
 /**
  * Result returned from a non-resumable upload.
  * @public
@@ -582,6 +614,7 @@ export declare interface UploadResult {
    */
   readonly ref: StorageReference;
 }
+
 /**
  * Uploads a string to this object's location.
  * The upload is not resumable.
@@ -598,6 +631,7 @@ export declare function uploadString(
   format?: StringFormat,
   metadata?: UploadMetadata
 ): Promise<UploadResult>;
+
 /**
  * Represents the process of uploading an object. Allows you to monitor and
  * manage the upload.
@@ -756,6 +790,7 @@ export declare interface UploadTask {
     onRejected?: ((error: StorageError) => unknown) | null
   ): Promise<unknown>;
 }
+
 /* Excluded from this release type: _UploadTask */
 /**
  * Holds data about the current state of the upload task.
@@ -788,4 +823,5 @@ export declare interface UploadTaskSnapshot {
    */
   totalBytes: number;
 }
+
 export {};

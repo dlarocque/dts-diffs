@@ -4,6 +4,7 @@
  * @packageDocumentation
  */
 import { FirebaseApp } from '@firebase/app';
+
 import { EmulatorMockTokenOptions } from '@firebase/util';
 
 /**
@@ -21,6 +22,7 @@ export declare function child(
   parent: DatabaseReference,
   path: string
 ): DatabaseReference;
+
 /**
  * Modify the provided instance to communicate with the Realtime Database
  * emulator.
@@ -40,6 +42,7 @@ export declare function connectDatabaseEmulator(
     mockUserToken?: EmulatorMockTokenOptions | string;
   }
 ): void;
+
 /**
  * Class representing a Firebase Realtime Database.
  */
@@ -50,6 +53,7 @@ export declare class Database {
   readonly 'type' = 'database';
   private constructor();
 }
+
 /**
  * A `DatabaseReference` represents a specific location in your Database and can be used
  * for reading or writing data to that Database location.
@@ -80,6 +84,7 @@ export declare interface DatabaseReference extends Query {
   /** The root `DatabaseReference` of the Database. */
   readonly root: DatabaseReference;
 }
+
 /**
  * A `DataSnapshot` contains data from a Database location.
  *
@@ -206,7 +211,9 @@ export declare class DataSnapshot {
    */
   val(): any;
 }
+
 export { EmulatorMockTokenOptions };
+
 /**
  * Logs debugging information to the console.
  *
@@ -218,6 +225,7 @@ export declare function enableLogging(
   enabled: boolean,
   persistent?: boolean
 ): any;
+
 /**
  * Logs debugging information to the console.
  *
@@ -226,6 +234,7 @@ export declare function enableLogging(
 export declare function enableLogging(
   logger: (message: string) => unknown
 ): any;
+
 /**
  * Creates a `QueryConstraint` with the specified ending point.
  *
@@ -253,6 +262,7 @@ export declare function endAt(
   value: number | string | boolean | null,
   key?: string
 ): QueryConstraint;
+
 /**
  * Creates a `QueryConstraint` with the specified ending point (exclusive).
  *
@@ -276,6 +286,7 @@ export declare function endBefore(
   value: number | string | boolean | null,
   key?: string
 ): QueryConstraint;
+
 /**
  * Creates a `QueryConstraint` that includes children that match the specified
  * value.
@@ -303,21 +314,25 @@ export declare function equalTo(
   value: number | string | boolean | null,
   key?: string
 ): QueryConstraint;
+
 /**
  * One of the following strings: "value", "child_added", "child_changed",
  * "child_removed", or "child_moved."
  */
 export declare type EventType =
   'value' | 'child_added' | 'child_changed' | 'child_moved' | 'child_removed';
+
 /* Excluded from this release type: _FirebaseService */
 /**
  * Force the use of longPolling instead of websockets. This will be ignored if websocket protocol is used in databaseURL.
  */
 export declare function forceLongPolling(): void;
+
 /**
  * Force the use of websockets instead of longPolling.
  */
 export declare function forceWebSockets(): void;
+
 /**
  * Gets the most up-to-date result for this query.
  *
@@ -327,6 +342,7 @@ export declare function forceWebSockets(): void;
  * server is unreachable and there is nothing cached).
  */
 export declare function get(query: Query): Promise<DataSnapshot>;
+
 /**
  * Returns the instance of the Realtime Database SDK that is associated with the provided
  * {@link @firebase/app#FirebaseApp}. Initializes a new instance with default settings if
@@ -339,6 +355,7 @@ export declare function get(query: Query): Promise<DataSnapshot>;
  * @returns The `Database` instance of the provided app.
  */
 export declare function getDatabase(app?: FirebaseApp, url?: string): Database;
+
 /**
  * Disconnects from the server (all Database operations will be completed
  * offline).
@@ -361,6 +378,7 @@ export declare function getDatabase(app?: FirebaseApp, url?: string): Database;
  * @param db - The instance to disconnect.
  */
 export declare function goOffline(db: Database): void;
+
 /**
  * Reconnects to the server and synchronizes the offline Database state
  * with the server state.
@@ -373,6 +391,7 @@ export declare function goOffline(db: Database): void;
  * @param db - The instance to reconnect.
  */
 export declare function goOnline(db: Database): void;
+
 /**
  * Returns a placeholder value that can be used to atomically increment the
  * current database value by the provided delta.
@@ -381,6 +400,7 @@ export declare function goOnline(db: Database): void;
  * @returns A placeholder value for modifying data atomically server-side.
  */
 export declare function increment(delta: number): object;
+
 /* Excluded from this release type: _initStandalone */
 /**
  * Represents a child snapshot of a `Reference` that is being iterated over. The key will never be undefined.
@@ -388,6 +408,7 @@ export declare function increment(delta: number): object;
 export declare interface IteratedDataSnapshot extends DataSnapshot {
   key: string;
 }
+
 /**
  * Creates a new `QueryConstraint` that if limited to the first specific number
  * of children.
@@ -407,6 +428,7 @@ export declare interface IteratedDataSnapshot extends DataSnapshot {
  * @param limit - The maximum number of nodes to include in this query.
  */
 export declare function limitToFirst(limit: number): QueryConstraint;
+
 /**
  * Creates a new `QueryConstraint` that is limited to return only the last
  * specified number of children.
@@ -426,11 +448,13 @@ export declare function limitToFirst(limit: number): QueryConstraint;
  * @param limit - The maximum number of nodes to include in this query.
  */
 export declare function limitToLast(limit: number): QueryConstraint;
+
 /** An options objects that can be used to customize a listener. */
 export declare interface ListenOptions {
   /** Whether to remove the listener after its first invocation. */
   readonly onlyOnce?: boolean;
 }
+
 /**
  * Detaches a callback previously attached with the corresponding `on*()` (`onValue`, `onChildAdded`) listener.
  * Note: This is not the recommended way to remove a listener. Instead, please use the returned callback function from
@@ -462,6 +486,7 @@ export declare function off(
     previousChildName?: string | null
   ) => unknown
 ): void;
+
 /**
  * Listens for data changes at a particular location.
  *
@@ -497,6 +522,7 @@ export declare function onChildAdded(
   ) => unknown,
   cancelCallback?: (error: Error) => unknown
 ): Unsubscribe;
+
 /**
  * Listens for data changes at a particular location.
  *
@@ -529,6 +555,7 @@ export declare function onChildAdded(
   ) => unknown,
   options: ListenOptions
 ): Unsubscribe;
+
 /**
  * Listens for data changes at a particular location.
  *
@@ -567,6 +594,7 @@ export declare function onChildAdded(
   cancelCallback: (error: Error) => unknown,
   options: ListenOptions
 ): Unsubscribe;
+
 /**
  * Listens for data changes at a particular location.
  *
@@ -603,6 +631,7 @@ export declare function onChildChanged(
   ) => unknown,
   cancelCallback?: (error: Error) => unknown
 ): Unsubscribe;
+
 /**
  * Listens for data changes at a particular location.
  *
@@ -636,6 +665,7 @@ export declare function onChildChanged(
   ) => unknown,
   options: ListenOptions
 ): Unsubscribe;
+
 /**
  * Listens for data changes at a particular location.
  *
@@ -675,6 +705,7 @@ export declare function onChildChanged(
   cancelCallback: (error: Error) => unknown,
   options: ListenOptions
 ): Unsubscribe;
+
 /**
  * Listens for data changes at a particular location.
  *
@@ -709,6 +740,7 @@ export declare function onChildMoved(
   ) => unknown,
   cancelCallback?: (error: Error) => unknown
 ): Unsubscribe;
+
 /**
  * Listens for data changes at a particular location.
  *
@@ -740,6 +772,7 @@ export declare function onChildMoved(
   ) => unknown,
   options: ListenOptions
 ): Unsubscribe;
+
 /**
  * Listens for data changes at a particular location.
  *
@@ -777,6 +810,7 @@ export declare function onChildMoved(
   cancelCallback: (error: Error) => unknown,
   options: ListenOptions
 ): Unsubscribe;
+
 /**
  * Listens for data changes at a particular location.
  *
@@ -812,6 +846,7 @@ export declare function onChildRemoved(
   callback: (snapshot: DataSnapshot) => unknown,
   cancelCallback?: (error: Error) => unknown
 ): Unsubscribe;
+
 /**
  * Listens for data changes at a particular location.
  *
@@ -844,6 +879,7 @@ export declare function onChildRemoved(
   callback: (snapshot: DataSnapshot) => unknown,
   options: ListenOptions
 ): Unsubscribe;
+
 /**
  * Listens for data changes at a particular location.
  *
@@ -882,6 +918,7 @@ export declare function onChildRemoved(
   cancelCallback: (error: Error) => unknown,
   options: ListenOptions
 ): Unsubscribe;
+
 /**
  * The `onDisconnect` class allows you to write or clear data when your client
  * disconnects from the Database server. These updates occur whether your
@@ -974,6 +1011,7 @@ export declare class OnDisconnect {
    */
   update(values: object): Promise<void>;
 }
+
 /**
  * Returns an `OnDisconnect` object - see
  * {@link https://firebase.google.com/docs/database/web/offline-capabilities | Enabling Offline Capabilities in JavaScript}
@@ -982,6 +1020,7 @@ export declare class OnDisconnect {
  * @param ref - The reference to add OnDisconnect triggers for.
  */
 export declare function onDisconnect(ref: DatabaseReference): OnDisconnect;
+
 /**
  * Listens for data changes at a particular location.
  *
@@ -1013,6 +1052,7 @@ export declare function onValue(
   callback: (snapshot: DataSnapshot) => unknown,
   cancelCallback?: (error: Error) => unknown
 ): Unsubscribe;
+
 /**
  * Listens for data changes at a particular location.
  *
@@ -1041,6 +1081,7 @@ export declare function onValue(
   callback: (snapshot: DataSnapshot) => unknown,
   options: ListenOptions
 ): Unsubscribe;
+
 /**
  * Listens for data changes at a particular location.
  *
@@ -1075,6 +1116,7 @@ export declare function onValue(
   cancelCallback: (error: Error) => unknown,
   options: ListenOptions
 ): Unsubscribe;
+
 /**
  * Creates a new `QueryConstraint` that orders by the specified child key.
  *
@@ -1093,6 +1135,7 @@ export declare function onValue(
  * @param path - The path to order by.
  */
 export declare function orderByChild(path: string): QueryConstraint;
+
 /**
  * Creates a new `QueryConstraint` that orders by the key.
  *
@@ -1102,6 +1145,7 @@ export declare function orderByChild(path: string): QueryConstraint;
  * {@link https://firebase.google.com/docs/database/web/lists-of-data#sort_data | Sort data}.
  */
 export declare function orderByKey(): QueryConstraint;
+
 /**
  * Creates a new `QueryConstraint` that orders by priority.
  *
@@ -1111,6 +1155,7 @@ export declare function orderByKey(): QueryConstraint;
  * for alternatives to priority.
  */
 export declare function orderByPriority(): QueryConstraint;
+
 /**
  * Creates a new `QueryConstraint` that orders by value.
  *
@@ -1121,6 +1166,7 @@ export declare function orderByPriority(): QueryConstraint;
  * {@link https://firebase.google.com/docs/database/web/lists-of-data#sort_data | Sort data}.
  */
 export declare function orderByValue(): QueryConstraint;
+
 /**
  * Generates a new child location using a unique key and returns its
  * `Reference`.
@@ -1148,6 +1194,7 @@ export declare function push(
   parent: DatabaseReference,
   value?: unknown
 ): ThenableReference;
+
 /**
  * @license
  * Copyright 2021 Google LLC
@@ -1220,6 +1267,7 @@ export declare interface Query {
    */
   toString(): string;
 }
+
 /**
  * Creates a new immutable instance of `Query` that is extended to also include
  * additional query constraints.
@@ -1233,6 +1281,7 @@ export declare function query(
   query: Query,
   ...queryConstraints: QueryConstraint[]
 ): Query;
+
 /**
  * A `QueryConstraint` is used to narrow the set of documents returned by a
  * Database query. `QueryConstraint`s are created by invoking {@link endAt},
@@ -1247,6 +1296,7 @@ export declare abstract class QueryConstraint {
   /** The type of this query constraints */
   abstract readonly type: QueryConstraintType;
 }
+
 /** Describes the different query constraints available in this SDK. */
 export declare type QueryConstraintType =
   | 'endAt'
@@ -1260,6 +1310,7 @@ export declare type QueryConstraintType =
   | 'orderByPriority'
   | 'orderByValue'
   | 'equalTo';
+
 /* Excluded from this release type: _QueryImpl */
 /* Excluded from this release type: _QueryParams */
 /**
@@ -1277,6 +1328,7 @@ export declare type QueryConstraintType =
  *   root of the Database.
  */
 export declare function ref(db: Database, path?: string): DatabaseReference;
+
 /* Excluded from this release type: _ReferenceImpl */
 /**
  * Returns a `Reference` representing the location in the Database
@@ -1298,6 +1350,7 @@ export declare function refFromURL(
   db: Database,
   url: string
 ): DatabaseReference;
+
 /**
  * Removes the data at this Database location.
  *
@@ -1313,6 +1366,7 @@ export declare function refFromURL(
  * @returns Resolves when remove on server is complete.
  */
 export declare function remove(ref: DatabaseReference): Promise<void>;
+
 /* Excluded from this release type: _repoManagerDatabaseFromApp */
 /**
  * Atomically modifies the data at this location.
@@ -1356,6 +1410,7 @@ export declare function runTransaction(
   transactionUpdate: (currentData: any) => unknown,
   options?: TransactionOptions
 ): Promise<TransactionResult>;
+
 /**
  * @license
  * Copyright 2020 Google LLC
@@ -1378,6 +1433,7 @@ export declare function runTransaction(
  * servers.
  */
 export declare function serverTimestamp(): object;
+
 /**
  * Writes data to this Database location.
  *
@@ -1411,6 +1467,7 @@ export declare function set(
   ref: DatabaseReference,
   value: unknown
 ): Promise<void>;
+
 /**
  * Sets a priority for the data at this Database location.
  *
@@ -1427,6 +1484,7 @@ export declare function setPriority(
   ref: DatabaseReference,
   priority: string | number | null
 ): Promise<void>;
+
 /* Excluded from this release type: _setSDKVersion */
 /**
  * Writes data the Database location. Like `set()` but also specifies the
@@ -1448,6 +1506,7 @@ export declare function setWithPriority(
   value: unknown,
   priority: string | number | null
 ): Promise<void>;
+
 /**
  * Creates a `QueryConstraint` with the specified starting point (exclusive).
  *
@@ -1470,6 +1529,7 @@ export declare function startAfter(
   value: number | string | boolean | null,
   key?: string
 ): QueryConstraint;
+
 /**
  * Creates a `QueryConstraint` with the specified starting point.
  *
@@ -1496,6 +1556,7 @@ export declare function startAt(
   value?: number | string | boolean | null,
   key?: string
 ): QueryConstraint;
+
 /* Excluded from this release type: _TEST_ACCESS_forceRestClient */
 /* Excluded from this release type: _TEST_ACCESS_hijackHash */
 /**
@@ -1510,6 +1571,7 @@ export declare interface ThenableReference
   key: string;
   parent: DatabaseReference;
 }
+
 /** An options object to configure transactions. */
 export declare interface TransactionOptions {
   /**
@@ -1520,6 +1582,7 @@ export declare interface TransactionOptions {
    */
   readonly applyLocally?: boolean;
 }
+
 /**
  * A type for the resolve value of {@link runTransaction}.
  */
@@ -1532,8 +1595,10 @@ export declare class TransactionResult {
   /** Returns a JSON-serializable representation of this object. */
   toJSON(): object;
 }
+
 /** A callback that can invoked to remove a listener. */
 export declare type Unsubscribe = () => void;
+
 /**
  * Writes multiple values to the Database at once.
  *
@@ -1573,4 +1638,5 @@ export declare function update(
   ref: DatabaseReference,
   values: object
 ): Promise<void>;
+
 export {};
